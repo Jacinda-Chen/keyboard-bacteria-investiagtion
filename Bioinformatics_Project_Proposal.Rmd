@@ -1,5 +1,5 @@
 ---
-title: "Your Title Here"
+title: "PC Keyboards"
 author: "Jacinda Chen"
 date: "8/27/2019"
 output: word_document
@@ -7,15 +7,21 @@ csl: bioinformatics.csl
 bibliography: references.bib
 ---
 
-#Overview of Proposed Project
+# Overview of Proposed Project
 
-The project I am planning will look at the microbiome of two species of native plants on the USF campus. I will sample them from the Lone Mountain steps area, taking one leaf from each of three plants from two different species.
+I will be comparing the bacteria found on the keyboards of individual students' laptops versus the keyboards of shared computers on the USF campus. This project will aim to figure out if shared computers should be cleaned more often or if personal laptops are not as sanitary as they seem.  
 
-In more detail, I plan to look at species of *Mimulus*, also known as monkeyflower. These are native to California and exist on the USF campus.
+## Question
+
+My question is whether or not the keyboards of individual USF college students have more or less bacteria compared to shared computers on campus My hypothesis is that the keyboards of shared computers have more bacteria than individual keyboards because of the increased number of people that have access to the keyboard. 
+
+## Study Design
+
+The project I am planning will look at the number of bacteria on laptop keyboards of USF students versus the bacteria found on the inside of a toilet. I will sample  different keyboards of three different laptops each used by individual USF students as well as the keyboards of three different shared computers on the main campus of USF.
 
 Microbiomes on University Campuses are a subject of some recent research [@ross2015microbial].
 
 
-#Sources Cited
+# Sources Cited
 
 
