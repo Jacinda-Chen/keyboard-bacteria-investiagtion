@@ -3,8 +3,19 @@ title: "Your Title Here"
 author: "Jacinda Chen"
 date: "8/27/2019"
 output: word_document
+csl: bioinformatics.csl
+bibliography: references.bib
 ---
 
 #Overview of Proposed Project
 
-The project I am planning will look at the icrobiome of two species of native plants on the USF campus. I will sample them from the Lone Mountain steps area, taking one leaf from each of three plants from two different species.
+The project I am planning will look at the microbiome of two species of native plants on the USF campus. I will sample them from the Lone Mountain steps area, taking one leaf from each of three plants from two different species.
+
+In more detail, I plan to look at species of *Mimulus*, also known as monkeyflower. These are native to California and exist on the USF campus.
+
+Microbiomes on University Campuses are a subject of some recent research [@ross2015microbial].
+
+
+#Sources Cited
+
+
