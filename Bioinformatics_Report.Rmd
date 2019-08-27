@@ -1,0 +1,32 @@
+---
+title: 'Your Title Here'
+author: "Don Francisco"
+date: "August 27, 2019"
+output: word_document
+csl: bioinformatics.csl
+bibliography: references.bib
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+# Methods
+
+## Study design
+
+## Analysis
+
+# Results
+
+## Subsections are ok in the results section too
+
+```{r your-code-here}
+# Add code chunks as needed for your analyses
+```
+
+# Discussion
+
+# Sources Cited
