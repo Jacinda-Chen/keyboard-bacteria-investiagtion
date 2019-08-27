@@ -1,7 +1,10 @@
 ---
 title: "Your Title Here"
-author: "Don Francisco"
+author: "Jacinda Chen"
 date: "8/27/2019"
 output: word_document
 ---
 
+#Overview of Proposed Project
+
+The project I am planning will look at the icrobiome of two species of native plants on the USF campus. I will sample them from the Lone Mountain steps area, taking one leaf from each of three plants from two different species.
