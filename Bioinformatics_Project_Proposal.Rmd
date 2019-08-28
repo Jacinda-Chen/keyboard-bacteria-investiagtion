@@ -21,6 +21,25 @@ The project I am planning will look at the number of bacteria on laptop keyboard
 
 In further detail, I will be sampling the letter "A" on the keyboard of Apple laptops for individual users and the keyboard of shared computers on campus. 
 
+## Materials
+
+* 6 sterile swabs
+* 6 sterile tubes with buffer
+
+## Methods
+
+My plan is to gather my samples during the lab section of Bioinformatics on September 3rd. I am going to show up to class then gather my samples first in Toler Hall, then the UC 4th floor, then finally on the first floor of the library. 
+
+1. Gather one keyboard sample of shared computer in Toler Hall fist floor
+2. Gather one keyboard sample of shared computer in the fourth floor of the University Center
+3. Gather one keyboard sample of shared computer in the first floor of the library
+4. Gather three keyboard samples of personal laptops in Bioinformatics lab section on September 3rd
+5. DNA will be directly extracted from the samples (20 minutes)
+    * The tubes will be placed in a vortex where the cells will be shaken off the swabs and into the buffer
+6. Plating of the samples will be done (Dilution plating)
+    * Three different types of dilutions (since we do not know how much bacteria will be on the plates) will be done on another day because the cells need to grow up
+    * 18 plates
+
 # Sources Cited
 
 
