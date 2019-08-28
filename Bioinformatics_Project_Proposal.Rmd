@@ -13,7 +13,7 @@ Computers have become an essential part of college life as a result of the incre
 
 ## Question
 
-My question is whether or not the keyboards of individual USF college students have more or less microbacterial species compared to shared computers on campus. My hypothesis is that the keyboards of shared computers have more microbacterial species than individual keyboards because of the increased number of people that have access to the keyboard. 
+My question is whether or not the keyboards of individual USF college students' laptops from the Bioinformatics class have more or less microbacterial species compared to shared computers on campus from the library, the UC and Toler Hall. My hypothesis is that the keyboards of shared computers have more microbacterial species than individual keyboards because of the increased number of people that have access to the keyboard. 
 
 ## Study Design
 
