@@ -28,7 +28,7 @@ In further detail, I will be sampling the letter "A" on the keyboard of Apple la
 
 ## Methods
 
-My plan is to gather my samples during the lab section of Bioinformatics on September 3rd, 2019. I am going to show up to class then gather my samples first in the first floor of Toler Hall, then the UC 4th floor in the graphics center, then finally on the first floor of the library. In order to gather the samples, I took a sterile swab and dipped it in PBS, phosphate buffer solution, and swabbed the surface of the keyboard for 15 seconds. I then broke off the tip of the swab into a sterile plastic tube. 
+My plan is to gather my samples during the lab section of Bioinformatics on September 3rd, 2019. I am going to show up to class then gather my samples first in the first floor of Toler Hall, then the UC 4th floor in the graphics center, then finally on the first floor of the library. In order to gather the samples, I took a sterile swab and dipped it in PBS, phosphate buffer saline at pH 7.4, and swabbed the surface of the keyboard for 15 seconds. I then broke off the tip of the swab into an eppendorf, a sterile plastic tube. 
 
 1. Gather one keyboard sample of shared computer in Toler Hall first floor
 2. Gather one keyboard sample of shared computer in the fourth floor of the University Center
@@ -41,7 +41,7 @@ My plan is to gather my samples during the lab section of Bioinformatics on Sept
     * The tubes will be placed in a vortex where the cells will be shaken off the swabs and into the buffer
     * Three different types of dilutions (since we do not know how much bacteria will be on the plates) will be done on September 3rd, 2019 because the cells need to grow up
     * There will be the original, a 1:10 dilution, and a 1:100 dilution
-    * 18 plates
+    * 18 100 mm petri dishes with TSA medium, trypdic soy agar, spread with rattler beads
     * Plating done on F key
 
 # Sources Cited
