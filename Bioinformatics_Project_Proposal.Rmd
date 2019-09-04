@@ -41,7 +41,7 @@ My plan is to gather my samples during the lab section of Bioinformatics on Sept
     * The tubes will be placed in a vortex where the cells will be shaken off the swabs and into the buffer
     * Three different types of dilutions (since we do not know how much bacteria will be on the plates) will be done on September 3rd, 2019 because the cells need to grow up
     * There will be the original, a 1:10 dilution, and a 1:100 dilution
-    * 18 100 mm petri dishes with TSA medium, trypdic soy agar, spread with rattler beads
+    * 18 100 mm petri dishes with TSA medium, tryptic soy agar, spread with rattler beads
     * Plating done on F key
 
 # Sources Cited
