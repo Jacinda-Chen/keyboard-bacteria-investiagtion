@@ -1,0 +1,142 @@
+student_name,year,month,day,sample_id,sample_dilution_id,dna_concentration_ng_ul,sample_type_culture_or_culturefree,notes
+Jacqueline Imperial,2019,9,10,B1,10,34.1,culture,
+Jacqueline Imperial,2019,9,10,B1,100,11.5,culture,
+Jacqueline Imperial,2019,9,10,B2,100,5.92,culture,
+Jacqueline Imperial,2019,9,10,M2,10,8.27,culture,
+Jacqueline Imperial,2019,9,10,M3,10,8.33,culture,
+Jacqueline Imperial,2019,9,10,M3,100,8.37,culture,
+Jacqueline Imperial,2019,9,11,B1,1,2.16,culture free,
+Jacqueline Imperial,2019,9,11,B2,1,2.03,culture free,
+Jacqueline Imperial,2019,9,11,B3,1,2.22,culture free,
+Jacqueline Imperial,2019,9,11,M1,1,2.52,culture free,
+Jacqueline Imperial,2019,9,11,M2,1,4.5,culture free,
+Jacqueline Imperial,2019,9,11,M3,1,6.59,culture free,
+Jinwoo_Kim,2019,9,10,HB1,1,7.65,culture,OG
+Jinwoo_Kim,2019,9,10,HB2,1,9.25,culture,OG
+Jinwoo_Kim,2019,9,10,HB2,100,37.1,culture,3
+Jinwoo_Kim,2019,9,10,DF1,1,5.09,culture,OG
+Jinwoo_Kim,2019,9,10,DF2,100,7.95,culture,3
+Jinwoo_Kim,2019,9,10,DF3,10,6.9,culture,2
+Jinwoo_Kim,2019,9,11,HB1,1,5.87,culture free,
+Jinwoo_Kim,2019,9,11,HB2,1,5.12,culture free,
+Jinwoo_Kim,2019,9,11,HB3,1,6.01,culture free,
+Jinwoo_Kim,2019,9,11,DF1,1,6.55,culture free,
+Jinwoo_Kim,2019,9,11,DF2,1,7.2,culture free,
+Jinwoo_Kim,2019,9,11,DF3,1,8.04,culture free,
+Jacinda Chen,2019,9,10,1F,1,5.4,culture,
+Jacinda Chen,2019,9,10,2F,1,6.1,culture,
+Jacinda Chen,2019,9,10,3F,1,8.76,culture,
+Jacinda Chen,2019,9,10,5F,1,7.51,culture,
+Jacinda Chen,2019,9,10,6Fo,1,5.66,culture,
+Jacinda Chen,2019,9,10,6Fp,1,9.05,culture,
+Jacinda Chen,2019,11,10,1A,1,5.37,culture free,
+Jacinda Chen,2019,11,10,2A,1,6.73,culture free,
+Jacinda Chen,2019,11,10,3A,1,5.95,culture free,
+Jacinda Chen,2019,11,10,4A,1,6.5,culture free,
+Jacinda Chen,2019,11,10,5A,1,5.5,culture free,
+Jacinda Chen,2019,11,10,6A,1,5.96,culture free,
+Konstantinos,2019,9,10,4a,100,8.3,culture,4a 1:100
+Konstantinos,2019,9,10,6a,10,6.02,culture,6a 1:10
+Konstantinos,2019,9,10,5a,100,4.27,culture,5a 1:100 (a)
+Konstantinos,2019,9,10,6a,100,5.64,culture,6a 1:100 (a)
+Konstantinos,2019,9,10,5a,100,7.91,culture,5a 1:100 (b)
+Konstantinos,2019,9,10,6a,100,5.52,culture,6a 1:100 (b)
+Konstantinos,2019,9,10,1b,1,9.39,culture free,
+Konstantinos,2019,9,10,2b,1,4.99,culture free,
+Konstantinos,2019,9,10,3b,1,6.43,culture free,
+Konstantinos,2019,9,10,4b,1,9.28,culture free,
+Konstantinos,2019,9,10,5b,1,7.17,culture free,
+Konstantinos,2019,9,10,6b,1,11.5,culture free,
+Pierce Venable,2019,9,10,OB 2,1,4.42,culture,Sample A of OB 2
+Pierce Venable,2019,9,10,OB 2,1,7.58,culture,Sample A' of OB 2; the colony next to Sample A
+Pierce Venable,2019,9,10,OB 2,1,5.27,culture,Sample B of OB 2; the colony opposite side and separate from colonies sample A and A' were taken from
+Pierce Venable,2019,9,17,FW 1,1,NA,culture,
+Pierce Venable,2019,9,17,FW 2,1,NA,culture,
+Pierce Venable,2019,9,17,FW 3,10,1.42,culture,
+Pierce Venable,2019,9,17,FW 1,1,1.02,culture,(190 PBS:10 DNA)
+Pierce Venable,2019,9,17,FW 2,1,5.66,culture,(190 PBS:10 DNA)
+Pierce Venable,2019,9,17,FW 3,1,0.246,culture,(190 PBS:10 DNA)
+Pierce Venable,2019,9,17,FW 1,1,2.92,culture,
+Pierce Venable,2019,9,17,FW 2,1,2.39,culture,
+Pierce Venable,2019,9,17,FW 3,1,2.21,culture,
+Pierce Venable,2019,9,17,OB 1,1,2.73,culture,
+Pierce Venable,2019,9,17,OB 2,1,2.78,culture,
+Pierce Venable,2019,9,17,OB 3,1,3.05,culture,
+Sofia Chavez,2019,9,10,HP1,1,1.28,culture,HP1_1
+Sofia Chavez,2019,9,10,HP1,1,1.79,culture,HP1_2
+Sofia Chavez,2019,9,10,HP1,1,2.01,culture,HP1_3
+Sofia Chavez,2019,9,10,HF1,100,1.45,culture,HF1_100
+Sofia Chavez,2019,9,10,LP1,100,2.07,culture,LP1_100
+Sofia Chavez,2019,9,10,HF1,1,NA,culture,HF1_100; out of range;too low
+Kris Choi,2019,9,10,1A,1,10.5,culture,Sample #1
+Kris Choi,2019,9,10,1A,100,25.5,culture ,Sample #2
+Kris Choi,2019,9,10,2A,1,7.56,culture,Sample #3
+Kris Choi,2019,9,10,2A,1,15.1,culture,Sample #4
+Kris Choi,2019,9,10,3A,1,12.4,culture,Sample #5
+Kris Choi,2019,9,10,3A,1,14.3,culture,Sample #6
+Kris Choi,2019,9,11,1A,1,2.14,culture free,
+Kris Choi,2019,9,11,1B,1,3.39,culture free,
+Kris Choi,2019,9,11,2A,1,2.11,culture free,
+Kris Choi,2019,9,11,2B,1,2.17,culture free,
+Kris Choi,2019,9,11,3A,1,1.1,culture free,
+Kris Choi,2019,9,11,3B,1,4.62,culture free,
+Angela_Jocson,2019,9,10,1a,100,5.13,culture,
+Angela_Jocson,2019,9,10,2a,100,8.09,culture,
+Angela_Jocson,2019,9,10,3a,100,9.75,culture,
+Angela_Jocson,2019,9,10,1b,1,7.08,culture,
+Angela_Jocson,2019,9,10,2b,1,7.4,culture,
+Angela_Jocson,2019,9,10,3b,1,10.8,culture,
+Angela_Jocson,2019,9,11,1a,1,6.05,culture free,
+Angela_Jocson,2019,9,11,2a,1,5.52,culture free,
+Angela_Jocson,2019,9,11,3a,1,4.83,culture free,
+Angela_Jocson,2019,9,11,1b,1,5.91,culture free,
+Angela_Jocson,2019,9,11,2b,1,5.23,culture free,
+Angela_Jocson,2019,9,11,3b,1,4.34,culture free,
+Shreya Barma,2019,9,10,AG,1,4.72,culture,
+Shreya Barma,2019,9,10,JI,1,8.37,culture,
+Shreya Barma,2019,9,10,SB 1-10,10,6.21,culture,
+Shreya Barma,2019,9,10,Prof SS 1-10,10,7.02,culture,
+Shreya Barma,2019,9,10,Prof NT 1-10,10,5.49,culture,
+Shreya Barma,2019,9,10,Prof EY ,1,11.3,culture,
+aaron_parayno,2019,9,10,OB1,100,7.02,culture,
+aaron_parayno,2019,9,10,OB2,1,6.4,culture,
+aaron_parayno,2019,9,10,OB3,1,152,culture,
+aaron_parayno,2019,9,10,BB1,10,17.2,culture,
+aaron_parayno,2019,9,10,BB2,1,119,culture,
+aaron_parayno,2019,9,10,BB2*,1,4.19,culture,
+aaron_parayno,2019,9,17,OB1,1,2.54,culture free,
+aaron_parayno,2019,9,17,OB2,1,1.94,culture free,
+aaron_parayno,2019,9,17,OB3,1,3.36,culture free,
+aaron_parayno,2019,9,17,BB1,1,2.68,culture free,
+aaron_parayno,2019,9,17,BB2,1,2.98,culture free,
+aaron_parayno,2019,9,17,BB3,1,3.73,culture free,
+Gillian Ochoa,2019,9,10,SW ,10,9.53,culture,
+Gillian Ochoa,2019,9,10,SN ,10,6.43,culture,
+Gillian Ochoa,2019,9,10,RB ,1,9.11,culture,
+Gillian Ochoa,2019,9,10,RE ,10,13.1,culture,
+Gillian Ochoa,2019,9,10,RM,10,12.7,culture,
+Gillian Ochoa,2019,9,10,SNE,100,7.96,culture,
+Adelle Sumabat,2019,9,10,1P,10,8.51,culture,
+Adelle Sumabat,2019,9,10,1P,100,7.8,culture,
+Adelle Sumabat,2019,9,10,2P,1,16,culture,
+Adelle Sumabat,2019,9,10,2P,10,49.7,culture,
+Adelle Sumabat,2019,9,10,3H,10,16.4,culture,
+Adelle Sumabat,2019,9,10,3H,100,6.33,culture,
+Adelle Sumabat,2019,9,11,1P,1,3.79,culture free,
+Adelle Sumabat,2019,9,11,2P,1,4.22,culture free,
+Adelle Sumabat,2019,9,11,3P,1,7.54,culture free,
+Adelle Sumabat,2019,9,11,1H,1,15.7,culture free,
+Adelle Sumabat,2019,9,11,2H,1,7.38,culture free,
+Adelle Sumabat,2019,9,11,3H,1,2.97,culture free,
+Sindy Mancuso ,2019,9,10,TARG CH,10,11.6,culture,1-10
+Sindy Mancuso ,2019,9,10,ORG LUCK CH,1,10.3,culture,
+Sindy Mancuso ,2019,9,10,TARG STK,100,4.33,culture,1-100
+Sindy Mancuso ,2019,9,10,ORG LUCK STK,1,8.55,culture,
+Sindy Mancuso ,2019,9,10,TJS CH,100,5.46,culture,1-100
+Sindy Mancuso ,2019,9,10,TARG STK,10,6.57,culture,1-10
+Sindy Mancuso,2019,9,11,TARG CH,1,NA,culture ,out of range/too low
+Sindy Mancuso,2019,9,11,OG LUCK CH,1,1.27,culture ,
+Sindy Mancuso,2019,9,11,TJS STK,1,2.74,culture ,
+Sindy Mancuso,2019,9,11,OG LUCK STK,1,NA,culture ,out of range/too low
+Sindy Mancuso,2019,9,11,TJS CH,1,1.15,culture ,
+Sindy Mancuso,2019,9,11,TARG STK,1,1.18,culture ,
