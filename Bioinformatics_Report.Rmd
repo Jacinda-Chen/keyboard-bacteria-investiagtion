@@ -13,6 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
+Computers have become an essential part of college life as a result of the increased need of the internet. Food and drinks are constantly consumed around keyboards, which might provide food for whatever is living on top of the keyboard, if there is [@malik2014study]. Therefore, more and more students are required to buy or have access to computers. The keyboard is touched constantly in personal laptops as well as shared computers that the university offers and most people are not aware of the number of microorganisms present on their keyboards [@al2011bacterial]. I will be comparing the bacteria found on the keyboards of individual students' laptops versus the keyboards of shared computers on the USF campus. Previous research done on this topic has found that shared computers had more microorganisms than individual computers [@anderson2009microbial]. This project will cirlce around hygeine and aim to figure out if shared computers should be cleaned more often or if personal laptops are not as sanitary as they seem.  
+
 # Methods
 
 ## Study design
@@ -22,8 +24,6 @@ knitr::opts_chunk$set(echo = TRUE)
 # Results
 
 ## Culture Data
-
-## Subsections are ok in the results section too
 
 ```{r culture-abundances-1x}
 # Make a boxplot of undiluted culture abundances
