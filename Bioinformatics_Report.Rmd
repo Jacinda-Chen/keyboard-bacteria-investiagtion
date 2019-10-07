@@ -13,13 +13,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
-Computers have become an essential part of college life as a result of the increased need of the internet. Food and drinks are constantly consumed around keyboards, which might provide food for whatever is living on top of the keyboard, if there is [@malik2014study]. Therefore, more and more students are required to buy or have access to computers. The keyboard is touched constantly in personal laptops as well as shared computers that the university offers and most people are not aware of the number of microorganisms present on their keyboards [@al2011bacterial]. I will be comparing the bacteria found on the keyboards of individual students' laptops versus the keyboards of shared computers on the USF campus. Previous research done on this topic has found that shared computers had more microorganisms than individual computers [@anderson2009microbial]. This project will cirlce around hygeine and aim to figure out if shared computers should be cleaned more often or if personal laptops are not as sanitary as they seem.  
+Computers have become an essential part of college life as a result of the increased need of the internet. Food and drinks are constantly consumed around keyboards, which might provide food for whatever is living on top of the keyboard, if there is [@malik2014study]. Therefore, more and more students are required to buy or have access to computers. Keyboards are being touched constantly in personal laptops as well as shared computers that the university offers and most people are not aware of the number of microorganisms present on their keyboards [@al2011bacterial]. I will be comparing the bacteria found on the keyboards of individual students' laptops versus the keyboards of shared computers on the USF campus. Previous research done on this topic has found that shared computers had more microorganisms than individual computers [@anderson2009microbial]. This project will circle around hygiene and aim to figure out if shared computers should be cleaned more often or if personal laptops are not as sanitary as they seem.  
 
 # Methods
 
 ## Study design
 
+### Bacterial Collection
+
+The surface samples were collected during the lab section of the Bioinformatics class on September 3rd, 2019. In total, twelve tubes were collected (two tubes per sample in four different locations). For each location, two different keys on the keyboard was swabbed. Each sterile swab was dipped in sterile PBS (Phosphate Buffer Saline at pH 7.4)to moisten, then wrung of excess PBS against the side of the tube. The surface was then swabbed for 15 seconds. The tip of the swab was broken off into a labelled eppendorf. Samples were gathered first in the first floor of Toler Hall, where one sample was gathered for the "A" key and another two samples were gathered for the "F" key on the shared computer at the front desk. The exact same procedure was repeated for the next three locations:one, on the fourth floor of the University Center, specifically in the graphics center on a shared computer;two, on the first floor of the library, where samples were gathered on a shared computer; and three, inside the Bioinformatics class where samples were gathered from three different laptops.
+
 ## Analysis
+
+For each location, two different keys on the keyboard was swabbed because there was not enough surface area on one key to be swabbed twice. 
 
 # Results
 
