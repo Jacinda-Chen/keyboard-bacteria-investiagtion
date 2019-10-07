@@ -1,7 +1,7 @@
 ---
-title: 'Your Title Here'
-author: "Don Francisco"
-date: "August 27, 2019"
+title: 'The Identification of Bacteria on Individual versus Communal PC Keyboards'
+author: "Jacinda Chen"
+date: "October 6, 2019"
 output: word_document
 csl: bioinformatics.csl
 bibliography: references.bib
@@ -21,10 +21,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Results
 
+## Culture Data
+
 ## Subsections are ok in the results section too
 
-```{r your-code-here}
-# Add code chunks as needed for your analyses
+```{r culture-abundances-1x}
+# Make a boxplot of undiluted culture abundances
+culture_data <- read.csv("data")
 ```
 
 # Discussion
