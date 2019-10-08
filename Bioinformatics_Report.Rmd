@@ -33,13 +33,17 @@ I used 18 100 mm TSA(Tryptic soy agar) plates for plating samples from each of m
 
 ### DNA Extraction
 
+I followed the manufacturer's protocal from the Sigma REDExtract-N-Amp kit. *cite this kit* I labelled a 1.5 mL tube for each sample and added cells from one colony to the tube using a sterile peppette tip (not pipetting). One colony was chosen each from the TSA plate of the undiluted sample from Toler Hall, the University Center, the library, and Student B. Two colonies were chosen from the TSA plate of the undiluted sample from Student C. I added 100 microliters of extraction solution then vortexed the tube for 60 seconds. This was repeated for the other five 1.5 mL tubes. All six tubes were incubated at 95^o Celcius for ten minutes then vortexed for 60 seconds. I added 100 microliters of dilution solution to each of the six tubes and vortexed them for five seconds. These six tubes were then centrifuged for five minutes at 14,000 rpm. For the Qubit protocal, I added 198 microliters of the Qubit solution to the qubit tube. Two microliters of the DNA extraction was added to the 198 microliters of Qubit solution. This step was repeated for the other five DNA extractions. I vortexed all six Qubit tubes for five seconds then incubated them for five minutes in the dark. The Qubit machine was used to measure the concentration of DNA.
 
+### PCR 
 
 ## Analysis
 
 Bacterial Collection: For each location, two different keys on the keyboard was swabbed because there was not enough surface area on one key to be swabbed twice. 
 
 Dilution Series: I split the samples into two groups: key "A" and key "F". The "A" key group was put directly into the freezer at -20^o Celcius so data could be extracted directly from those samples at a later date (only looking at dead bacteria). The dilution series was done with the "F" key group. Since it was not known what type of bacteria it was nor how much of it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. The undiluted series were vortexed for 15 seconds in order to get the bacteria off the swabs and into the PBS. *Talk about why vortex* 
+
+DNA Extraction: *Be careful not to grab agar.* Two colonies were chosen from the TSA plate of the undiluted sample from Student C and none from Student A because Student A did not have any visible colonies growing on the TSA plate. The purpose of adding the caustic extraction solution was because it broke down cell walls. Incubated at 95^o Celcius to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added. The last vortex for five seconds was to mix the extraction and dilution solutions. Make sure the centrifuge is balanced andto put on the lid. Qubit *incubate dark because...* It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step.
 
 # Results
 
