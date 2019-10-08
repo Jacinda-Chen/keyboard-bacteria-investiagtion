@@ -59,11 +59,15 @@ Geneious Prime: Knowing that I was sequencing bacteria, some of the ambiguous pe
 
 # Results
 
+```{r load-libraries}
+
+```
+
 ## Culture Data
 
 ```{r culture-abundances-1x}
 # Make a boxplot of undiluted culture abundances
-culture_data <- read.csv("data")
+culture_data <- read.csv()
 ```
 
 ## Table of Qubit DNA extraction samples of Key "F" series (cultured)
@@ -77,7 +81,25 @@ culture_data <- read.csv("data")
 | 6Fo    | 5.66                       |
 | 6Fp    | 9.05                       |
 
+## Gel image with your lanes labeled (crop to only include your samples and ladder)
 
+## Boxplot showering the colony abundances in each of your two treatments, for th emost appropriate dilution level (1, 10, 100)
+
+## Wilcox test for above boxplot
+
+## Boxplot showing the number of morphotypes in each of your two treatments (1, 10, or 100)
+
+## Wilcox test for above boxplot
+
+## Table with the locus of each sequence (16S), orignal filename of each sequence, the filename after correcting....
+
+## BLAST Table
+
+INSERT TABLE
+
+## Maximum Likelihood Phylogeny with PhyML
+
+## Bayesian Phylogeny with Mr. Bayes
 
 # Discussion
 
