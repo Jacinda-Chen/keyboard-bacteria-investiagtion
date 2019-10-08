@@ -89,7 +89,7 @@ culture_data <- read_csv(
 
 ## Gel image with your lanes labeled (crop to only include your samples and ladder)
 
-## Boxplot showering the colony abundances in each of your two treatments, for the most appropriate dilution level (1, 10, 100)
+## Boxplot showering the colony abundances in each of my two treatments: Communal and Individual Computers, for the 1x dilution level
 
 ```{r filter-and-plot-abundances}
 # filter out only my 1x dilutions and make a boxplot
@@ -104,12 +104,48 @@ culture_data %>%
   xlab("Sample Group") +
   ylab("Number of Colonies")
 ```
+**Figure 1:** Boxplot of colony abundances at Communal versus Individual computers, 1x dilution. There was a higher median number of colonies from Communal Computer samples, and the mean number of colonies were significantly different between the two sites (Wilcox p = 0.02104).
 
-## Wilcox test for above boxplot
+## Statistical (Wilcox) test for above boxplot
+
+```{r abundances-stats}
+# run a statistical test to compare the two gorups of abundances
+culture_data %>%
+  filter(student_name == "Jacinda Chen") %>%
+  filter(dilution_1_10_or_100 == "1") %>%
+  wilcox.test(data = .,
+              number_of_colonies ~ sample_group)
+```
+
+(Hard to interpret data/takes out human subjectiveness when looking for patterns that really aren't there)
 
 ## Boxplot showing the number of morphotypes in each of your two treatments (1, 10, or 100)
 
+```{r filter-and-plot-morphotypes}
+# Comparison of morphotypes between Communal and Individual computers
+culture_data %>%
+  filter(student_name == "Jacinda Chen") %>%
+  filter(dilution_1_10_or_100 == "1") %>%
+  ggplot(aes(x = sample_group, y = as.numeric(number_of_morphotypes))) + 
+  geom_boxplot() + 
+  ggtitle(
+    "Comparison of Morphotypes Between Communal and Individual Computers"
+    ,"1x dilution") + 
+  xlab("Sample Group") +
+  ylab("Number of Morphotypes")
+```
+**Figure 2:** Boxplot showing the number of morphotypes between communal and individual ocmputers, 1x dilution. The mean number of morphotypes were not significantly different between the communal and individual computers (Wilcox p = 0.09679).
+
 ## Wilcox test for above boxplot
+
+```{r morphotype_stats}
+# run a statistical test to compare the two gorups of abundances
+culture_data %>%
+  filter(student_name == "Jacinda Chen") %>%
+  filter(dilution_1_10_or_100 == "1") %>%
+  wilcox.test(data = .,
+              as.numeric(number_of_morphotypes) ~ sample_group)
+```
 
 ## Table with the locus of each sequence (16S), orignal filename of each sequence, the filename after correcting....
 
