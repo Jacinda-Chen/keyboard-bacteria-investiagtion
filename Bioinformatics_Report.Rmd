@@ -29,7 +29,11 @@ The dilution series was done with the "F" key group. In order to prepare the und
 
 ### Plating "F" Key Group
 
-I used 18 100 mm TSA(Tryptic soy agar) plates for plating samples from each of my 2 treatments (n = 3 per group, 6 total). 
+I used 18 100 mm TSA(Tryptic soy agar) plates for plating samples from each of my 2 treatments (n = 3 per group, 6 total). I put 100 microliters of an eppendorf from the undiluted series onto a TSA plate and used sterile rattler Plating Beads (5 mm) to spread the medium evenly across the TSA plate. I repeated this step for the other five eppendorfs from the undiluted series, the six eppendorfs from the 1:10 dilution series, as well as six eppendorfs from the 1:100 dilution series. These 18 TSA plates were then incubated at 37^o Celcius for a week.
+
+### DNA Extraction
+
+
 
 ## Analysis
 
