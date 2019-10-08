@@ -60,15 +60,21 @@ Geneious Prime: Knowing that I was sequencing bacteria, some of the ambiguous pe
 # Results
 
 ```{r load-libraries}
-
+library("ggplot2")
+library("dplyr")
+library("tidyr")
+library("readr")
 ```
+
+```{r read-in-culture-data}
+# read in the culture data from csv
+culture_data <- read_csv(
+  "data/raw_data/raw_culture_count_data/BIOL422_culturing_data.csv") 
+```
+
+
 
 ## Culture Data
-
-```{r culture-abundances-1x}
-# Make a boxplot of undiluted culture abundances
-culture_data <- read.csv()
-```
 
 ## Table of Qubit DNA extraction samples of Key "F" series (cultured)
 
@@ -83,7 +89,21 @@ culture_data <- read.csv()
 
 ## Gel image with your lanes labeled (crop to only include your samples and ladder)
 
-## Boxplot showering the colony abundances in each of your two treatments, for th emost appropriate dilution level (1, 10, 100)
+## Boxplot showering the colony abundances in each of your two treatments, for the most appropriate dilution level (1, 10, 100)
+
+```{r filter-and-plot-abundances}
+# filter out only my 1x dilutions and make a boxplot
+culture_data %>%
+  filter(student_name == "Jacinda Chen") %>%
+  filter(dilution_1_10_or_100 == "1") %>%
+  ggplot(aes(x = sample_group, y = number_of_colonies)) + 
+  geom_boxplot() + 
+  ggtitle(
+    "Comparison of Colony Abundances Between Communal and Individual Computers"
+    ,"1x dilution") + 
+  xlab("Sample Group") +
+  ylab("Number of Colonies")
+```
 
 ## Wilcox test for above boxplot
 
