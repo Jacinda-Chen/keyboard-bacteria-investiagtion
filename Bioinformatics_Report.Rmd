@@ -65,7 +65,7 @@ library("knitr")
 ```{r read-in-culture-data}
 # read in the culture data from csv
 culture_data <- read_csv(
-  "data/raw_data/raw_culture_count_data/BIOL422_culturing_data.csv") 
+  "data/raw_data/raw_culture_count_data/BIOL422_culturing_data.csv")
 ```
 
 ## Culture Data
@@ -77,11 +77,11 @@ culture_data <- read_csv(
 culture_data %>%
   filter(student_name == "Jacinda Chen") %>%
   filter(dilution_1_10_or_100 == "1") %>%
-  ggplot(aes(x = sample_group, y = number_of_colonies)) + 
-  geom_boxplot() + 
+  ggplot(aes(x = sample_group, y = number_of_colonies)) +
+  geom_boxplot() +
   ggtitle(
     "Comparison of Colony Abundances Between Communal and Individual Computers"
-    ,"1x dilution") + 
+    , "1x dilution") +
   xlab("Sample Group") +
   ylab("Number of Colonies")
 ```
@@ -110,11 +110,11 @@ culture_data %>%
 culture_data %>%
   filter(student_name == "Jacinda Chen") %>%
   filter(dilution_1_10_or_100 == "1") %>%
-  ggplot(aes(x = sample_group, y = as.numeric(number_of_morphotypes))) + 
-  geom_boxplot() + 
+  ggplot(aes(x = sample_group, y = as.numeric(number_of_morphotypes))) +
+  geom_boxplot() +
   ggtitle(
     "Comparison of Morphotypes Between Communal and Individual Computers"
-    ,"1x dilution") + 
+    , "1x dilution") +
   xlab("Sample Group") +
   ylab("Number of Morphotypes")
 ```
