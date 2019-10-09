@@ -70,19 +70,6 @@ culture_data <- read_csv(
 
 ## Culture Data
 
-### Table of Qubit DNA extraction samples of Key "F" series (cultured)
-
-| Sample | Qubit Number Range (ng/µL) |
-|--------|----------------------------|
-| 1F     | 5.40                       |
-| 2F     | 6.10                       |
-| 3F     | 8.76                       |
-| 5F     | 7.51                       |
-| 6Fo    | 5.66                       |
-| 6Fp    | 9.05                       |
-
-### Gel image with your lanes labeled (crop to only include your samples and ladder)
-
 ### Boxplot showering the colony abundances in each of my two treatments: Communal and Individual Computers, for the 1x dilution level
 
 ```{r filter-and-plot-abundances}
@@ -147,23 +134,46 @@ culture_data %>%
   knitr::kable()
 ```
 
+## Molecular Data
+
+### Table of Qubit DNA extraction samples of Key "F" series (cultured)
+
+| Sample | Qubit Number Range (ng/µL) |
+|--------|----------------------------|
+| 1F     | 5.40                       |
+| 2F     | 6.10                       |
+| 3F     | 8.76                       |
+| 5F     | 7.51                       |
+| 6Fo    | 5.66                       |
+| 6Fp    | 9.05                       |
+
+**Table 1:** Table of Qubit DNA extraction samples of Key "F" series (cultured)
+
+### Gel image with your lanes labeled (crop to only include your samples and ladder)
+
+
+**Figure 3:** Gel image with lanes labeled
+
 ### Table with the locus of each sequence (16S), orignal filename of each sequence, the filename after correcting....
+
+**Table 2:** Corrected/accepted sequences of samples
 
 ### BLAST Table
 
 INSERT TABLE
+**Table 3:** BLAST Table
 
 ### Maximum Likelihood Phylogeny with PhyML
 
 ![](output/phylogenies/sanger_sequences_phyml_phylogeny_image.png)
 
-**Figure 3:** Maximum Likelihood Phylogeny with PhyML using Thermus Aquaticus as an outgroup.
+**Figure 4:** Maximum Likelihood Phylogeny with PhyML using Thermus Aquaticus as an outgroup.
 
 ### Bayesian Phylogeny with Mr. Bayes
 
 ![](output/phylogenies/sanger_sequences_mrbayes_sorted_topologies_phylogeny_image.png)
 
-**Figure 4:* Bayesian Phylogeny with Mr. Bayes using Thermus Aquaticus as an outgroup.
+**Figure 5:* Bayesian Phylogeny with Mr. Bayes using Thermus Aquaticus as an outgroup.
 
 # Discussion
 
