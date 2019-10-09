@@ -155,7 +155,15 @@ INSERT TABLE
 
 ### Maximum Likelihood Phylogeny with PhyML
 
+![](output/phylogenies/sanger_sequences_phyml_phylogeny_image.png)
+
+**Figure 3:** Maximum Likelihood Phylogeny with PhyML using Thermus Aquaticus as an outgroup.
+
 ### Bayesian Phylogeny with Mr. Bayes
+
+![](output/phylogenies/sanger_sequences_mrbayes_sorted_topologies_phylogeny_image.png)
+
+**Figure 4:* Bayesian Phylogeny with Mr. Bayes using Thermus Aquaticus as an outgroup.
 
 # Discussion
 
