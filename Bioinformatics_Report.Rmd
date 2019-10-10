@@ -78,7 +78,11 @@ culture_data <- read_csv(
 
 ### Grown Cultures
 
+Two colonies were used from 6F   (Figure 1). 3F and 5F both had a single colony growing significantly larger than other colonies. 6F had two different morphotypes, while every other culture had the same morphotype: circular with pale coloring. 2F had many small culture growing. 
+
 ![](data/images/method_images/grown_cultures.jpg)
+
+**Figure 1:** A picture showing the usable colonies from culturing with 1F, 2F, 3F, 5F, and 6F sample TSA plates.
 
 ### Colony Abundance Boxplot
 
@@ -177,7 +181,7 @@ culture_data %>%
 
 ![](data/images/gel_images/2019-09-18_BIOL422_Zimmerman_culture_PCRs_Cropped_7.png)
 
-**Figure 3:** Gel image with lanes labeled
+**Figure 3:** Gel electrophoresis image of samples 1F, 2F, 3F, 5F, 6Fo, 6Fp, ladder, and negative control. 
 
 ### Sequence Usability Table
 
@@ -227,16 +231,11 @@ In **Figure 5**, *Thermus aquaticus* was used as the outgroup. I found that sequ
 
 # Discussion
 
-## Bacterial Collection 
+## Grown Cultures
 
-For each location, two different keys on the keyboard was swabbed because there was not enough surface area on one key to be swabbed twice. 
+For each location, the "F" key on the keyboard was swabbed and bacteria was collected and diluted. Since it the type of bacteria was unknown nor how it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. The undiluted series were vortexed for 15 seconds in order to get the bacteria off the swabs and into the PBS. I found that the 1x dilution cultures worked the best because all of the Communal computer samples had at least one colony and a majority of the Individual computers samples had at least one colony. There was a higher number of colonies that was present on Communal computer keyboards. The median number of colonies from the Communal samples was around 2.5 colonies larger than the median number of around 0 for Individual samples (Figure 1; Boxplot of the comparison of colony abundances). In order to prove if this difference was statistically significant, a statistical (Wilcox) test was performed. My null hypothesis was that there was no difference between the sample groups. The p-value I attained was 0.02 (Table 1; Wilcox test for Colony Abundance boxplot). Since it was less than 0.05, I rejected the null hypothesis, meaning that there was significant difference between the number of colony abundances between sample groups. Both the Communal and Individual samples had a very small range of the number of morphotypes, with an outlier of two morphotypes (Figure 2; boxplot of the comparison of morphotypes between the two samples). My null hypothesis was that there was no difference between the sample groups. The p-value from the statistical (Wilcox) test was 0.10, which is larger than 0.05. I failed to reject the null, meaning that the number of morphotypes between the sample groups were not significantly different (Table 2; statistical test for the comparison of morphotypes between the sample groups).
 
-## Dilution Series
-The samples were put into the group key "F". The dilution series was done with the "F" key group. Since it was not known what type of bacteria it was nor how much of it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. The undiluted series were vortexed for 15 seconds in order to get the bacteria off the swabs and into the PBS. 
-
-## DNA Extraction 
-
-Two colonies were chosen from the TSA plate of the undiluted sample from Student C and none from Student A because Student A did not have any visible colonies growing on the TSA plate *(FIGURE BLANK; showing chosen plates and colonies)*. The purpose of adding the caustic extraction solution was because it broke down cell walls and the incubation at 95^o^ Celcius *SHOWN IN FIGURE BLANK* was to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added or the extraction solution would have started to break down the DNA as well. The last vortex for five seconds was to mix the extraction and dilution solutions. I made sure the centrifuge was balanced and to put on the lid when using it. Qubit samples were incubated in the dark because the Qubit machine is sensitive to the light. It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step.
+The only TSA plate group of 1x, 10x, and 100x that did not have any culture growing at all was 4F, or the personal laptop from Student A. Two colonies were chosen from the TSA plate of the undiluted sample from Student C, or sample 6F for this reason (Figure 3; showing chosen plates and colonies). During DNA extraction, the purpose of adding the caustic extraction solution was because it broke down cell walls and the incubation at 95^o^ Celcius was to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added or the extraction solution would have started to break down the DNA as well. The last vortex for five seconds was to mix the extraction and dilution solutions. I made sure the centrifuge was balanced and to put on the lid when using it. Qubit samples were incubated in the dark because the Qubit machine is sensitive to the light. It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step.
 
 ## Touchdown PCR for "F" key series
 
@@ -252,7 +251,7 @@ Knowing that I was sequencing bacteria, some of the ambiguous peaks I observed w
 
 ## Colony Abundances and the Statistical test
 
-(Hard to interpret data/takes out human subjectivity when looking for patterns that really aren't there)
+A statistical test was done in order to remove human subjectivity. The 
 
 ## Number of morphotypes and the Statistical test
 
