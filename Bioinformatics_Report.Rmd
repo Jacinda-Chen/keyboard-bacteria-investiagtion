@@ -47,11 +47,11 @@ I labelled a tube for the master mix. Inside, I put 77 µL of Amp, 6.2 µL of 27
 
 ### Geneious Prime
 
-After downloading the acb files into Geneious Prime, my first task was to assess whether or not the sequences were usable. Then, I had to trim or correct usable sequences. This was done by trimming off a large part of the beginning and ending of the sequences (since they were filled with low quality or unusable bases) and going through the low quality  bases in the middle of the sequence to decide whether or not they should be deleted, changed, or an ambiguity code needed to be added from the IUPAC Ambiguity Codes. 
+After downloading the acb files into Geneious Prime, my first task was to assess whether or not the sequences were usable. Then, I had to trim or correct usable sequences. This was done by trimming off a large part of the beginning and ending of the sequences (since they were filled with low quality or unusable bases) and going through the low quality  bases in the middle of the sequence to decide whether or not they should be deleted, changed, or an ambiguity code needed to be added from the IUPAC Ambiguity Codes. I used MAFFT to create an appropriate multiple sequence alignment with all five of my usable and corrected sequences with the default settings and an offset value of 0.123. A Maximum Likelihood Phylogeny and a Bayesian Phylogeny were created. I used *Thermus aquaticus* as an outgroup by downloading the sequence from GenBank. For the Maximum Likelihood Phylogeny, a substitution model of General Time Reversible (GTR) was used with 100 bootstrap replicates with defaults for all other settings. For the Bayesian Phylogeny, I used a substitution model of GTR, a rate variation of Gamma plus Invariants model, as well as a Burn-in Length of 100,000 with all other settings set to default. I used Nucleotide BLAST (Basic Local Alignment Search Tool) by comparing my nucleotide sequences to the sequence databases, where it also calculated the statistical significance.
 
 ### R Program
 
-I used the packages dplyr and ggplot in order to visualize the data. I also tested between different sampling groups using Wilcox statistical tests in order to get the p value.
+I used the packages dplyr and ggplot in order to visualize the data with boxplots. I also tested between different sampling groups using Wilcox statistical tests in order to get the p value.
 
 # Results
 
@@ -94,7 +94,9 @@ culture_data %>%
 
 ### Statistical (Wilcox) test for above boxplot
 
-**Table 1** is a statistical (Wilcox) test to compare the number of colony abundances of Communal versus Individual computers at 1x dilution. 
+The p-value from **Table 1** is 0.02. This was the result of a statistical test to compare the colony abundance of Communal versus Individual computer. 
+
+**Table 1** is a statistical (Wilcox) test to compare the number of colony abundances of Communal versus Individual computers at 1x dilution. The p-value was 0.02. 
 
 ```{r abundances-stats}
 # run a statistical test to compare the two groups of abundances
@@ -131,7 +133,7 @@ culture_data %>%
 
 ### Wilcox test for above boxplot
 
-INSERT WORDS
+The p-value from **Table 2** is 0.10. This was the result of a statistical test to compare the number of morphotypes in Communal versus Individual computer. 
 
 ```{r morphotype_stats}
 # run a statistical test to compare number of morphotypes between two groups
@@ -161,7 +163,7 @@ culture_data %>%
 
 **Table 3:** Table of Qubit DNA extraction samples of Key "F" series (cultured)
 
-### Gel image with your lanes labeled (crop to only include your samples and ladder)
+### Gel electrophoresis image
 
 ![](data/images/gel_images/2019-09-18_BIOL422_Zimmerman_culture_PCRs_Cropped_7.png)
 
