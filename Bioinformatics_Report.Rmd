@@ -29,7 +29,7 @@ I collected bacteria, diluted the samples, plated the samples on TSA plates, ext
 
 ## Bacterial Collection
 
-The surface samples were collected during the lab section of the Bioinformatics class on September 3rd, 2019. In total, twelve tubes were collected (two tubes per sample in four different locations). For each location, two different keys on the keyboard was swabbed. Each sterile swab was dipped in sterile PBS (Phosphate Buffer Saline at pH 7.4)to moisten, then wrung of excess PBS against the side of the tube. The surface was then swabbed for 15 seconds. The tip of the swab was broken off into a labelled eppendorf with initials, date,and an unique sample ID. Samples were gathered first in the first floor of Toler Hall, where one sample was gathered for the "F" key and another sample was gathered for the "F" key on the shared computer at the front desk and put into labelled eppendorfs. On the fourth floor of the University Center, specifically in the graphics center on a shared computer, samples were gathered for the "F" key. On the first floor of Gleeson Library, where samples were gathered on a shared computer, samples were once again gathered a                         nd put into labelled eppendorfs for the "F" key. Inside the Bioinformatics class, samples were gathered from three different laptops from three different students (Student A, Student B, and Student C) in the same way for the "F" key.
+The surface samples were collected during the lab section of the Bioinformatics class on September 3rd, 2019. In total, twelve tubes were collected (two tubes per sample in four different locations). For each location, two different keys on the keyboard was swabbed. Each sterile swab was dipped in sterile PBS (Phosphate Buffer Saline at pH 7.4)to moisten, then wrung of excess PBS against the side of the tube. The surface was then swabbed for 15 seconds. The tip of the swab was broken off into a labelled eppendorf with initials, date,and an unique sample ID. Samples were gathered first in the first floor of Toler Hall, where one sample was gathered for the "F" key and another sample was gathered for the "F" key on the shared computer at the front desk and put into labelled eppendorfs. On the fourth floor of the University Center, specifically in the graphics center on a shared computer, samples were gathered for the "F" key. On the first floor of Gleeson Library, where samples were gathered on a shared computer, samples were once again gathered and put into labelled eppendorfs for the "F" key. Inside the Bioinformatics class, samples were gathered from three different laptops from three different students (Student A, Student B, and Student C) in the same way for the "F" key.
 
 ## Dilution Series
 
@@ -75,6 +75,10 @@ culture_data <- read_csv(
 ```
 
 ## Culture Data
+
+### Grown Cultures
+
+![](data/images/method_images/grown_cultures.jpg)
 
 ### Colony Abundance Boxplot
 
@@ -232,7 +236,7 @@ The samples were put into the group key "F". The dilution series was done with t
 
 ## DNA Extraction 
 
-Two colonies were chosen from the TSA plate of the undiluted sample from Student C and none from Student A because Student A did not have any visible colonies growing on the TSA plate. The purpose of adding the caustic extraction solution was because it broke down cell walls and the incubation at 95^o^ Celcius was to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added or the extraction solution would have started to break down the DNA as well. The last vortex for five seconds was to mix the extraction and dilution solutions. I made sure the centrifuge was balanced and to put on the lid when using it. Qubit samples were incubated in the dark because the Qubit machine is sensitive to the light. It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step.
+Two colonies were chosen from the TSA plate of the undiluted sample from Student C and none from Student A because Student A did not have any visible colonies growing on the TSA plate *(FIGURE BLANK; showing chosen plates and colonies)*. The purpose of adding the caustic extraction solution was because it broke down cell walls and the incubation at 95^o^ Celcius *SHOWN IN FIGURE BLANK* was to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added or the extraction solution would have started to break down the DNA as well. The last vortex for five seconds was to mix the extraction and dilution solutions. I made sure the centrifuge was balanced and to put on the lid when using it. Qubit samples were incubated in the dark because the Qubit machine is sensitive to the light. It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step.
 
 ## Touchdown PCR for "F" key series
 
