@@ -13,23 +13,25 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 # Introduction
 
-Computers have become an essential part of college life as a result of the increased dependency on the internet. Food and drinks are constantly consumed around keyboards, which provide living resources for whatever is living on top of the keyboard, if there is [@malik2014study]. Therefore, more and more students are required to buy or have access to computers. Keyboards are being touched constantly in personal laptops as well as shared computers that the university offers and most people are not aware of the number of microorganisms present on their keyboards [@al2011bacterial]. I will be comparing the bacteria found on the keyboards of individual students' laptops versus the keyboards of shared computers on the USF campus. Previous research done on this topic has found that shared computers had more microorganisms than individual computers [@anderson2009microbial]. This project will circle around hygiene and aim to figure out if shared computers should be cleaned more often or if personal laptops are not as sanitary as they seem.  
+Computers have become an essential part of college life as a result of the increased dependency on the internet. Therefore, an increasing amount of students are required to buy or have access to computers. Food and drinks are constantly consumed around keyboards, which provide living resources for whatever is living on top of the keyboard, if there is [@malik2014study]. Keyboards are being touched constantly in personal laptops as well as shared computers that the university offers and most people are not aware of the number of microorganisms present on their keyboards [@al2011bacterial]. I will be comparing the bacteria found on the keyboards of individual students' laptops versus the keyboards of shared computers on the USF campus. Previous research done on this topic has found that shared computers had more microorganisms than individual computers [@anderson2009microbial]. This project will circle around hygiene and aim to figure out if shared computers should be cleaned more often or if personal laptops are not as sanitary as they seem.  
 
 # Methods
 
 ## Study design
 
-Question....etc.
+I planned to look at the number of bacteria species on laptop keyboards of individual University of San Francisco students versus the bacteria found on shared computers. I sampled the "F" key for different keyboards of three different laptops, each used by individual USF students, as well as the keyboards of three different shared computers on the main campus of USF (Toler Hall, University Center, and Gleeson Library). My question is whether or not the keyboards of individual USF college students' laptops from the Bioinformatics class have more or less microbacterial species compared to shared computers on campus from the library, the UC and Toler Hall. My hypothesis is that the keyboards of shared computers have more microbacterial species than individual keyboards because of the increased number of people that have access to the keyboard. 
+
+I collected bacteria, diluted the samples, plated the samples on TSA plates, extracted DNA from the samples, did touchdown PCR, gel electrophoresis, and Sanger sequencing. These results were analyzed with Geneious Prime and R Studio.
 
 ## Bacterial Collection
 
-The surface samples were collected during the lab section of the Bioinformatics class on September 3rd, 2019. In total, twelve tubes were collected (two tubes per sample in four different locations). For each location, two different keys on the keyboard was swabbed. Each sterile swab was dipped in sterile PBS (Phosphate Buffer Saline at pH 7.4)to moisten, then wrung of excess PBS against the side of the tube. The surface was then swabbed for 15 seconds. The tip of the swab was broken off into a labelled eppendorf with initials, date,and an unique sample ID. Samples were gathered first in the first floor of Toler Hall, where one sample was gathered for the "F" key and another sample was gathered for the "F" key on the shared computer at the front desk and put into labelled eppendorfs. On the fourth floor of the University Center, specifically in the graphics center on a shared computer, samples were gathered for the "F" key. On the first floor of the library, where samples were gathered on a shared computer, samples were once again gathered and put into labelled eppendorfs for the "F" key. Inside the Bioinformatics class, samples were gathered from three different laptops from three different students. Student A's samples were gathered and inserted into labelled eppendorfs for the "F" key, Student B's samples were gathered and inserted into labelled eppendorfs for the "F" key, and Student C's samples were gathered and inserted into labelled eppendorfs for the "F" key.
+The surface samples were collected during the lab section of the Bioinformatics class on September 3rd, 2019. In total, twelve tubes were collected (two tubes per sample in four different locations). For each location, two different keys on the keyboard was swabbed. Each sterile swab was dipped in sterile PBS (Phosphate Buffer Saline at pH 7.4)to moisten, then wrung of excess PBS against the side of the tube. The surface was then swabbed for 15 seconds. The tip of the swab was broken off into a labelled eppendorf with initials, date,and an unique sample ID. Samples were gathered first in the first floor of Toler Hall, where one sample was gathered for the "F" key and another sample was gathered for the "F" key on the shared computer at the front desk and put into labelled eppendorfs. On the fourth floor of the University Center, specifically in the graphics center on a shared computer, samples were gathered for the "F" key. On the first floor of Gleeson Library, where samples were gathered on a shared computer, samples were once again gathered a                         nd put into labelled eppendorfs for the "F" key. Inside the Bioinformatics class, samples were gathered from three different laptops from three different students (Student A, Student B, and Student C) in the same way for the "F" key.
 
 ## Dilution Series
 
 The dilution series was done with the "F" key group. In order to prepare the undiluted group, I put 200 µL of PBS into the six eppendorfs with swabs. These six eppendorfs were then vortexed for fifteen seconds. There were another six eppendorfs that were dedicated to 1:10 dilutions of the original six eppendorfs. For these six 1:10 dilution eppendorfs, I added 180 µL of PBS to each of them. Twenty µL of the one undiluted eppendorf was then added to its respective 1:10 dilution eppendorf to complete the dilution. This was then repeated another five times to complete the other 1:10 dilutions. I vortexed these six eppendorfs for five seconds. In order to do the 1:100 dilutions, I once again added 180 µL of PBS into each of the six eppendorfs labelled respectively to the undiluted and the 1:10 dilution series. Twenty µL of a 1:10 dilution was then added to its respectively labelled 1:100 dilution eppendorf. I repeated this step for the other five 1:100 dilution eppendorfs. The six 1:100 dilution eppendorfs were then vortexed for 5 seconds.
 
-### Plating "F" Key Group
+## Plating "F" Key Group
 
 I used 18 100 mm TSA(Tryptic soy agar) plates for plating samples from each of my 2 treatments (n = 3 per group, 6 total). I put 100 µL of an eppendorf from the undiluted series onto a TSA plate and used sterile rattler Plating Beads (5 mm) to spread the medium evenly across the TSA plate. I repeated this step for the other five eppendorfs from the undiluted series, the six eppendorfs from the 1:10 dilution series, as well as six eppendorfs from the 1:100 dilution series. These 18 TSA plates were then incubated at 37^o^ Celcius for a week.
 
@@ -70,7 +72,9 @@ culture_data <- read_csv(
 
 ## Culture Data
 
-### Boxplot showering the colony abundances in each of my two treatments: Communal and Individual Computers, for the 1x dilution level
+### Colony Abundance Boxplot
+
+**Figure 1** is a boxplot showing the colony abundances in communal versus individual computers at the 1x dilution level. The colony abundances from the Communal computers had larger number of colonies compared to the Individual computers, which is shown by the maximum number of colonies observed in the Individual computers remaining smaller than the minimum of the colony abundances from the Communal computers. I also observed a bigger range of larger values for the colony abundances of Communal computers where the minimum and maxinum number of colony abundances had a difference of around eight, whereas the differences between the minimum and maxinum number of colony abundances for Individual computers was about one. The colony abundance for Individual computers had a singular abnormally abundant colony depicted by the outlier, just under the 2.5 number of colonies mark.  
 
 ```{r filter-and-plot-abundances}
 # filter out only my 1x dilutions and make a boxplot
@@ -90,8 +94,10 @@ culture_data %>%
 
 ### Statistical (Wilcox) test for above boxplot
 
+**Table 1** is a statistical (Wilcox) test to compare the number of colony abundances of Communal versus Individual computers at 1x dilution. 
+
 ```{r abundances-stats}
-# run a statistical test to compare the two gorups of abundances
+# run a statistical test to compare the two groups of abundances
 culture_data %>%
   filter(student_name == "Jacinda Chen") %>%
   filter(dilution_1_10_or_100 == "1") %>%
@@ -101,9 +107,11 @@ culture_data %>%
   knitr::kable()
 ```
 
-(Hard to interpret data/takes out human subjectiveness when looking for patterns that really aren't there)
+**Table 1:** The statistical (Wilcox) test to compare the number of colony abundances between Communal and Individual computers, 1x dilution.
 
 ### Boxplot showing the number of morphotypes in each of your two treatments (1x Dilution)
+
+INSERT WORDS
 
 ```{r filter-and-plot-morphotypes}
 # Comparison of morphotypes between Communal and Individual computers
@@ -119,12 +127,14 @@ culture_data %>%
   ylab("Number of Morphotypes")
 ```
 
-**Figure 2:** Boxplot showing the number of morphotypes between communal and individual ocmputers, 1x dilution. The mean number of morphotypes were not significantly different between the communal and individual computers (Wilcox p = 0.09679).
+**Figure 2:** Boxplot showing the number of morphotypes between Communal and Individual computers, 1x dilution. The mean number of morphotypes were not significantly different between the communal and individual computers (Wilcox p = 0.09679).
 
 ### Wilcox test for above boxplot
 
+INSERT WORDS
+
 ```{r morphotype_stats}
-# run a statistical test to compare the two gorups of abundances
+# run a statistical test to compare number of morphotypes between two groups
 culture_data %>%
   filter(student_name == "Jacinda Chen") %>%
   filter(dilution_1_10_or_100 == "1") %>%
@@ -133,6 +143,8 @@ culture_data %>%
   broom::glance(x = .) %>%
   knitr::kable()
 ```
+
+**Table 2:** The statistical (Wilcox) test to compare the number of morphotypes between Communal and Individual computers, 1x dilution.
 
 ## Molecular Data
 
@@ -147,46 +159,95 @@ culture_data %>%
 | 6Fo    | 5.66                       |
 | 6Fp    | 9.05                       |
 
-**Table 1:** Table of Qubit DNA extraction samples of Key "F" series (cultured)
+**Table 3:** Table of Qubit DNA extraction samples of Key "F" series (cultured)
 
 ### Gel image with your lanes labeled (crop to only include your samples and ladder)
 
+![](data/images/gel_images/2019-09-18_BIOL422_Zimmerman_culture_PCRs_Cropped_7.png)
 
 **Figure 3:** Gel image with lanes labeled
 
-### Table with the locus of each sequence (16S), orignal filename of each sequence, the filename after correcting....
+### Table with the locus of each sequence (16S), original filename of each sequence, the filename after correcting....
 
-**Table 2:** Corrected/accepted sequences of samples
+**Table 4:** Corrected/accepted sequences of samples
 
 ### BLAST Table
 
 INSERT TABLE
-**Table 3:** BLAST Table
+
+**Table 5:** BLAST Table
 
 ### Maximum Likelihood Phylogeny with PhyML
 
+INSERT WORDS
+
 ![](output/phylogenies/sanger_sequences_phyml_phylogeny_image.png)
 
-**Figure 4:** Maximum Likelihood Phylogeny with PhyML using Thermus Aquaticus as an outgroup.
+**Figure 4:** Maximum Likelihood Phylogeny with PhyML using *Thermus aquaticus* as an outgroup.
 
 ### Bayesian Phylogeny with Mr. Bayes
 
+INSERT WORDS
+
 ![](output/phylogenies/sanger_sequences_mrbayes_sorted_topologies_phylogeny_image.png)
 
-**Figure 5:* Bayesian Phylogeny with Mr. Bayes using Thermus Aquaticus as an outgroup.
+**Figure 5:* Bayesian Phylogeny with Mr. Bayes using *Thermus aquaticus* as an outgroup.
 
 # Discussion
 
-Bacterial Collection: For each location, two different keys on the keyboard was swabbed because there was not enough surface area on one key to be swabbed twice. 
+## Bacterial Collection 
 
-Dilution Series: The samples were put into the group key "F". The dilution series was done with the "F" key group. Since it was not known what type of bacteria it was nor how much of it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. The undiluted series were vortexed for 15 seconds in order to get the bacteria off the swabs and into the PBS. *Talk about why vortex* 
+For each location, two different keys on the keyboard was swabbed because there was not enough surface area on one key to be swabbed twice. 
 
-DNA Extraction: *Be careful not to grab agar.* Two colonies were chosen from the TSA plate of the undiluted sample from Student C and none from Student A because Student A did not have any visible colonies growing on the TSA plate. The purpose of adding the caustic extraction solution was because it broke down cell walls. Incubated at 95^o^ Celcius to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added. The last vortex for five seconds was to mix the extraction and dilution solutions. Make sure the centrifuge is balanced andto put on the lid. Qubit *incubate dark because...* It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step.
+Dilution Series: The samples were put into the group key "F". The dilution series was done with the "F" key group. Since it was not known what type of bacteria it was nor how much of it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. The undiluted series were vortexed for 15 seconds in order to get the bacteria off the swabs and into the PBS. 
 
-Touchdown PCR for "F" key series: Why use touchdown PCR. The PCR strip tubes were put in the machine for 95^o^ C for 5 minutes as the initial denaturing step where the temperature was slightly higher and the time was slightly longer than normal. Then, they were put in the machine for 94^o^ C for 30 seconds for more denaturing, 65^o^ C for 30 seconds for taq polymerase extension as well as to anneal primers to DNA (this temperature is critical to pull the G/C and A/T Hydrogen bonds apart and cool enough to let the primers anneal properly), and 72^o^ C for 1 minute for the polymerase to make copies that used dNTPS. These last three times were rpeeated for ten cycles, but the temperature was decreased by one degree per cycle. The touchdown PCR was needed to change selectivity and to replicate slower so that more attractions would click together at lower temperatures. The purpose of starting at a higher temperature was to be more selective at the first round of 65^o^ C with the copies of the best match. As the temperature decreased by one degree, it created matches and copies preferentially of the already selective primer rather than the original strand. Also, if i had accidentally put two colonies instead of one, one colony would most likely be a better match to the primer, then the primer would preferentially amplify that one. The next three temperatures and times were 94^o^ C for 30 seconds to denature (it is shorter than the five minutes used in the beginning because DNA is double-stranded and have a lot of hydrogen bonds to break), 55^o^ C for 30 seconds to anneal, 72^o^ C 1 minute to extend. These last three times were repeated for 25 cycles. Lastly, the PCR sample tubes went through 72^o^ C for 10 minutes and held at 4^o^ C. 
+## DNA Extraction 
 
-Gel Electrophoresis: For the gel electrophoresis, buffer was used instead of water because nothing would happen with water. Buffer conducts a high level of current. Agarose gel was used rather than poyacrymyli because agarose is less dense and gives DNA more space to stretch out. The master mix contained glyceral, which made my sample more dense than water, causing it to sink at the bottom of the well in the gel instead of mixing with water in the gel. The dye was used to make our samples more visible. DNA molecules are negatively charged, so they are pulled sideways towards the positive current. There were ladders in the first and last wells of each of the two lines of wells in order for them to act as standards (a bunch of fragments of DNA at known lengths). The ladders allow us to compare unknowns to known lengths of DNA fragments as well as different concentrations, which is measured by how bright the bands are. It also acts as the positive control from the cyberworking. If the electrophoresis and the cyber works then you should see the known lengths of DNA fragments. The ladder looks more grouped together above 3 kb bcause the gel only ran for 30 minutes.
+Two colonies were chosen from the TSA plate of the undiluted sample from Student C and none from Student A because Student A did not have any visible colonies growing on the TSA plate. The purpose of adding the caustic extraction solution was because it broke down cell walls and the incubation at 95^o^ Celcius was to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added or the extraction solution would have started to break down the DNA as well. The last vortex for five seconds was to mix the extraction and dilution solutions. I made sure the centrifuge was balanced and to put on the lid when using it. Qubit samples were incubated in the dark because the Qubit machine is sensitive to the light. It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step.
 
-Geneious Prime: Knowing that I was sequencing bacteria, some of the ambiguous peaks I observed was probably because I might have sampled two colonies instead of one. Another reason why this may have occurred was because the colony sampled is an entire population, which consists of millions of cells that have divided and might have had mutations. Ideally, I had over 200-300 bases for my project.
+## Touchdown PCR for "F" key series
+
+The PCR strip tubes were put in the machine for 95^o^ C for 5 minutes. Then, they were put in the machine for 94^o^ C for 30 seconds, 65^o^ C for 30 seconds, and 72^o^ C for 1 minute. These last three cycles were rpeeated for ten additional cycles, where the temperature was decreased by one degree per cycle. Touchdown PCR was used in order to increase selectivity so that higher quality attractions would click together in the beginning. The purpose of starting at a higher temperature was to be more selective at the first round of 65^o^ C with the copies of the best match. As the temperature decreased by one degree, it created matches and copies preferentially of the already selective primer rather than the original strand. Also, if I had accidentally put two colonies instead of one, one colony would most likely be a better match to the primer, then the primer would preferentially amplify that one. The next three temperatures and times were 94^o^ C for 30 seconds, 55^o^ C for 30 seconds, and 72^o^ C 1 minute. These last three cycles were repeated for 25 additional cycles. Lastly, the PCR sample tubes went through 72^o^ C for 10 minutes and held at 4^o^ C. 
+
+##Gel Electrophoresis
+
+For the gel electrophoresis, buffer was used instead of water because nothing would happen with water while buffer is able to conduct a high level of current. Agarose gel was used rather than polyacrymyli because agarose is less dense and gives DNA more space to stretch out. The master mix contained glyceral, which made my sample more dense than water, causing it to sink at the bottom of the well in the gel instead of mixing with water in the gel. The dye was used to make my samples more visible. DNA molecules are negatively charged, so they are pulled sideways towards the positive current. There were ladders in the first and last wells of each of the two lines of wells in order for them to act as standards (a bunch of fragments of DNA at known lengths). The ladders allow us to compare unknowns to known lengths of DNA fragments as well as different concentrations, which is measured by how bright the bands are. It also acts as the positive control from the cyber working. If the electrophoresis and the cyber works then you should see the known lengths of DNA fragments. The ladder looks more grouped together above 3 kb bcause the gel only ran for 30 minutes.
+
+## Geneious Prime
+
+Knowing that I was sequencing bacteria, some of the ambiguous peaks I observed was probably because I might have sampled two colonies instead of one. Another reason why this may have occurred was because the colony sampled is an entire population, which consists of millions of cells that have divided and might have had mutations. Ideally, I had over 200-300 bases for my project.
+
+## Colony Abundances and the Statistical test
+
+(Hard to interpret data/takes out human subjectivity when looking for patterns that really aren't there)
+
+## Number of morphotypes and the Statistical test
+
+
+
+## Table of Qubit
+
+
+
+## Gel Image
+
+
+
+## Accepted Sequences
+
+
+
+## BLAST Table
+
+
+
+## Maximum Likelihood Phylogeny
+
+
+
+## Bayesian Phylogeny
+
+
+
 
 # Sources Cited
