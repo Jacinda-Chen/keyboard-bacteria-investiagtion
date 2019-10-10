@@ -13,13 +13,15 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 # Introduction
 
-Computers have become an essential part of college life as a result of the increased dependency on the internet. Therefore, an increasing amount of students are required to buy or have access to computers. Food and drinks are constantly consumed around keyboards, which provide living resources for whatever is living on top of the keyboard, if there is [@malik2014study]. Keyboards are being touched constantly in personal laptops as well as shared computers that the university offers and most people are not aware of the number of microorganisms present on their keyboards [@al2011bacterial]. I will be comparing the bacteria found on the keyboards of individual students' laptops versus the keyboards of shared computers on the USF campus. Previous research done on this topic has found that shared computers had more microorganisms than individual computers [@anderson2009microbial]. This project will circle around hygiene and aim to figure out if shared computers should be cleaned more often or if personal laptops are not as sanitary as they seem.  
+Computers have become an essential part of college life as a result of the increased dependency on the internet. Therefore, an increasing amount of students are required to buy or have access to computers. Food and drinks are constantly consumed around keyboards, which provide living resources for whatever is living on top of the keyboard, if there is [@malik2014study]. Keyboards are being touched constantly in personal laptops as well as shared computers open to students, faculty and staff (that the university offers). Most people are not aware of the number of microorganisms present on their keyboards [@al2011bacterial]. My primary question was whether or not the keyboards of individual USF college students' laptops from the Bioinformatics class have more or less microbacterial species compared to shared computers on campus from the library, the UC and Toler Hall. Previous research done on this topic has found that shared computers had more microorganisms than individual computers [@anderson2009microbial]. This project will circle around hygiene and aim to figure out if  computers should be cleaned more often and if it would be necessary to raise awareness of keyboard hygiene .
+
+My hypothesis is that the keyboards of shared computers have more microbacterial species than individual keyboards because of the increased number of people (students, faculty, staff, etc.) that have access to the keyboard. I collected three bacterial samples from three different individual laptops on the "F" key from students from USF (University of San Francisco) and three other samples from three public spaces on campus, also on the "F" key. These bacteria were diluted then grown in cultures with their dilutions, where DNA was extracted from them. Touchdown PCR was done along with Sanger sequencing, whose results I analyzed with Geneious Prime and R Studio. My primary findings for the culture data was a significant difference in the number of morphotypes between Communal and Individual computers. For the molecular data, it was important that the BLAST table agreed with the Maximum Likelihood Phylogeny and the Bayesian Phylogeny in which samples were more closely related. 
 
 # Methods
 
 ## Study design
 
-I planned to look at the number of bacteria species on laptop keyboards of individual University of San Francisco students versus the bacteria found on shared computers. I sampled the "F" key for different keyboards of three different laptops, each used by individual USF students, as well as the keyboards of three different shared computers on the main campus of USF (Toler Hall, University Center, and Gleeson Library). My question is whether or not the keyboards of individual USF college students' laptops from the Bioinformatics class have more or less microbacterial species compared to shared computers on campus from the library, the UC and Toler Hall. My hypothesis is that the keyboards of shared computers have more microbacterial species than individual keyboards because of the increased number of people that have access to the keyboard. 
+I planned to look at the number of bacteria species on laptop keyboards of individual University of San Francisco students versus the bacteria found on shared computers. I sampled the "F" key for different keyboards of three different laptops, each used by individual USF students, as well as the keyboards of three different shared computers on the main campus of USF (Toler Hall, University Center, and Gleeson Library). My primary question was whether or not the keyboards of individual USF college students' laptops from the Bioinformatics class have more or less microbacterial species compared to shared computers on campus from the library, the UC and Toler Hall. 
 
 I collected bacteria, diluted the samples, plated the samples on TSA plates, extracted DNA from the samples, did touchdown PCR, gel electrophoresis, and Sanger sequencing. These results were analyzed with Geneious Prime and R Studio.
 
@@ -49,7 +51,7 @@ I labelled a tube for the master mix. Inside, I put 77 µL of Amp, 6.2 µL of 27
 
 After downloading the acb files into Geneious Prime, my first task was to assess whether or not the sequences were usable. Then, I had to trim or correct usable sequences. This was done by trimming off a large part of the beginning and ending of the sequences (since they were filled with low quality or unusable bases) and going through the low quality  bases in the middle of the sequence to decide whether or not they should be deleted, changed, or an ambiguity code needed to be added from the IUPAC Ambiguity Codes. I used MAFFT to create an appropriate multiple sequence alignment with all five of my usable and corrected sequences with the default settings and an offset value of 0.123. A Maximum Likelihood Phylogeny and a Bayesian Phylogeny were created. I used *Thermus aquaticus* as an outgroup by downloading the sequence from GenBank. For the Maximum Likelihood Phylogeny, a substitution model of General Time Reversible (GTR) was used with 100 bootstrap replicates with defaults for all other settings. For the Bayesian Phylogeny, I used a substitution model of GTR, a rate variation of Gamma plus Invariants model, as well as a Burn-in Length of 100,000 with all other settings set to default. I used Nucleotide BLAST (Basic Local Alignment Search Tool) by comparing my nucleotide sequences to the sequence databases, where it also calculated the statistical significance.
 
-### R Program
+### R Studio
 
 I used the packages dplyr and ggplot in order to visualize the data with boxplots. I also tested between different sampling groups using Wilcox statistical tests in order to get the p value.
 
@@ -111,7 +113,7 @@ culture_data %>%
 
 ### Boxplot showing the number of morphotypes in each of your two treatments (1x Dilution)
 
-INSERT WORDS
+I made a boxplot showing the number of morphotypes in Communal versus Individual computers for 1x dilution (Figure 2). Both Communal and Individual computers had an outlier of two morphotypes. The Communal computers had a median, minimum, and maximum of one morphotype. Individual computers had a median and minimum of 0 morphotypes and a maximum of 0.75 morphotypes. 
 
 ```{r filter-and-plot-morphotypes}
 # Comparison of morphotypes between Communal and Individual computers
@@ -189,7 +191,7 @@ culture_data %>%
 
 ### BLAST Table
 
-For the trimmed sequence of 1F, Staphylococcus epidermidis was found to be the closest match using BLAST. The same goes for the following trimmed sequences: Staphylococcus hominis subsp. novobiosepticus was matched with 2F, Bacillus subtilis was matched with 3F, Bacillus subtilis was matched with 5F, and Staphylococcus epidermidis was matched with 6Fp (Table 5; Used BLAST to calculate the statistical significance between matched sequences) 
+For the trimmed sequence of 1F, Staphylococcus epidermidis was found to be the closest match using BLAST; the percent identification is 99.53%, the query cover is 100%, and the E-value is 0.0. The same goes for the following trimmed sequences: Staphylococcus hominis subsp. novobiosepticus was matched with 2F; the percent identification is 99.39%,the query cover is 100%, and the e-value is 0.0. Bacillus subtilis was matched with 3F; the percent identification is 99.53%, the query cover is 100%, and the e-value is 0.0. Bacillus subtilis was matched with 5F; the percent identification is 98.82%, the query cover is 100%, and the e-value is 0.0.  Staphylococcus epidermidis was matched with 6Fp; the percent identification is 99.82%, the query cover is 100%, and the e-value is 0.0 (Table 5; Used BLAST to calculate the statistical significance between matched sequences).
 
 | BLAST filenames                    | Description                                                                                         | Percent Identity | Query cover | Accession  | E-Value |
 |------------------------------------|-----------------------------------------------------------------------------------------------------|------------------|-------------|------------|---------|
@@ -203,7 +205,7 @@ For the trimmed sequence of 1F, Staphylococcus epidermidis was found to be the c
 
 ### Maximum Likelihood Phylogeny with PhyML
 
-In **Figure 4**, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade with 85 bootstrap support. Sequences 3F and 5F are grouped together in a monophyletic clade with 100 bootstrap support. This was also supported by the Bayesian Phylogeny (Figure 5; Bayesian posterior probability > 95).
+In **Figure 4**, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade with 85 bootstrap support value. Sequences 3F and 5F are grouped together in a monophyletic clade with 100 bootstrap support. This was also supported by the Bayesian Phylogeny (Figure 5; Bayesian posterior probability > 95).
 
 ![](output/phylogenies/sanger_sequences_phyml_phylogeny_image.png)
 
@@ -223,7 +225,8 @@ In **Figure 5**, *Thermus aquaticus* was used as the outgroup. I found that sequ
 
 For each location, two different keys on the keyboard was swabbed because there was not enough surface area on one key to be swabbed twice. 
 
-Dilution Series: The samples were put into the group key "F". The dilution series was done with the "F" key group. Since it was not known what type of bacteria it was nor how much of it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. The undiluted series were vortexed for 15 seconds in order to get the bacteria off the swabs and into the PBS. 
+## Dilution Series
+The samples were put into the group key "F". The dilution series was done with the "F" key group. Since it was not known what type of bacteria it was nor how much of it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. The undiluted series were vortexed for 15 seconds in order to get the bacteria off the swabs and into the PBS. 
 
 ## DNA Extraction 
 
@@ -235,7 +238,7 @@ The PCR strip tubes were put in the machine for 95^o^ C for 5 minutes. Then, the
 
 ## Gel Electrophoresis
 
-For the gel electrophoresis, buffer was used instead of water because nothing would happen with water while buffer is able to conduct a high level of current. Agarose gel was used rather than polyacrymyli because agarose is less dense and gives DNA more space to stretch out. The master mix contained glyceral, which made my sample more dense than water, causing it to sink at the bottom of the well in the gel instead of mixing with water in the gel. The dye was used to make my samples more visible. DNA molecules are negatively charged, so they are pulled sideways towards the positive current. There were ladders in the first and last wells of each of the two lines of wells in order for them to act as standards (a bunch of fragments of DNA at known lengths). The ladders allow us to compare unknowns to known lengths of DNA fragments as well as different concentrations, which is measured by how bright the bands are. It also acts as the positive control from the cyber working. If the electrophoresis and the cyber works then you should see the known lengths of DNA fragments. The ladder looks more grouped together above 3 kb bcause the gel only ran for 30 minutes.
+For the gel electrophoresis, buffer was used instead of water because nothing would happen with water while buffer is able to conduct a high level of current. Agarose gel was used rather than polyacrymyli because agarose is less dense and gives DNA more space to stretch out. The master mix contained glyceral, which made my sample more dense than water, causing it to sink at the bottom of the well in the gel instead of mixing with water in the gel.  There were ladders in the first and last wells of each of the two lines of wells in order for them to act as standards (a bunch of fragments of DNA at known lengths). The ladders act as the positive control from the cyber working. If the electrophoresis and the cyber works then you should see the known lengths of DNA fragments. The ladder looks more grouped together above 3 kb bcause the gel only ran for 30 minutes.
 
 ## Geneious Prime
 
@@ -264,7 +267,7 @@ The easiest approach for this will be to use a Wilcox test (a nonparametric alte
 
 ## BLAST Table
 
-
+The Query Cover is a number that shows the percentage of how much of the target sequence covers the query sequence. The percent identity measures how similar the two sequences are. A higher percent identity means that the two sequences belong to species that are more closely related. The accession number is an unique tag for a sequence that allows me to track different versions of the sequence over time. The E-value (expect value) is the number of hits that the result received were by chance.
 
 ## Maximum Likelihood Phylogeny
 
