@@ -167,13 +167,29 @@ culture_data %>%
 
 **Figure 3:** Gel image with lanes labeled
 
-### Table with the locus of each sequence (16S), original filename of each sequence, the filename after correcting....
+### Sequence Usability Table
+
+| Sequence Locus | Original Sequence Filename | Corrected Sequence Filename        | Usability | Length after trimming | Manually corrected/adjusted bases |
+|----------------|----------------------------|------------------------------------|-----------|-----------------------|-----------------------------------|
+| 16S            | JC_1F_27f_A07.ab1          | JC_1F_27f_A07_JC_cleaned_mixed.ab1 | Usable    | 426 bases             | 4                                 |
+| 16S            | JC_2F_27f_B07.ab1          | JC_2F_27f_B07_JC_cleaned_mixed.ab1 | Usable    | 658 bases             | 4                                 |
+| 16S            | JC_3F_27f_C07.ab1          | JC_3F_27f_C07_JC_cleaned.ab1       | Usable    | 634 bases             | 3                                 |
+| 16S            | JC_5F_27f_D07.ab1          | JC_5F_27f_D07_JC_cleaned.ab1       | Usable    | 593 bases             | 7                                 |
+| 16S            | JC_6Fo_27f_E07.ab1         | JC_6Fo_27f_E07_JC_failed.ab1       | Unusable  | N/A                   | N/A                               |
+| 16S            | JC_6Fp_27f_F07.ab1         | JC_6Fp_27f_F07_JC_cleaned.ab1      | Usable    | 559 bases             |                                   |
+| 16S            | JC_Neg_27f_G07.ab1         | JC_Neg_27f_G07_JC_failed.ab1       | Unusable  | N/A                   | N/A                               |
 
 **Table 4:** Corrected/accepted sequences of samples
 
 ### BLAST Table
 
-INSERT TABLE
+| BLAST filenames                    | Description                                                                                         | Percent Identity | Query cover | Accession  | E-Value |
+|------------------------------------|-----------------------------------------------------------------------------------------------------|------------------|-------------|------------|---------|
+| JC_1F_27f_A07_JC_cleaned_mixed.ab1 | Staphylococcus epidermidis strain IBK-11 16S ribosomal RNA gene, partial sequence                   | 99.53%           | 100%        | MN428237.1 | 0.0     |
+| JC_2F_27f_B07_JC_cleaned_mixed.ab1 | Staphylococcus hominis subsp. novobiosepticus strain IBK-7 16S ribosomal RNA gene, partial sequence | 99.39%           | 100%        | MN428234.1 | 0.0     |
+| JC_3F_27f_C07_JC_cleaned.ab1       | Bacillus subtilis strain SR3-30 16S ribosomal RNA gene, partial sequence                            | 99.53%           | 100%        | MN421487.1 | 0.0     |
+| JC_5F_27f_D07_JC_cleaned.ab1       | Bacillus subtilis strain SR3-30 16S ribosomal RNA gene, partial sequence                            | 98.82%           | 100%        | MN421487.1 | 0.0     |
+| JC_6Fp_27f_F07_JC_cleaned.ab1      | Staphylococcus epidermidis strain LY-2 16S ribosomal RNA gene, partial sequence                     | 99.82%           | 100%        | MH930441.1 | 0.0     |
 
 **Table 5:** BLAST Table
 
