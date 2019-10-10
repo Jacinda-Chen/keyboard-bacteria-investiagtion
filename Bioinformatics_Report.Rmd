@@ -37,7 +37,7 @@ I used 18 100 mm TSA (Tryptic soy agar) plates for plating samples from each of 
 
 ## DNA Extraction
 
-I followed the manufacturer's protocal from the Sigma REDExtract-N-Amp kit. *cite this kit* I labelled a 1.5 mL tube for each sample and added cells from one colony to the tube using a sterile peppette tip (not pipetting). One colony was chosen each from the TSA plate of the undiluted sample from Toler Hall, the University Center, the library, and Student B. Two colonies were chosen from the TSA plate of the undiluted sample from Student C. I added 100 µL of extraction solution then vortexed the tube for 60 seconds. This was repeated for the other five 1.5 mL tubes. All six tubes were incubated at 95^o^ Celcius for ten minutes then vortexed for 60 seconds. I added 100 µL of dilution solution to each of the six tubes and vortexed them for five seconds. These six tubes were then centrifuged for five minutes at 14,000 rpm. For the Qubit protocal, I added 198 µL of the Qubit solution to the qubit tube. Two µL of the DNA extraction was added to the 198 µL of Qubit solution. This step was repeated for the other five DNA extractions. I vortexed all six Qubit tubes for five seconds then incubated them for five minutes in the dark. The Qubit machine was used to measure the concentration of DNA. 
+I followed the manufacturer's protocal from the Sigma REDExtract-N-Amp kit ([@weberextract]. I labelled a 1.5 mL tube for each sample and added cells from one colony to the tube using a sterile peppette tip (not pipetting). One colony was chosen each from the TSA plate of the undiluted sample from Toler Hall, the University Center, the library, and Student B. Two colonies were chosen from the TSA plate of the undiluted sample from Student C. I added 100 µL of extraction solution then vortexed the tube for 60 seconds. This was repeated for the other five 1.5 mL tubes. All six tubes were incubated at 95^o^ Celcius for ten minutes then vortexed for 60 seconds. I added 100 µL of dilution solution to each of the six tubes and vortexed them for five seconds. These six tubes were then centrifuged for five minutes at 14,000 rpm. For the Qubit protocal, I added 198 µL of the Qubit solution to the qubit tube. Two µL of the DNA extraction was added to the 198 µL of Qubit solution. This step was repeated for the other five DNA extractions. I vortexed all six Qubit tubes for five seconds then incubated them for five minutes in the dark. The Qubit machine was used to measure the concentration of DNA. 
 
 ## Touchdown PCR for Cultured "F" key series
 
@@ -169,6 +169,8 @@ culture_data %>%
 
 ### Sequence Usability Table
 
+**Table 4** shows the original filename of my sequences that I received back from Sanger sequencing. The unusable ends were trimmed off and four bases out of the remaining 426 bases for the 1F trimmed sequence were changed. For the 2F trimmed sequence, four bases out of 658 bases were changed. Three bases out of 634 bases for the 3F trimmed sequence were edited with ambiguity codes.  For 5F trimmed sequence, seven bases out of 593 bases were changed to ambuity codes. For the 6Fp trimmed sequence, three bases out of 559 bases were changed.
+
 | Sequence Locus | Original Sequence Filename | Corrected Sequence Filename        | Usability | Length after trimming | Manually corrected/adjusted bases |
 |----------------|----------------------------|------------------------------------|-----------|-----------------------|-----------------------------------|
 | 16S            | JC_1F_27f_A07.ab1          | JC_1F_27f_A07_JC_cleaned_mixed.ab1 | Usable    | 426 bases             | 4                                 |
@@ -176,10 +178,10 @@ culture_data %>%
 | 16S            | JC_3F_27f_C07.ab1          | JC_3F_27f_C07_JC_cleaned.ab1       | Usable    | 634 bases             | 3                                 |
 | 16S            | JC_5F_27f_D07.ab1          | JC_5F_27f_D07_JC_cleaned.ab1       | Usable    | 593 bases             | 7                                 |
 | 16S            | JC_6Fo_27f_E07.ab1         | JC_6Fo_27f_E07_JC_failed.ab1       | Unusable  | N/A                   | N/A                               |
-| 16S            | JC_6Fp_27f_F07.ab1         | JC_6Fp_27f_F07_JC_cleaned.ab1      | Usable    | 559 bases             |                                   |
+| 16S            | JC_6Fp_27f_F07.ab1         | JC_6Fp_27f_F07_JC_cleaned.ab1      | Usable    | 559 bases             | 3                                  |
 | 16S            | JC_Neg_27f_G07.ab1         | JC_Neg_27f_G07_JC_failed.ab1       | Unusable  | N/A                   | N/A                               |
 
-**Table 4:** Corrected/accepted sequences of samples
+**Table 4:** Table depicting the original filenames, usable trimmed sequences that were corrected and renamed, and details surrounding the latter.
 
 ### BLAST Table
 
@@ -195,7 +197,7 @@ culture_data %>%
 
 ### Maximum Likelihood Phylogeny with PhyML
 
-INSERT WORDS
+In **Figure 4**, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade with 85 bootstrap support. Sequences 3F and 5F are grouped together in a monophyletic clade with 100 bootstrap support. This was also supported by the Bayesian Phylogeny (Figure 5; Bayesian posterior probability > 95).
 
 ![](output/phylogenies/sanger_sequences_phyml_phylogeny_image.png)
 
@@ -203,7 +205,7 @@ INSERT WORDS
 
 ### Bayesian Phylogeny with Mr. Bayes
 
-INSERT WORDS
+In **Figure 5**, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade. Sequences 3F and 5F are grouped together in a monophyletic clade. This was also supported with the Maximum Likelihood Phylogeny in **Figure 4** (Figure 4; ML bootstrap > 80).
 
 ![](output/phylogenies/sanger_sequences_mrbayes_sorted_topologies_phylogeny_image.png)
 
@@ -239,7 +241,8 @@ Knowing that I was sequencing bacteria, some of the ambiguous peaks I observed w
 
 ## Number of morphotypes and the Statistical test
 
-
+Each of these two should also be supported with a statistical test for a difference in group means.
+The easiest approach for this will be to use a Wilcox test (a nonparametric alternative to the t-test)
 
 ## Table of Qubit
 
