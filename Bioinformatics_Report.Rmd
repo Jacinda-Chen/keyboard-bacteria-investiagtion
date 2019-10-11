@@ -162,7 +162,7 @@ Two colonies were used from 6F   (Figure 3). 3F and 5F both had a single colony 
 
 ### Table of Qubit DNA extraction samples of Key "F" series (cultured)
 
-**Table 3** depicts the Qubit numbers of the DNA extractions from the "F" key culture samples. The 1F sample had a Qubit number of 5.40 ng/µL, 2F had 6.10 ng/µL, 3F had 8.76 ng/µL, 5F had 7.51 ng/µL, 6Fo had 5.66 ng/µL, and 6Fp had 9.05 ng/µL.  
+The Qubit numbers of the DNA extractions from the "F" key culture samples were larger than zero. The 1F sample had a Qubit number of 5.40 ng/µL, 2F had 6.10 ng/µL, 3F had 8.76 ng/µL, 5F had 7.51 ng/µL, 6Fo had 5.66 ng/µL, and 6Fp had 9.05 ng/µL (Table 3; Qubit Table).  
 
 | Sample | Qubit Number Range (ng/µL) |
 |--------|----------------------------|
@@ -175,7 +175,7 @@ Two colonies were used from 6F   (Figure 3). 3F and 5F both had a single colony 
 
 **Table 3:** Table of Qubit DNA extraction samples of Key "F" series (cultured)
 
-### Gel electrophoresis
+### Gel Electrophoresis
 
 Bright bands, or higher concentrations, were shown for the 1F, 2F, 3F, 5F, and 6Fp samples, while the 6Fo sample showed a faint band, or a lower concentration (Figure 4; Gel electrophoresis). The bands all showed up at a similar place,  using to the ladder. There were no bands at all in the negative control.
 
