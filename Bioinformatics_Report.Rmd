@@ -175,9 +175,9 @@ Two colonies were used from 6F   (Figure 3). 3F and 5F both had a single colony 
 
 **Table 3:** Table of Qubit DNA extraction samples of Key "F" series (cultured)
 
-### Gel electrophoresis image
+### Gel electrophoresis
 
-**Figure 4** showed bright bands for the 1F, 2F, 3F, 5F, and 6Fp samples. The 6Fo sample showed a faint band. The bands all showed up at a similar place,  using to the ladder. There were no bands at all in the negative control.
+Bright bands, or higher concentrations, were shown for the 1F, 2F, 3F, 5F, and 6Fp samples, while the 6Fo sample showed a faint band, or a lower concentration (Figure 4; Gel electrophoresis). The bands all showed up at a similar place,  using to the ladder. There were no bands at all in the negative control.
 
 ![](data/images/gel_images/2019-09-18_BIOL422_Zimmerman_culture_PCRs_Cropped_7.png)
 
@@ -185,7 +185,7 @@ Two colonies were used from 6F   (Figure 3). 3F and 5F both had a single colony 
 
 ### Sequence Usability Table
 
-**Table 4** shows the original filename of my sequences that I received back from Sanger sequencing. The unusable ends were trimmed off and four bases out of the remaining 426 bases for the 1F trimmed sequence were changed. For the 2F trimmed sequence, four bases out of 658 bases were changed. Three bases out of 634 bases for the 3F trimmed sequence were edited with ambiguity codes.  For 5F trimmed sequence, seven bases out of 593 bases were changed to ambuity codes. For the 6Fp trimmed sequence, three bases out of 559 bases were changed.
+The original filename of my sequences came from the Sanger sequencing. The unusable ends were trimmed off and four bases out of the remaining 426 bases for the 1F trimmed sequence were changed (Table 4). For the 2F trimmed sequence, four bases out of 658 bases were changed (Table 4). Three bases out of 634 bases for the 3F trimmed sequence were edited with ambiguity codes (Table 4).  For 5F trimmed sequence, seven bases out of 593 bases were changed to ambuity codes (Table 4). For the 6Fp trimmed sequence, three bases out of 559 bases were changed (Table 4).
 
 | Sequence Locus | Original Sequence Filename | Corrected Sequence Filename        | Usability | Length after trimming | Manually corrected/adjusted bases |
 |----------------|----------------------------|------------------------------------|-----------|-----------------------|-----------------------------------|
@@ -215,7 +215,7 @@ For the trimmed sequence of 1F, Staphylococcus epidermidis was found to be the c
 
 ### Maximum Likelihood Phylogeny with PhyML
 
-In **Figure 5**, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade with 85 bootstrap support value. Sequences 3F and 5F are grouped together in a monophyletic clade with 100 bootstrap support. This was also supported by the Bayesian Phylogeny (Figure 5; Bayesian posterior probability > 95).
+For the Maximum Likelihood Phylogeny, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade with 85 bootstrap support value, while sequences 3F and 5F are grouped together in a monophyletic clade with 100 bootstrap support (Figure 5). This was also supported by the Bayesian Phylogeny (Figure 6; Bayesian posterior probability > 95).
 
 ![](output/phylogenies/sanger_sequences_phyml_phylogeny_image.png)
 
@@ -223,7 +223,7 @@ In **Figure 5**, *Thermus aquaticus* was used as the outgroup. I found that sequ
 
 ### Bayesian Phylogeny with Mr. Bayes
 
-In **Figure 6**, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade. Sequences 3F and 5F are grouped together in a monophyletic clade. This was also supported with the Maximum Likelihood Phylogeny  (Figure 5; ML bootstrap > 80).
+For the Bayesian Phylogeny, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade, while sequences 3F and 5F are grouped together in a monophyletic clade (Figure 6). This was also supported with the Maximum Likelihood Phylogeny  (Figure 5; ML bootstrap > 80).
 
 ![](output/phylogenies/sanger_sequences_mrbayes_sorted_topologies_phylogeny_image.png)
 
@@ -233,9 +233,10 @@ In **Figure 6**, *Thermus aquaticus* was used as the outgroup. I found that sequ
 
 ## Grown Cultures
 
-For each location, the "F" key on the keyboard was swabbed and bacteria was collected and diluted. Since it the type of bacteria was unknown nor how it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. The undiluted series were vortexed for 15 seconds in order to get the bacteria off the swabs and into the PBS. I found that the 1x dilution cultures worked the best because all of the Communal computer samples had at least one colony and a majority of the Individual computers samples had at least one colony. There was a higher number of colonies that was present on Communal computer keyboards. The median number of colonies from the Communal samples was around 2.5 colonies larger than the median number of around 0 for Individual samples (Figure 1; Boxplot of the comparison of colony abundances). In order to prove if this difference was statistically significant, a statistical (Wilcox) test was performed. My null hypothesis was that there was no difference between the sample groups. The p-value I attained was 0.02 (Table 1; Wilcox test for Colony Abundance boxplot). Since it was less than 0.05, I rejected the null hypothesis, meaning that there was significant difference between the number of colony abundances between sample groups. Both the Communal and Individual samples had a very small range of the number of morphotypes, with an outlier of two morphotypes (Figure 2; boxplot of the comparison of morphotypes between the two samples). My null hypothesis was that there was no difference between the sample groups. The p-value from the statistical (Wilcox) test was 0.10, which is larger than 0.05. I failed to reject the null, meaning that the number of morphotypes between the sample groups were not significantly different (Table 2; statistical test for the comparison of morphotypes between the sample groups).
+For each location, the "F" key on the keyboard was swabbed and bacteria was collected and diluted. Since it the type of bacteria was unknown nor how it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. The undiluted series were vortexed for 15 seconds in order to get the bacteria off the swabs and into the PBS. I found that the 1x dilution cultures worked the best because all of the Communal computer samples had at least one colony and a majority of the Individual computers samples had at least one colony. There was a higher number of colonies that was present on Communal computer keyboards. The median number of colonies from the Communal samples was around 2.5 colonies larger than the median number of around 0 for Individual samples (Figure 1; Boxplot of the comparison of colony abundances). In order to prove if this difference was statistically significant, a statistical (Wilcox) test was performed. My null hypothesis was that there was no difference between the sample groups. The p-value I attained was 0.02 (Table 1; Wilcox test for Colony Abundance boxplot). Since it was less than 0.05, I rejected the null hypothesis, meaning that there was significant difference between the number of colony abundances between sample groups. Both the Communal and Individual samples had a very small range of the number of morphotypes, with an outlier of two morphotypes (Figure 2; boxplot of the comparison of morphotypes between the two samples). My null hypothesis was that there was no difference between the sample groups. The p-value from the statistical (Wilcox) test was 0.10, which is larger than 0.05. I failed to reject the null, meaning that the number of morphotypes between the sample groups were not significantly different (Table 2; statistical test for the comparison of morphotypes between the sample groups). Statistical tests were performed in order to remove human subjectivity with finding statistically significant patterns. Each of the two boxplots are supported with a statistical test for a difference in group means.
+The easiest approach was to use a Wilcox test (a nonparametric alternative to the t-test).
 
-The only TSA plate group of 1x, 10x, and 100x that did not have any culture growing at all was 4F, or the personal laptop from Student A. Two colonies were chosen from the TSA plate of the undiluted sample from Student C, or sample 6F for this reason (Figure 3; showing chosen plates and colonies). During DNA extraction, the caustic extraction solution broke down cell walls and the incubation at 95^o^ Celcius was to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added or the extraction solution would have started to break down the DNA as well. The last vortex for five seconds was to mix the extraction and dilution solutions. I made sure the centrifuge was balanced and to put on the lid when using it. Qubit samples were incubated in the dark because the Qubit machine is sensitive to the light. It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step. All of my samples showed that they had a sufficient amount of DNA from the Qubit nubmers, which were all above 5 ng/µL (Table 3; Qubit DNA extraction numbers).
+The only TSA plate group of 1x, 10x, and 100x that did not have any culture growing at all was 4F, or the personal laptop from Student A. This was different from previous research because all of their cultures done had some sort of bacterial colony growing. Two colonies were chosen from the TSA plate of the undiluted sample from Student C, or sample 6F for this reason (Figure 3; showing chosen plates and colonies). During DNA extraction, the caustic extraction solution broke down cell walls and the incubation at 95^o^ Celcius was to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added or the extraction solution would have started to break down the DNA as well. The last vortex for five seconds was to mix the extraction and dilution solutions. I made sure the centrifuge was balanced and to put on the lid when using it. Qubit samples were incubated in the dark because the Qubit machine is sensitive to the light. It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step. All of my samples showed that they had a sufficient amount of DNA from the Qubit nubmers, which were all above 5 ng/µL (Table 3; Qubit DNA extraction numbers). 
 
 ## Touchdown PCR for "F" key series
 
@@ -247,40 +248,14 @@ For the gel electrophoresis, buffer was used instead of water because nothing wo
 
 ## Geneious Prime
 
-Knowing that I was sequencing bacteria, some of the ambiguous peaks I observed was probably because I might have sampled two colonies instead of one. Another reason why this may have occurred was because the colony sampled is an entire population, which consists of millions of cells that have divided and might have had mutations. Ideally, I had over 200-300 bases for my project.
+Knowing that I was sequencing bacteria, some of the ambiguous peaks I observed in the 1F and 2F trimmed sequences were probably because I might have sampled two colonies instead of one (Table 4; Sequence Usability Table). Another reason why this may have occurred was because the colony sampled is an entire population, which consists of millions of cells that have divided and might have had mutations. I had over 400 bases for a majority of my sequences after trimming, and five usable sequence (Table 4; Sequence Usability Table). This was an acceptable amount of bases to be used for the alignments and phylogenies. All of my usable sequences were mostly high quality 16S sequences that required less than eight bases that needed to be manually corrected (Table 4; Sequence Usability Table). 
 
-## Colony Abundances and the Statistical test
+## Sequence Relationships
 
-A statistical test was done in order to remove human subjectivity. The 
+The high Query Cover I saw meant a large percentage of how much of the target sequence covers the query sequence, which is what is seen with the 100% query covers of 1F, 2F, 3F, 5F, and 6Fp sequences (Table 5; BLAST Table). All of my usable sequences had a percent identity of over 98%, showing that the matched BLAST sequence was extremely similar to my trimmed sequences (Table 5; BLAST Table). My trimmed sequence of 1F, 2F, 3F, and 6Fp had a percent identity over 99%, which means the matched sequences were even more similar. The accession number is an unique tag for a sequence that allows me to track different versions of the sequence over time. The E-value (expect value) was 0.0 for all of my usable sequences (Table 5; BLAST Table). Since the number of hits that the result received were by chance was 0.0, there was a pretty high chance that the matched BLAST sequence was accurate. 1F was matched with *Staphylococcus epidermidis*, 2F was *Staphylococcus hominis*, 3F was *Bacillus subtilis*, 5F was *Bacillus subtilis*, and 6Fp was *Staphylococcus epidermidis* (Table 5; BLAST Table). The trimmed sequence of 1F was not included in the phylogenies because it was too low quality for an accurate phylogeny. The phylogenetic results using the trimmed sequences of 2F, 3F, 5F, and 6Fp matched with my BLAST results. In both phylogenies, *Thermus aquaticus* was used as the outgroup, from the domain Archaea. Since the bactera I cultured was unknown, the next closest outgroup to the domain Bacteria, was the domain Archaea. In the Maximum Likelihood Phylogeny, sequences 6Fp and 2F were grouped together in a monophyletic clade with a 85 bootstrap support value, while sequences 3F and 5F were grouped together in another monophyletic clade with a 100 bootstrap support value, which agreed with the seperation of *Staphylococcus* versus *Bacillus* from BLAST (Figure 5; Maximum Likelihood Phylogeny). The Bayesian Phylogeny agreed with the Maximum Likelihood Phylogeny and BLAST, with the same groupings (Figure 6). 
 
-## Number of morphotypes and the Statistical test
+## Previous Research
 
-Each of these two should also be supported with a statistical test for a difference in group means.
-The easiest approach for this will be to use a Wilcox test (a nonparametric alternative to the t-test)
-
-## Table of Qubit
-
-
-
-## Gel Image
-
-
-
-## Accepted Sequences
-
-
-
-## BLAST Table
-
-The Query Cover is a number that shows the percentage of how much of the target sequence covers the query sequence. The percent identity measures how similar the two sequences are. A higher percent identity means that the two sequences belong to species that are more closely related. The accession number is an unique tag for a sequence that allows me to track different versions of the sequence over time. The E-value (expect value) is the number of hits that the result received were by chance.
-
-## Maximum Likelihood Phylogeny
-
-
-
-## Bayesian Phylogeny
-
-
-
+My results were a little different compared to the previous research done as most of the previous research found bacterial colonies would grow from every single culturing plating done. 
 
 # Sources Cited
