@@ -76,14 +76,6 @@ culture_data <- read_csv(
 
 ## Culture Data
 
-### Grown Cultures
-
-Two colonies were used from 6F   (Figure 1). 3F and 5F both had a single colony growing significantly larger than other colonies. 6F had two different morphotypes, while every other culture had the same morphotype: circular with pale coloring. 2F had many small culture growing. 
-
-![](data/images/method_images/grown_cultures.jpg)
-
-**Figure 1:** A picture showing the usable colonies from culturing with 1F, 2F, 3F, 5F, and 6F sample TSA plates.
-
 ### Colony Abundance Boxplot
 
 **Figure 1** is a boxplot showing the colony abundances in communal versus individual computers at the 1x dilution level. The colony abundances from the Communal computers had larger number of colonies compared to the Individual computers, which is shown by the maximum number of colonies observed in the Individual computers remaining smaller than the minimum of the colony abundances from the Communal computers. I also observed a bigger range of larger values for the colony abundances of Communal computers where the minimum and maxinum number of colony abundances had a difference of around eight, whereas the differences between the minimum and maxinum number of colony abundances for Individual computers was about one. The colony abundance for Individual computers had a singular abnormally abundant colony depicted by the outlier, just under the 2.5 number of colonies mark.  
@@ -158,6 +150,14 @@ culture_data %>%
 
 **Table 2:** The statistical (Wilcox) test to compare the number of morphotypes between Communal and Individual computers, 1x dilution.
 
+### Grown Cultures
+
+Two colonies were used from 6F   (Figure 3). 3F and 5F both had a single colony growing significantly larger than other colonies. 6F had two different morphotypes, while every other culture had the same morphotype: circular with pale coloring. 2F had many small culture growing. 
+
+![](data/images/method_images/grown_cultures.jpg)
+
+**Figure 3:** A picture showing the usable colonies from culturing with 1F, 2F, 3F, 5F, and 6F sample TSA plates.
+
 ## Molecular Data
 
 ### Table of Qubit DNA extraction samples of Key "F" series (cultured)
@@ -177,11 +177,11 @@ culture_data %>%
 
 ### Gel electrophoresis image
 
-**Figure 3** showed bright bands for the 1F, 2F, 3F, 5F, and 6Fp samples. The 6Fo sample showed a faint band. The bands all showed up at a similar place,  using to the ladder. There were no bands at all in the negative control.
+**Figure 4** showed bright bands for the 1F, 2F, 3F, 5F, and 6Fp samples. The 6Fo sample showed a faint band. The bands all showed up at a similar place,  using to the ladder. There were no bands at all in the negative control.
 
 ![](data/images/gel_images/2019-09-18_BIOL422_Zimmerman_culture_PCRs_Cropped_7.png)
 
-**Figure 3:** Gel electrophoresis image of samples 1F, 2F, 3F, 5F, 6Fo, 6Fp, ladder, and negative control. 
+**Figure 4:** Gel electrophoresis image of samples 1F, 2F, 3F, 5F, 6Fo, 6Fp, ladder, and negative control. 
 
 ### Sequence Usability Table
 
@@ -215,19 +215,19 @@ For the trimmed sequence of 1F, Staphylococcus epidermidis was found to be the c
 
 ### Maximum Likelihood Phylogeny with PhyML
 
-In **Figure 4**, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade with 85 bootstrap support value. Sequences 3F and 5F are grouped together in a monophyletic clade with 100 bootstrap support. This was also supported by the Bayesian Phylogeny (Figure 5; Bayesian posterior probability > 95).
+In **Figure 5**, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade with 85 bootstrap support value. Sequences 3F and 5F are grouped together in a monophyletic clade with 100 bootstrap support. This was also supported by the Bayesian Phylogeny (Figure 5; Bayesian posterior probability > 95).
 
 ![](output/phylogenies/sanger_sequences_phyml_phylogeny_image.png)
 
-**Figure 4:** Maximum Likelihood Phylogeny with PhyML using *Thermus aquaticus* as an outgroup.
+**Figure 5:** Maximum Likelihood Phylogeny with PhyML using *Thermus aquaticus* as an outgroup.
 
 ### Bayesian Phylogeny with Mr. Bayes
 
-In **Figure 5**, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade. Sequences 3F and 5F are grouped together in a monophyletic clade. This was also supported with the Maximum Likelihood Phylogeny in **Figure 4** (Figure 4; ML bootstrap > 80).
+In **Figure 6**, *Thermus aquaticus* was used as the outgroup. I found that sequences 6Fp and 2F are grouped together in a monophyletic clade. Sequences 3F and 5F are grouped together in a monophyletic clade. This was also supported with the Maximum Likelihood Phylogeny  (Figure 5; ML bootstrap > 80).
 
 ![](output/phylogenies/sanger_sequences_mrbayes_sorted_topologies_phylogeny_image.png)
 
-**Figure 5:* Bayesian Phylogeny with Mr. Bayes using *Thermus aquaticus* as an outgroup.
+**Figure 6:** Bayesian Phylogeny with Mr. Bayes using *Thermus aquaticus* as an outgroup.
 
 # Discussion
 
@@ -235,15 +235,15 @@ In **Figure 5**, *Thermus aquaticus* was used as the outgroup. I found that sequ
 
 For each location, the "F" key on the keyboard was swabbed and bacteria was collected and diluted. Since it the type of bacteria was unknown nor how it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. The undiluted series were vortexed for 15 seconds in order to get the bacteria off the swabs and into the PBS. I found that the 1x dilution cultures worked the best because all of the Communal computer samples had at least one colony and a majority of the Individual computers samples had at least one colony. There was a higher number of colonies that was present on Communal computer keyboards. The median number of colonies from the Communal samples was around 2.5 colonies larger than the median number of around 0 for Individual samples (Figure 1; Boxplot of the comparison of colony abundances). In order to prove if this difference was statistically significant, a statistical (Wilcox) test was performed. My null hypothesis was that there was no difference between the sample groups. The p-value I attained was 0.02 (Table 1; Wilcox test for Colony Abundance boxplot). Since it was less than 0.05, I rejected the null hypothesis, meaning that there was significant difference between the number of colony abundances between sample groups. Both the Communal and Individual samples had a very small range of the number of morphotypes, with an outlier of two morphotypes (Figure 2; boxplot of the comparison of morphotypes between the two samples). My null hypothesis was that there was no difference between the sample groups. The p-value from the statistical (Wilcox) test was 0.10, which is larger than 0.05. I failed to reject the null, meaning that the number of morphotypes between the sample groups were not significantly different (Table 2; statistical test for the comparison of morphotypes between the sample groups).
 
-The only TSA plate group of 1x, 10x, and 100x that did not have any culture growing at all was 4F, or the personal laptop from Student A. Two colonies were chosen from the TSA plate of the undiluted sample from Student C, or sample 6F for this reason (Figure 3; showing chosen plates and colonies). During DNA extraction, the purpose of adding the caustic extraction solution was because it broke down cell walls and the incubation at 95^o^ Celcius was to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added or the extraction solution would have started to break down the DNA as well. The last vortex for five seconds was to mix the extraction and dilution solutions. I made sure the centrifuge was balanced and to put on the lid when using it. Qubit samples were incubated in the dark because the Qubit machine is sensitive to the light. It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step.
+The only TSA plate group of 1x, 10x, and 100x that did not have any culture growing at all was 4F, or the personal laptop from Student A. Two colonies were chosen from the TSA plate of the undiluted sample from Student C, or sample 6F for this reason (Figure 3; showing chosen plates and colonies). During DNA extraction, the caustic extraction solution broke down cell walls and the incubation at 95^o^ Celcius was to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution should be added in under twenty minutes from when the extraction solution was first added or the extraction solution would have started to break down the DNA as well. The last vortex for five seconds was to mix the extraction and dilution solutions. I made sure the centrifuge was balanced and to put on the lid when using it. Qubit samples were incubated in the dark because the Qubit machine is sensitive to the light. It was important to measure the concentration of DNA in order to ensure that we had enough DNA to amplify in PCR, a later step. All of my samples showed that they had a sufficient amount of DNA from the Qubit nubmers, which were all above 5 ng/µL (Table 3; Qubit DNA extraction numbers).
 
 ## Touchdown PCR for "F" key series
 
-The PCR strip tubes were put in the machine for 95^o^ C for 5 minutes. Then, they were put in the machine for 94^o^ C for 30 seconds, 65^o^ C for 30 seconds, and 72^o^ C for 1 minute. These last three cycles were rpeeated for ten additional cycles, where the temperature was decreased by one degree per cycle. Touchdown PCR was used in order to increase selectivity so that higher quality attractions would click together in the beginning. The purpose of starting at a higher temperature was to be more selective at the first round of 65^o^ C with the copies of the best match. As the temperature decreased by one degree, it created matches and copies preferentially of the already selective primer rather than the original strand. Also, if I had accidentally put two colonies instead of one, one colony would most likely be a better match to the primer, then the primer would preferentially amplify that one. The next three temperatures and times were 94^o^ C for 30 seconds, 55^o^ C for 30 seconds, and 72^o^ C 1 minute. These last three cycles were repeated for 25 additional cycles. Lastly, the PCR sample tubes went through 72^o^ C for 10 minutes and held at 4^o^ C. 
+The PCR strip tubes were put in the machine for 95^o^ C for 5 minutes. Then, they were put in the machine for 94^o^ C for 30 seconds, 65^o^ C for 30 seconds, and 72^o^ C for 1 minute. These last three cycles were rpeeated for ten additional cycles, where the temperature was decreased by one degree per cycle. Touchdown PCR was used in order to increase selectivity so that higher quality attractions would click together in the beginning. The purpose of starting at a higher temperature was to be more selective at the first round of 65^o^ C with the copies of the best match. As the temperature decreased by one degree, it created matches and copies preferentially of the already selective primer rather than the original strand. Also, if I had accidentally put two colonies instead of one, one colony would most likely be a better match to the primer, then the primer would preferentially amplify that one. The next three temperatures and times were 94^o^ C for 30 seconds, 55^o^ C for 30 seconds, and 72^o^ C for 1 minute. These last three cycles were repeated for 25 additional cycles. Lastly, the PCR sample tubes went through 72^o^ C for 10 minutes and held at 4^o^ C. 
 
 ## Gel Electrophoresis
 
-For the gel electrophoresis, buffer was used instead of water because nothing would happen with water while buffer is able to conduct a high level of current. Agarose gel was used rather than polyacrymyli because agarose is less dense and gives DNA more space to stretch out. The master mix contained glyceral, which made my sample more dense than water, causing it to sink at the bottom of the well in the gel instead of mixing with water in the gel.  There were ladders in the first and last wells of each of the two lines of wells in order for them to act as standards (a bunch of fragments of DNA at known lengths). The ladders act as the positive control from the cyber working. If the electrophoresis and the cyber works then you should see the known lengths of DNA fragments. The ladder looks more grouped together above 3 kb bcause the gel only ran for 30 minutes.
+For the gel electrophoresis, buffer was used instead of water because nothing would happen with water while buffer is able to conduct a high level of current. Agarose gel was used rather than polyacrymyli because agarose is less dense and gives DNA more space to stretch out. The master mix contained glyceral, which made my sample more dense than water, causing it to sink at the bottom of the well in the gel instead of mixing with water in the gel.  There were ladders in the first and last wells of each of the two lines of wells in order for them to act as standards (a bunch of fragments of DNA at known lengths). The ladders act as the positive control from the cyber working. If the electrophoresis and the cyber works then you should see the known lengths of DNA fragments. The ladder looks more grouped together above 3 kb bcause the gel only ran for 30 minutes. There were bright bands shown for 1F, 2F, 3F, 5F, and 6Fp at 1-2 kb, a faint band for 6Fo at 1-2 kb, and no band for the negative control (Figure 4; Gel electrophoresis image). There were no bands for the negative control because there is no DNA in there. There was a strange brightness above the bright band possibly because tandem repeats of the ribosome were made due to their importance. In order to fix this problem in future projects, I could change the restriction enzyme, drop the number of cycles (however faint bands would most likely not show at all), or shorten the extension time (to give taq polymerase less time to copy). The fluorescense around 30 kb was due to the gel having auto-fluorescense and was not due to the DNA.
 
 ## Geneious Prime
 
