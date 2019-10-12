@@ -55,7 +55,7 @@ My first task in Geneious Prime was to assess whether or not the sequences were 
 
 ### R Studio
 
-I used the packages dplyr and ggplot in order to visualize the data with boxplots. I also tested between different sampling groups using Wilcox statistical tests in order to get the p value.
+I used the packages dplyr and ggplot in order to visualize the data with boxplots. I also tested between different sampling groups using Wilcox statistical tests in order to get the p values.
 
 # Results
 
@@ -96,9 +96,9 @@ culture_data %>%
 
 **Figure 1:** Boxplot of colony abundances at Communal versus Individual computers, 1x dilution. There was a higher median number of colonies from Communal Computer samples, and the mean number of colonies were significantly different between the two sites (Wilcox p = 0.02104).
 
-### Statistical (Wilcox) test for above boxplot
+### Statistical (Wilcox) test for above Colony Abundance
 
-**Table 1** is a statistical (Wilcox) test to compare the number of colony abundances of Communal versus Individual computers at 1x dilution. The p-value was 0.02. 
+A statistical (Wilcox) test was run to compare the number of colony abundances of Communal versus Individual computers at 1x dilution. The p-value was 0.02 (Table 1; Statistical test for Colony Abundance). 
 
 ```{r abundances-stats}
 # run a statistical test to compare the two groups of abundances
@@ -133,9 +133,9 @@ culture_data %>%
 
 **Figure 2:** Boxplot showing the number of morphotypes between Communal and Individual computers, 1x dilution. The mean number of morphotypes were not significantly different between the communal and individual computers (Wilcox p = 0.09679).
 
-### Wilcox test for above boxplot
+### Wilcox test for the number of morphotypes
 
-The p-value from **Table 2** is 0.10. This was the result of a statistical test to compare the number of morphotypes in Communal versus Individual computer. 
+The p-value from is 0.10 (Table 2; Statistical test on the number of morphotypes). This was the result of a statistical test to compare the number of morphotypes in Communal versus Individual computer. 
 
 ```{r morphotype_stats}
 # run a statistical test to compare number of morphotypes between two groups
