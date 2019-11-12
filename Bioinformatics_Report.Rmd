@@ -205,11 +205,11 @@ For the trimmed sequence of 1F, Staphylococcus epidermidis was found to be the c
 
 | BLAST filenames                    | Description                                                                                         | Percent Identity | Query cover | Accession  | E-Value |
 |------------------------------------|-----------------------------------------------------------------------------------------------------|------------------|-------------|------------|---------|
-| JC_1F_27f_A07_JC_cleaned_mixed.ab1 | Staphylococcus epidermidis strain IBK-11 16S ribosomal RNA gene, partial sequence                   | 99.53%           | 100%        | MN428237.1 | 0.0     |
-| JC_2F_27f_B07_JC_cleaned_mixed.ab1 | Staphylococcus hominis subsp. novobiosepticus strain IBK-7 16S ribosomal RNA gene, partial sequence | 99.39%           | 100%        | MN428234.1 | 0.0     |
-| JC_3F_27f_C07_JC_cleaned.ab1       | Bacillus subtilis strain SR3-30 16S ribosomal RNA gene, partial sequence                            | 99.53%           | 100%        | MN421487.1 | 0.0     |
-| JC_5F_27f_D07_JC_cleaned.ab1       | Bacillus subtilis strain SR3-30 16S ribosomal RNA gene, partial sequence                            | 98.82%           | 100%        | MN421487.1 | 0.0     |
-| JC_6Fp_27f_F07_JC_cleaned.ab1      | Staphylococcus epidermidis strain LY-2 16S ribosomal RNA gene, partial sequence                     | 99.82%           | 100%        | MH930441.1 | 0.0     |
+| JC_1F_27f_A07_JC_cleaned_mixed.ab1 | *Staphylococcus epidermidis* strain IBK-11 16S ribosomal RNA gene, partial sequence                   | 99.53%           | 100%        | MN428237.1 | 0.0     |
+| JC_2F_27f_B07_JC_cleaned_mixed.ab1 | *Staphylococcus hominis* subsp. novobiosepticus strain IBK-7 16S ribosomal RNA gene, partial sequence | 99.39%           | 100%        | MN428234.1 | 0.0     |
+| JC_3F_27f_C07_JC_cleaned.ab1       | *Bacillus subtilis* strain SR3-30 16S ribosomal RNA gene, partial sequence                            | 99.53%           | 100%        | MN421487.1 | 0.0     |
+| JC_5F_27f_D07_JC_cleaned.ab1       | *Bacillus subtilis* strain SR3-30 16S ribosomal RNA gene, partial sequence                            | 98.82%           | 100%        | MN421487.1 | 0.0     |
+| JC_6Fp_27f_F07_JC_cleaned.ab1      | *Staphylococcus epidermidis* strain LY-2 16S ribosomal RNA gene, partial sequence                     | 99.82%           | 100%        | MH930441.1 | 0.0     |
 
 **Table 5:** Table of nucleotide BLAST results of edited sequences.
 
