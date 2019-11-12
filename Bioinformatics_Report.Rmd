@@ -8,6 +8,7 @@ bibliography: references.bib
 ---
 
 ```{r setup, include = FALSE}
+# load packages for analysis
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
 
