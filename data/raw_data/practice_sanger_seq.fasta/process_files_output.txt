@@ -1,0 +1,37 @@
+Hello World
+This is your script speaking
+Starting for loop...
+2019_10_23_file1.txt
+2019_10_23_file2.txt
+2019_10_23_file3.txt
+process_files_output.txt
+Number is 1
+The pause is done, moving to the next loop
+----------
+Number is 2
+The pause is done, moving to the next loop
+----------
+Number is 3
+The pause is done, moving to the next loop
+----------
+Number is 4
+The pause is done, moving to the next loop
+----------
+Number is 5
+The pause is done, moving to the next loop
+----------
+Number is 6
+The pause is done, moving to the next loop
+----------
+Number is 7
+The pause is done, moving to the next loop
+----------
+Number is 8
+The pause is done, moving to the next loop
+----------
+Number is 9
+The pause is done, moving to the next loop
+----------
+Number is 10
+The pause is done, moving to the next loop
+----------
