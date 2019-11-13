@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # run blast against the local database to find the top match for each of the
 # sequences in your SUBSAMPLED fastq files
 # options and what they're for:
@@ -10,6 +12,10 @@
 # -negative_gilist tells BLAST which sequences to exclude from matches
 # This cuts down on the number of uncultured or environmental matches
 # -query is the fasta file of sequences we want to search for matches to blast
+
+# Jacinda Chen
+# November 11, 2019
+# jrchen@dons.usfca.edu
 
 for file in /data/my-illumina-sequences/trimmed-fasta/JC*.fasta
 do
