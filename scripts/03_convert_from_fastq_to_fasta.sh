@@ -11,7 +11,7 @@
 
 for fastqfile in /data/my-illumina-sequences/trimmed/JC*.fastq
 do
-	echo Now converting $fastqfile to fasta file
-	bioawk -c fastx '{print ">"$name"\n"$seq}' $fastqfile > /data/my-illumina-sequences/trimmed-fasta/$(basename -s .trim.fastq $fastqfile).trim.fasta
+	echo Now converting "$fastqfile" to fasta file
+	bioawk -c fastx '{print ">"$name"\n"$seq}' "$fastqfile" > /data/my-illumina-sequences/trimmed-fasta/"$(basename -s .trim.fastq "$fastqfile")".trim.fasta
 	echo Done
 done
