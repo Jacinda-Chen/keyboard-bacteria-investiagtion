@@ -1,5 +1,5 @@
 ---
-title: 'The Comparison of Bacteria on Individual versus Communal PC Keyboards'
+title: 'The Increased Number of Bacteria on Communal Keyboards Compared to Individual Keyboards'
 author: "Jacinda Chen"
 date: "October 16, 2019"
 output: word_document
@@ -202,7 +202,7 @@ The original filename of my sequences came from the Sanger sequencing. The unusa
 
 ### BLAST Table
 
-For the trimmed sequence of 1F, Staphylococcus epidermidis was found to be the closest match using BLAST; the percent identification is 99.53%, the query cover is 100%, and the E-value is 0.0. The same goes for the following trimmed sequences: Staphylococcus hominis subsp. novobiosepticus was matched with 2F; the percent identification is 99.39%,the query cover is 100%, and the e-value is 0.0. Bacillus subtilis was matched with 3F; the percent identification is 99.53%, the query cover is 100%, and the e-value is 0.0. Bacillus subtilis was matched with 5F; the percent identification is 98.82%, the query cover is 100%, and the e-value is 0.0.  Staphylococcus epidermidis was matched with 6Fp; the percent identification is 99.82%, the query cover is 100%, and the e-value is 0.0 (Table 5; Used BLAST to calculate the statistical significance between matched sequences).
+For the trimmed sequence of 1F, *Staphylococcus epidermidis* was found to be the closest match using BLAST; the percent identification is 99.53%, the query cover is 100%, and the E-value is 0.0. The same goes for the following trimmed sequences: *Staphylococcus hominis* subsp. novobiosepticus was matched with 2F; the percent identification is 99.39%,the query cover is 100%, and the e-value is 0.0. *Bacillus subtilis* was matched with 3F; the percent identification is 99.53%, the query cover is 100%, and the e-value is 0.0. *Bacillus subtilis* was matched with 5F; the percent identification is 98.82%, the query cover is 100%, and the e-value is 0.0.  *Staphylococcus epidermidis* was matched with 6Fp; the percent identification is 99.82%, the query cover is 100%, and the e-value is 0.0 (Table 5; Used BLAST to calculate the statistical significance between matched sequences).
 
 | BLAST filenames                    | Description                                                                                         | Percent Identity | Query cover | Accession  | E-Value |
 |------------------------------------|-----------------------------------------------------------------------------------------------------|------------------|-------------|------------|---------|
