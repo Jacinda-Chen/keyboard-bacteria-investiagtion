@@ -74,18 +74,18 @@ diamonds %>%
 
 diamonds %>%
   filter(cut == "Ideal") %>%
-  filter(price >10000) %>%
+  filter(price > 10000) %>%
   ggplot(aes(x = color,
-           y = price))+
+           y = price)) +
   geom_boxplot()
 
 # practice with facets
 
 diamonds %>%
   filter(cut == "Ideal") %>%
-  filter(price >10000) %>%
+  filter(price > 10000) %>%
   ggplot(aes(x = carat,
-             y = price))+
+             y = price)) +
   geom_boxplot() +
   facet_wrap(~color)
 
@@ -95,4 +95,3 @@ ggplot(data = diamonds,
        aes(x = clarity,
            fill = cut)) +
   geom_bar(position = "dodge")
-
