@@ -64,6 +64,3 @@ typeof(mixed_vector)
 
 # factors are categorical variables that are stored as integers behind the
 # scences
-
-
-       
