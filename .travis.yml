@@ -14,3 +14,4 @@ r_github_packages:
 script:
   - for file in $(find . -type f -name "*.sh"); do shellcheck $file; done;
   - R -f tests/render_rmds.R
+install: travis_wait 30 mvn install
