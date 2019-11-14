@@ -31,7 +31,7 @@ subset_of_vector <- my_vector[3:7]
 mixed_vector <- c("apple", 3, "two")
 
 # matrices sare 2 dimensions and have one type
-matrix(data = 1:9,nrow = 3, ncol = 3)
+matrix(data = 1:9, nrow = 3, ncol = 3)
 
 # matrices that won't give you error messages
 matrix(data = 1:3, nrow = 3, ncol = 3)
@@ -51,7 +51,6 @@ my_list[[1]] # returns just the thing itself with double syntax
 
 # more complex example of a list
 list(1:9, 3, "banana")
-
 
 # an example data frame that is already built into R-Studio
 iris
