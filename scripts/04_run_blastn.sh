@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # run blast against the local database to find the top match for each of the
 # sequences in your SUBSAMPLED fastq files
 # options and what they're for:
@@ -11,9 +13,13 @@
 # This cuts down on the number of uncultured or environmental matches
 # -query is the fasta file of sequences we want to search for matches to blast
 
+# Jacinda Chen
+# November 11, 2019
+# jrchen@dons.usfca.edu
+
 for file in /data/my-illumina-sequences/trimmed-fasta/JC*.fasta
 do
 	echo Now running BLAST against database for top match
-	blastn -db /blast-db/nt -num_threads 4 -outfmt '10 sscinames std' -out /data/my-illumina-sequences/blast_output/$(basename -s .trim.fasta $file).blast_results.csv -max_target_seqs 1 -negative_gilist /blast-db/2018-09-19_environmental_sequence.gi -query $file
+	blastn -db /blast-db/nt -num_threads 4 -outfmt '10 sscinames std' -out /data/my-illumina-sequences/blast_output/"$(basename -s .trim.fasta "$file")".blast_results.csv -max_target_seqs 1 -negative_gilist /blast-db/2018-09-19_environmental_sequence.gi -query "$file"
 	echo Done
 done
