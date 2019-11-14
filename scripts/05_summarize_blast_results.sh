@@ -13,3 +13,12 @@ do
 	cut -d, -f1 "$blast" | sort | uniq -c | sort -n
 	echo Done
 done
+
+echo Now for the controls...
+
+for blast2 in /data/my-illumina-sequences/blast_output/control*.csv
+do
+	echo Now sorting "$blast2"
+	cut -d, -f1 "$blast2" | sort | uniq -c | sort -n
+	echo Done
+done
