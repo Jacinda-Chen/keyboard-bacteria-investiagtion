@@ -50,6 +50,7 @@ For one reaction, I put 10 µL of Amp, 0.8 µL of 27f primer, 0.8 µL of 1492r p
 
 ## PCR for Culture-Free Key "A" Series
 
+Following electrophoresis, PCR products were purified using AmpureXP magnetic beads and quantitated using a PicoGreen fluorescent assay on a Tecan Infinite M Plex plate reader. Purified PCR products were used as the template for a second round of PCR, which served to attach the Illumina barcodes and adapters. INSERT PCR CYCLES HERE. Following this amplification, PCR products were purified and normalized with a SequelPrep normalization plate, pooled, and then quantified once again with a Qubit 4 fluorometer (Invitrogen) and a TapeStation 4200 (Agilent) to verify library size and concentration. This library was then combined with an Illumina PhiX spike-in library (5% spike in) and sequenced on an Illumina iSeq using a 2 x 150 bp consumable cartridge.
 
 ## Analysis
 
