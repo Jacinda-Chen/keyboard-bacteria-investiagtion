@@ -16,6 +16,15 @@ do
 	echo Done
 done
 
+echo Check for negative control contaminants...
+
+for blast5 in /data/my-illumina-sequences/blast_output/JC*.csv
+do
+	echo Now sorting "$blast5"
+	cut -d, -f1 "$blast5" | sort | uniq -c | sort -n | grep "coli"
+	echo Done
+done
+
 echo Try to match up to cultured BLAST data for 1A...
 
 cut -d, -f1 /data/my-illumina-sequences/blast_output/JC-1A*.csv | sort | uniq -c | sort -n | grep "Staphylococcus epidermidis"
