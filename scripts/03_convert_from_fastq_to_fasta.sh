@@ -3,6 +3,7 @@
 # convert to fasta for BLAST
 # you need to modify this to save the converted fasta file to a file
 # instead of printing to the screen
+# create a new directory with trimmed fasta files
 # you'll need to turn this into a for loop too
 
 # Jacinda Chen
