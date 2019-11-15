@@ -7,12 +7,34 @@
 # November 11, 2019
 # jrchen@dons.usfca.edu
 
+echo Count the number of species...
+
 for blast in /data/my-illumina-sequences/blast_output/JC*.csv
 do
 	echo Now sorting "$blast"
-	cut -d, -f1 "$blast" | sort | uniq -c | sort -n | tail -15
+	cut -d, -f1 "$blast" | sort | uniq -c | sort -n | wc -l
 	echo Done
 done
+
+echo Try to match up to cultured BLAST data for 1A...
+
+cut -d, -f1 /data/my-illumina-sequences/blast_output/JC-1A*.csv | sort | uniq -c | sort -n | grep "Staphylococcus epidermidis"
+
+echo 2A...
+
+cut -d, -f1 /data/my-illumina-sequences/blast_output/JC-2A*.csv | sort | uniq -c | sort -n | grep "Staphylococcus hominis"
+
+echo 3A...
+
+cut -d, -f1 /data/my-illumina-sequences/blast_output/JC-3A*.csv | sort | uniq -c | sort -n | grep "Bacillus subtilis"
+
+echo 5A...
+
+cut -d, -f1 /data/my-illumina-sequences/blast_output/JC-5A*.csv | sort | uniq -c | sort -n | grep "Bacillus subtilis"
+
+echo 6A...
+
+cut -d, -f1 /data/my-illumina-sequences/blast_output/JC-6A*.csv | sort | uniq -c | sort -n | grep "Staphylococcus epidermidis"
 
 echo Now for the controls...
 
