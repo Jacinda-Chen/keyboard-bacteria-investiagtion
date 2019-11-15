@@ -305,6 +305,7 @@ culture_free_data %>%
   xlab("Sample Group") +
   ylab("Species Count")
 ```
+
 **Figure 7:** Boxplot showing the number of different species between Communal and Individual samples. The mean number of different species were not significantly different between sample groups (Table 9 Wilcox p = 0.7).
 
 ```{r species_count_stats}
@@ -315,6 +316,7 @@ culture_free_data %>%
   broom::glance(x = .) %>%
   knitr::kable()
 ```
+
 **Table 9:** The statistical (Wilcox) test to compare the number of different species between Communal and Individual computer keyboards.
 
 ### Finding BLAST species from Cultured Data in Culture-Free Data
