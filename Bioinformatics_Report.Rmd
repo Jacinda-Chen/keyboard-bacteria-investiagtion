@@ -50,7 +50,9 @@ For one reaction, I put 10 µL of Amp, 0.8 µL of 27f primer, 0.8 µL of 1492r p
 
 ## PCR for Culture-Free Key "A" Series
 
-Following electrophoresis, PCR products were purified using AmpureXP magnetic beads and quantitated using a PicoGreen fluorescent assay on a Tecan Infinite M Plex plate reader. Purified PCR products were used as the template for a second round of PCR, which served to attach the Illumina barcodes and adapters. INSERT PCR CYCLES HERE. Following this amplification, PCR products were purified and normalized with a SequelPrep normalization plate, pooled, and then quantified once again with a Qubit 4 fluorometer (Invitrogen) and a TapeStation 4200 (Agilent) to verify library size and concentration. This library was then combined with an Illumina PhiX spike-in library (5% spike in) and sequenced on an Illumina iSeq using a 2 x 150 bp consumable cartridge.
+For one reaction, I put 10 µL of Amp, 0.8 µL of iSeq 16S forward primer, 0.8 µL of iSeq 16S reverse primer, 1 µL BSA, and 6.4 µL of water. One µL of water was added for the negative control. PCR conditions were 95^o^ C for 30 seconds. Then, they were 95^o^ C for 30 seconds, 55^o^ C for 30 seconds, 72^o^ C for 30 seconds. These last three times were repeated for 25 cycles. After, they were 72^o^ C for 5 minutes then held at 4^o^ C. One µL of the sample and 199 µL of buffer were combined for the Qubit fluorometer, which was used to check the DNA concentration. The electrophoresis gel was made with 2% agarose, SYBR safe dye, 1x TAE buffer and was run at 140 V for 30 minutes. An Ez load 1 kb Molecular Ruler was added to the first and last wells of both lines of wells in the gel. In this gel, 4 µL of each product, including the negative control, was added. Successful amplications were checked using gel electrophoresis. 
+
+Following electrophoresis, PCR products were purified using AmpureXP magnetic beads and quantitated using a PicoGreen fluorescent assay on a Tecan Infinite M Plex plate reader. Purified PCR products were used as the template for a second round of PCR, which served to attach the Illumina barcodes and adapters. INSERT PCR CYCLES HERE. Following this amplification, PCR products were purified and normalized with a SequelPrep normalization plate, pooled, and then quantified once again with a Qubit 4 fluorometer (Invitrogen) and a TapeStation 4200 (Agilent) to verify library size and concentration. This library was then combined with an Illumina PhiX spike-in library (5% spike in) and sequenced on an Illumina iSeq using a 2 x 150 bp consumable cartridge. Positive (ZymoBIOMICS Microbial Community DNA standard) and negative controls (sterile molecular grade reagent water) were added to the Illumina iSeq.
 
 ## Analysis
 
@@ -60,7 +62,7 @@ My first task was to assess whether or not the sequences were usable. I used Gen
 
 ### Bash
 
-INSERT STUFF
+I ran fastqc on the unzipped Illumina sequence files in order to check the sequence quality for each sample. Then, trimmomatic was run in order to trim low quality sequences or throw out bad sequences (SLIDINGWINDOW:8:25 MINLEN: 140). Bioawk was used to convert fastqc files into fasta files, the format required for BLAST. I ran BLAST against the local database to find the closest matched sequence for every sequence in my fasta files. 
 
 ### R Studio
 
@@ -245,7 +247,7 @@ culture_free_data <- read_csv(
 
 ### Qubit DNA extraction
 
-The measured Qubit numbers of the DNA extractions from the "A" key culture samples had a sufficient concentration of DNA in order to ensure that I had enough DNA to amplify in PCR, a later step. All of my samples showed that they had a sufficient amount of DNA from the Qubit numbers, which were all above 5 ng/µL (Table 3).
+The measured Qubit numbers of the DNA extractions from the "A" key culture samples had a sufficient concentration of DNA in order to ensure that I had enough DNA to amplify in PCR, a later step. All of my samples showed that they had a sufficient amount of DNA from the Qubit numbers, which were all above 5 ng/µL (Table 6).
 
 | Sample | Qubit Number Range (ng/µL) |
 |--------|----------------------------|
@@ -258,7 +260,25 @@ The measured Qubit numbers of the DNA extractions from the "A" key culture sampl
 
 **Table 6:** Table of Qubit DNA extraction samples of Key "A" series (culture-free).
 
+### Qubit Right Before Gel Electrophoresis
+
+The measured Qubit numbers of the "A" key samples right before gel electrophoresis had sufficient concentrations of DNA in order to ensure I had enough DNA to amplify in another PCR step (Table 7).
+
+| Sample       | Qubit Number Range (ng/µL) |
+|--------------|----------------------------|
+| 1A           | 4.00                       |
+| 2A           | 4.56                       |
+| 3A           | 4.54                       |
+| 4A           | 4.74                       |
+| 5A           | 4.58                       |
+| 6A           | 4.14                       |
+| Neg. Control | 3.62                       |
+
+**Table 7:** Table of Qubit samples of Key "A" series (culture-free) right before gel electrophoresis.
+
 ### Trimmed Sequences
+
+Based on the fastqc reports, the sequence quality of my samples were very good and did not require much trimming. All of the unusable nucleotides were trimmed with Trimmomatic, leaving the entirety of my samples surviving with over 92% of the sequence intact (Table 8).
 
 | Sample | Surviving % | Dropped % |
 |--------|-------------|-----------|
@@ -269,7 +289,7 @@ The measured Qubit numbers of the DNA extractions from the "A" key culture sampl
 | 5A     | 95.58       | 4.42      |
 | 6A     | 95.01       | 4.99      |
 
-**Table 7:** Table of the percentage of surviving and dropped sequences for all six samples after trimming.
+**Table 8:** Table of the percentage of surviving and dropped sequences for all six samples after trimming.
 
 ### Number of Species per Sample
 
@@ -295,7 +315,7 @@ culture_free_data %>%
   broom::glance(x = .) %>%
   knitr::kable()
 ```
-**Table 8:** The statistical (Wilcox) test to compare the number of different species between Communal and Individual computer keyboards.
+**Table 9:** The statistical (Wilcox) test to compare the number of different species between Communal and Individual computer keyboards.
 
 ### Finding BLAST species from Cultured Data in Culture-Free Data
 
@@ -310,7 +330,7 @@ I discovered that the majority of the Cultured BLAST species were found in the C
 | 5A     | *Bacillus subtilis*          | Found              |
 | 6A     | *Staphylococcus epidermidis* | Found              |
 
-**Table 9:** Table matching the species in the Cultured BLAST to the Culture-Free BLAST data.
+**Table 10:** Table matching the species in the Cultured BLAST to the Culture-Free BLAST data.
 
 ### BLAST Table for Control Samples
 
@@ -327,7 +347,7 @@ It was found that the most abundant and the second most abundant species found f
 | Negative Control 3       | *Acinetobacter tandoii*                               | *Escherichia coli*             |
 | Negative Control 4       | *Acinetobacter tandoii*                               | *Haemophilus parainfluenzae*   |
 
-**Table 10:** BLAST Table of the most abundant and second-most abundant species in the positive and negative controls.
+**Table 11:** BLAST Table of the most abundant and second-most abundant species in the positive and negative controls.
 
 # Discussion
 
