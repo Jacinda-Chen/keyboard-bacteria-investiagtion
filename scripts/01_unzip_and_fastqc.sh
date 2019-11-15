@@ -17,4 +17,4 @@ gunzip /data/my-illumina-sequences/unzipped/*
 
 # run fastqc and put output into output folder
 echo Running fastqc
-fastqc /data/my-illumina-sequences/unzipped/*.fastq --outdir=output/fastqc-results
+fastqc /data/my-illumina-sequences/unzipped/*.fastq --outdir=/home/Jacinda-Chen-bioinformatics-project/output/fastqc-results
