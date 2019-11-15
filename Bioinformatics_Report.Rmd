@@ -305,7 +305,7 @@ culture_free_data %>%
   xlab("Sample Group") +
   ylab("Species Count")
 ```
-**Figure 7:** Boxplot showing the number of different species between Communal and Individual samples. The mean number of different species were not significantly different between sample groups (Wilcox p = 0.7).
+**Figure 7:** Boxplot showing the number of different species between Communal and Individual samples. The mean number of different species were not significantly different between sample groups (Table 9 Wilcox p = 0.7).
 
 ```{r species_count_stats}
 # run a statistical test to compare the two groups of species numbers
@@ -319,7 +319,7 @@ culture_free_data %>%
 
 ### Finding BLAST species from Cultured Data in Culture-Free Data
 
-I discovered that the majority of the Cultured BLAST species were found in the Culture-Free BLAST results. *Staphylococcus hominis* was the only species that was not found in the Culture-Free BLAST results for Sample 2A. Since no culture was grown for Sample 4A, there was nothing to compare with the Culture-Free BLAST results.
+I discovered that the majority of the Cultured BLAST species were found in the Culture-Free BLAST results. *Staphylococcus hominis* was the only species that was not found in the Culture-Free BLAST results for Sample 2A (Table 10). Since no culture was grown for Sample 4A, there was nothing to compare with the Culture-Free BLAST results (Table 10).
 
 | Sample | Cultured BLAST             | Culture-Free BLAST |
 |--------|----------------------------|--------------------|
@@ -334,7 +334,7 @@ I discovered that the majority of the Cultured BLAST species were found in the C
 
 ### BLAST Table for Control Samples
 
-It was found that the most abundant and the second most abundant species found for the positive controls were all the same: *Salmonella enterica* subsp. *enterica serovar Indiana* and *Listeria monocytogenes* (Table 10). The negative controls obtained a variety of the second most abundant species (Table 10).
+It was found that the most abundant and the second most abundant species found for the positive controls were all the same: *Salmonella enterica* subsp. *enterica serovar Indiana* and *Listeria monocytogenes* (Table 11). The negative controls obtained a variety of the second most abundant species (Table 11).
 
 | Sample Groups            | Most Abundant Species                               | Second Most Abundant Species |
 |--------------------------|-----------------------------------------------------|------------------------------|
@@ -347,7 +347,7 @@ It was found that the most abundant and the second most abundant species found f
 | Negative Control 3       | *Acinetobacter tandoii*                               | *Escherichia coli*             |
 | Negative Control 4       | *Acinetobacter tandoii*                               | *Haemophilus parainfluenzae*   |
 
-**Table 11:** BLAST Table of the most abundant and second-most abundant species in the positive and negative controls.
+**Table 11:** BLAST Table of the most abundant and second-most abundant species in the positive (from ZymoBIOMICS Microbial Community DNA standard) and negative controls (sterile molecular grade reagent water).
 
 # Discussion
 
@@ -363,6 +363,10 @@ The only TSA plate group of 1x, 10x, and 100x that did not have any cultures gro
 
 The PCR strip tubes were put in the machine for 95^o^ C for 5 minutes. Then, they were put in the machine for 94^o^ C for 30 seconds, 65^o^ C for 30 seconds, and 72^o^ C for 1 minute. These last three cycles were repeated for ten additional cycles, where the temperature was decreased by one degree per cycle. Touchdown PCR was used in order to increase selectivity so that higher quality attractions would click together in the beginning [@korbie2008touchdown]. The purpose of starting at a higher temperature was to be more selective at the first round of 65^o^ C with the copies of the best match. As the temperature decreased by one degree, it created matches and copies preferentially of the already selective primer rather than the original strand. Also, if I had accidentally put two colonies instead of one, one colony would most likely be a better match to the primer, then the primer would preferentially amplify that one.
 
+## PCR for Key "A" Series
+
+The PCR for the culture-free samples was not a touchdown and was only half the time of the cultured samples. This was because there is nothing distinguishing the samples because all have the same primer; there was no need to be selective.
+
 ## Gel Electrophoresis
 
 For the gel electrophoresis, buffer was used instead of water because nothing would happen with water while buffer is able to conduct a high level of current. Agarose gel was used rather than polyacrylamide because agarose is less dense and gives DNA more space to stretch out. The master mix contained glycerol, which made my sample more dense than water, causing it to sink at the bottom of the well in the gel instead of mixing with water in the gel.  There were ladders in the first and last wells of each of the two lines of wells in order for them to act as standards (a bunch of fragments of DNA at known lengths). The ladders act as the positive control from the cyber working. If the electrophoresis and the cyber works, then the known lengths of DNA fragments should be seen. The ladder looks more grouped together above 3 kb because the gel only ran for 30 minutes. There were bright bands shown for 1F, 2F, 3F, 5F, and 6Fp at 1-2 kb, a faint band for 6Fo at 1-2 kb, and no band for the negative control (Figure 4). There were no bands for the negative control because there is no DNA in there, which was what I would expect to see. There was a strange brightness above the bright band possibly because tandem repeats of the ribosome were made due to their importance. In order to fix this problem in future projects, I could change the restriction enzyme, drop the number of cycles (however faint bands would most likely not show at all), or shorten the extension time (to give taq polymerase less time to copy). The fluorescence around 30 kb was due to the gel having auto-fluorescence and was not due to the DNA.
@@ -374,6 +378,10 @@ The sequence 6Fo was not usable possibly either because there the DNA was low qu
 ## Sequence Relationships
 
 The matched BLAST sequences were matched with *Staphylococcus epidermidis*, 2F was *Staphylococcus hominis*, 3F was *Bacillus subtilis*, 5F was *Bacillus subtilis*, and 6Fp was *Staphylococcus epidermidis* (Table 5). This was similar to previously identified bacteria in preceding research set up in the same university conditions [@anderson2009microbial]. The trimmed sequence of 1F was not included in the phylogenies because it was too low quality for an accurate phylogeny. The phylogenetic results using the trimmed sequences of 2F, 3F, 5F, and 6Fp matched with my BLAST results. In both phylogenies, *Thermus aquaticus* was used as the outgroup, from the domain Archaea. Since the bacteria I cultured were unknown, I needed to use the domain Archaea as the outgroup, which had the closest relation to the domain Bacteria. In the Maximum Likelihood Phylogeny, sequences 6Fp and 2F were grouped together in a monophyletic clade with a 85 bootstrap support value, while sequences 3F and 5F were grouped together in another monophyletic clade with a 100 bootstrap support value, which agreed with the separation of genera *Staphylococcus* and *Bacillus* from the BLAST table (Figure 5; Table 5). The Bayesian Phylogeny agreed with the Maximum Likelihood Phylogeny and the BLAST table, resulting with the same groupings (Figure 6). 
+
+I expected the cultured BLAST species to be found in the Illumina culture-free BLAST species because Illumina sequencing amplifies everything while Sanger sequencing only amplified one cultured colony. However, that was not the case (Table 10). Some reasons as to why this happened could be because I sampled the "F" key for Sanger sequencing and the "A" key for Illumina sequencing, which are not correlated with each other besides being on the left side of the keyboard. For future follow-up experiments, I could either sample two keys that are both vowels (and therefore heavily used) or the "F" and "J" keys, which are both finger placeholders.
+
+Another odd circumstance that occured was that the negative controls contained bacteria such as *E. coli* and *Haemophilus parainfluenzae*, which are contaminants and unexpected in supposedly sterile molecular grade reagent water. Since there the negative control produced a positive result, a confounding varaible was involved. However, neither *E. coli* or *Haemophilus parainfluenzae* were found in the BLAST samples of my sequences. Illumina sequencing and BLAST of the positive controls worked because the positive controls contained the expected bacteria (Table 10).
 
 I did not find support for my hypothesis as there was no difference between the number of bacterial species between Communal or Individual computer keyboards. Sequences 6Fp and 2F were from the genus *Staphylococcus*, yet 6Fp was from an Individual Student's computer keyboard while 2F was from a shared computer keyboard (Table 5, Figure 5, Figure 6). Sequences 3F and 5F were from the genus *Bacillus*, yet 3F was from a shared computer keyboard while 5F was from an Individual Student's computer keyboard (Table 5, Figure 5, Figure 6). Furthermore, from the culture-free data, I found that there was no significant difference between the number of species between communal and individual sample groups (Table 8 Wilcox p = 0.7). I did, however, find that there was a significant difference in colony abundance on communal keyboards over individual keyboards (Table 1 Wilcox p = 0.02). 
 
