@@ -18,27 +18,31 @@ Computers have become an essential part of college life as a result of the incre
 
 Even though different institutions and people can have various methods of cleaning keyboards, without a regular and frequent keyboard cleaning, bacteria is free to grow. The longer that keyboards are not cleaned, the higher the chance that users of the keyboards will contract diseases from the microorganism or transmit the microorganism elsewhere. The microorganisms with resistances to most antibiotics or disinfectants are growing steadily and exponentially, which allows a growing amount of microorganisms to have longer lifespans on keyboards. Because of this, patients with compromised immune systems, like burn victims, no longer have the assurance of antibiotics fully curing them. Most of the bacteria that plague burn victims or other immunosuppressed patients are gram-negative bacteria, which survive significantly longer on hard surfaces (such as polyurethane, or computer keyboard covers) and humid conditions [@neely2000survey]. A longer lifespan gives microorganisms more time to transmit and spread to other places where they have more time to replicate, mutate, and increase survival chances [@eltablawy2009microbial]. Food crumbs, soda residues, and more food residues help millions of bacteria grow. All of the sampled keyboards were positive for microorganism growth [@eltablawy2009microbial]. The environmental surface at which bacteria grow on largely affects their survival times.
 
-My hypothesis is that the keyboards of shared computers have more microbacterial species than individual keyboards because of the increased number of people (students, faculty, staff, etc.) that have access to the keyboard. I collected three bacterial samples from three different individual laptops on the "F" key from students from USF (University of San Francisco) and three other samples from three public spaces on campus, also on the "F" key. These bacteria were diluted then grown in cultures with their dilutions, where DNA was extracted from them. Touchdown PCR was done along with Sanger sequencing, whose results I analyzed with Geneious Prime and R Studio. My primary findings for the culture data was a significant difference in the number of bacterial colonies between Communal and Individual computer keyboards. For the molecular data, it was important that the BLAST table agreed with the Maximum Likelihood Phylogeny and the Bayesian Phylogeny in which samples were more closely related. 
+My hypothesis is that the keyboards of shared computers have more microbacterial species than individual keyboards because of the increased number of people (students, faculty, staff, etc.) that have access to the keyboard. I collected bacterial samples from three different individual laptops on the "F" key and "A" key from students from USF (University of San Francisco) and three other samples from three public spaces on campus, also on the same keys. The bacteria from the "F" key samples were diluted then grown in cultures with their dilutions, where DNA was extracted from them. DNA was extracted directly from the "A" key samples. Touchdown PCR was done along with Sanger sequencing for the "F" key samples, whose results I analyzed with Geneious Prime and R Studio. Amplicon and Index PCR was done along with Illumina sequencing for the "A" key samples, whose results I analyzed with Bash. My primary findings for the cultured data was a significant difference in the number of bacterial colonies between Communal and Individual computer keyboards. For the molecular data, it was important that the BLAST table agreed with the Maximum Likelihood Phylogeny and the Bayesian Phylogeny in which samples were more closely related. From the culture-free data, I found that there was no significant different between the number of species between communal and individual sample groups *INSERT STUFF*.
 
 # Methods
 
 ## Study design
 
-I planned to look at the number of bacteria species on laptop keyboards of individual University of San Francisco students versus the bacteria found on shared computers. I sampled the "F" key for three different individual USF students, as well as the keyboards of three different shared computers on the main campus of USF (Toler Hall, University Center, and Gleeson Library). My primary question was whether or not the keyboards of individual USF college students' laptops from the Bioinformatics class have more or less microbacterial species compared to shared computers on campus from the library, the UC and Toler Hall. 
+I planned to look at the number of bacteria species on laptop keyboards of individual University of San Francisco students versus the bacteria found on shared computers. I sampled the "F" key and "A" key for three different individual USF students, as well as the keyboards of three different shared computers on the main campus of USF (Toler Hall, University Center, and Gleeson Library). My primary question was whether or not the keyboards of individual USF college students' laptops from the Bioinformatics class have a greater variety of microbacterial species compared to shared computers on campus from the library, the UC and Toler Hall. 
 
 I collected bacteria, diluted the samples, plated the samples on TSA plates, extracted DNA from the samples, did touchdown PCR, gel electrophoresis, and Sanger sequencing. These results were analyzed with Geneious Prime and R Studio.
 
 ## Bacterial Collection and Dilution
 
-The surface samples were collected during the lab section of an upper division Bioinformatics class on September 3rd, 2019. In total, six tubes were collected. For each location, the "F" key on the keyboard was swabbed. Each sterile swab was dipped in sterile PBS (Phosphate Buffer Saline at pH 7.4) to moisten, then wrung of excess PBS against the side of the tube. I swabbed each surface for 15 seconds. The tip of the swab was broken off into a labelled eppendorf with initials, date,and an unique sample ID. All swab samples were gathered on the "F" key, then put into labelled eppendorfs. I gathered samples on the first floor of Toler Hall (the shared computer at the front desk), the fourth floor of the University Center (in the graphics center on a shared computer), and the first floor of Gleeson Library (on a shared computer). Subsequently, inside the Bioinformatics class, I gathered samples from three different laptops from three different students (Student A, Student B, and Student C) in the same way for the "F" key. The dilution series was done with the "F" key group. I put 200 µL of PBS into the six eppendorfs with swabs in order to do 1:10 dilutions and 1:100 dilutions. Since the type of bacteria was unknown nor how it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in.
+The surface samples were collected during the lab section of an upper division Bioinformatics class on September 3rd, 2019. In total, twelve tubes were collected. For each location, the "F" key and the "A" key on the keyboard were swabbed. Each sterile swab was dipped in sterile PBS (Phosphate Buffer Saline at pH 7.4) to moisten, then wrung of excess PBS against the side of the tube. I swabbed each surface for 15 seconds. The tip of the swab was broken off into a labelled eppendorf with initials, date,and an unique sample ID. I gathered samples on the first floor of Toler Hall (the shared computer at the front desk), the fourth floor of the University Center (in the graphics center on a shared computer), and the first floor of Gleeson Library (on a shared computer). Subsequently, inside the Bioinformatics class, I gathered samples from three different laptops owned by three different students (Student A, Student B, and Student C) in the same way as the three previous places. The "A" key group was placed in the freezer at -20^o^ Celsius.
 
 ## Plating "F" Key Group
 
-I used 18 100 mm TSA (Tryptic soy agar) plates for plating samples from each of my 2 treatments (n = 3 per group, 6 total). I put 100 µL of an eppendorf from the undiluted series onto a TSA plate and used sterile rattler Plating Beads (5 mm) to spread the medium evenly across the TSA plate. I repeated this step for the other five eppendorfs from the undiluted series, the six eppendorfs from the 1:10 dilution series, as well as six eppendorfs from the 1:100 dilution series. These 18 TSA plates were then incubated at 37^o^ Celsius for a week.
+A dilution series was done with the "F" key group. I put 200 µL of PBS into the six eppendorfs with swabs in order to do 1:10 dilutions and 1:100 dilutions. Since the type of bacteria was unknown nor how it would grow, it was necessary to dilute the samples in order to maximize the number of environments that the bacteria could possibly grow in. I used 18 100 mm TSA (Tryptic soy agar) plates for plating samples from each of my 2 treatments (n = 3 per group, 6 total). I put 100 µL of an eppendorf from the undiluted series onto a TSA plate and used sterile rattler Plating Beads (5 mm) to spread the medium evenly across the TSA plate. I repeated this step for the other five eppendorfs from the undiluted series, the six eppendorfs from the 1:10 dilution series, as well as six eppendorfs from the 1:100 dilution series. These 18 TSA plates were then incubated at 37^o^ Celsius for a week.
 
-## DNA Extraction
+## Cultured DNA Extraction
 
 I followed the manufacturer's protocol from the Sigma REDExtract-N-Amp kit [@weberextract]. I labelled a 1.5 mL tube for each sample and added cells from one colony to the tube using a sterile pipette tip to gently scrape off one colony (not pipetting). One colony was chosen each from the TSA plate of the undiluted sample from Toler Hall, the University Center, Gleeson library, and Student B. Two colonies were chosen from the TSA plate of the undiluted sample from Student C. During DNA extraction, the caustic extraction solution broke down cell walls and the incubation at 95^o^ Celsius was to break membranes. Dilution solution was added to stop the extraction solution from digesting DNA too. The dilution solution was added in 16 minutes from when the extraction solution was first added, which was under twenty minute mark when the extraction solution would have started to break down the DNA as well. Qubit fluorometer was used to measure the concentration of DNA. Qubit samples were incubated in the dark because the Qubit machine is sensitive to the light.
+
+## Culture-Free DNA Extraction
+
+I followed the manufacturer's protocal from the Sigma REDExtract-N-Amp kit [@weberextract]. Extraction solution and dilution solution was added directly into the tube with the swabs from the "A" key. A Qubit fluorometer was used to measure the concentration of DNA.
 
 ## Touchdown PCR for Cultured "F" key series
 
@@ -84,7 +88,7 @@ There was a higher number of colonies that was present on Communal computer keyb
 
 ### Colony Abundance 
 
-The colony abundances from the Communal computers had larger number of colonies compared to the Individual computers, which is shown by the maximum number of colonies observed in the Individual computers remaining smaller than the minimum of the colony abundances from the Communal computers (Figure 1). I also observed a bigger range of larger values for the colony abundances of Communal computers where the minimum and maximum number of colony abundances had a difference of around eight, whereas the differences between the minimum and maximum number of colony abundances for Individual computers was about one. The colony abundance for Individual computers had a singular abnormally abundant colony depicted by the outlier, just under the 2.5 number of colonies mark.  
+The colony abundances from the Communal computers had larger number of colonies compared to the Individual computers, which is shown by the maximum number of colonies observed in the Individual computers remaining smaller than the minimum of the colony abundances from the Communal computers (Figure 1). I also observed a bigger range of larger values for the colony abundances of Communal computers where the minimum and maximum number of colony abundances had a difference of around eight, whereas the differences between the minimum and maximum number of colony abundances for Individual computers was about one. The colony abundance for Individual computers had a singular abnormally abundant colony depicted by the outlier, just under the 2.5 number of colonies mark. A statistical (Wilcox) test was run to compare the number of colony abundances of Communal versus Individual computers at 1x dilution. The mean number of colonies between Communal and Individual computers were significantly different, with a p-value of 0.02 (Table 1; Statistical test for Colony Abundance).
 
 ```{r filter-and-plot-abundances}
 # filter out only my 1x dilutions and make a boxplot
@@ -102,10 +106,6 @@ culture_data %>%
 
 **Figure 1:** Boxplot of colony abundances at Communal versus Individual computers, 1x dilution. There was a higher median number of colonies from Communal Computer samples, and the mean number of colonies were significantly different between the two sites (Wilcox p = 0.02104).
 
-### Statistical (Wilcox) test for above Colony Abundance
-
-A statistical (Wilcox) test was run to compare the number of colony abundances of Communal versus Individual computers at 1x dilution. The mean number of colonies between Communal and Individual computers were significantly different, with a p-value of 0.02 (Table 1; Statistical test for Colony Abundance). 
-
 ```{r abundances-stats}
 # run a statistical test to compare the two groups of abundances
 culture_data %>%
@@ -121,7 +121,7 @@ culture_data %>%
 
 ### Morphotypes
 
-I made a boxplot showing the number of morphotypes in Communal versus Individual computer keyboards for 1x dilution (Figure 2). Both Communal and Individual computer keyboards had an outlier of two morphotypes. The Communal computer keyboards had a median, minimum, and maximum of one morphotype. Individual computer keyboards had a median and minimum of 0 morphotypes and a maximum of 0.75 morphotypes. 
+I made a boxplot showing the number of morphotypes in Communal versus Individual computer keyboards for 1x dilution (Figure 2). Both Communal and Individual computer keyboards had an outlier of two morphotypes. The Communal computer keyboards had a median, minimum, and maximum of one morphotype. Individual computer keyboards had a median and minimum of 0 morphotypes and a maximum of 0.75 morphotypes. The mean number of morphotypes between Communal and Individual computer keyboards were not significant with a p-value of 0.10 (Table 2; Statistical test on the number of morphotypes). This was the result of a statistical test to compare the number of morphotypes in Communal versus Individual computer. 
 
 ```{r filter-and-plot-morphotypes}
 # Comparison of morphotypes between Communal and Individual computer keyboards
@@ -138,10 +138,6 @@ culture_data %>%
 ```
 
 **Figure 2:** Boxplot showing the number of morphotypes between Communal and Individual computers, 1x dilution. The mean number of morphotypes were not significantly different between the communal and individual computers (Wilcox p = 0.09679).
-
-### Wilcox test for the number of morphotypes
-
-The mean number of morphotypes between Communal and Individual computer keyboards were not significant with a p-value of 0.10 (Table 2; Statistical test on the number of morphotypes). This was the result of a statistical test to compare the number of morphotypes in Communal versus Individual computer. 
 
 ```{r morphotype_stats}
 # run a statistical test to compare number of morphotypes between two groups
@@ -166,7 +162,7 @@ Two colonies were used from 6F (Figure 3). 3F and 5F both had a single colony gr
 
 ## Molecular Data
 
-### Table of Qubit DNA extraction samples of Key "F" series (cultured)
+### Qubit DNA extraction samples of Key "F" series (cultured)
 
 The measured Qubit numbers of the DNA extractions from the "F" key culture samples had a sufficient concentration of DNA in order to ensure that I had enough DNA to amplify in PCR, a later step. All of my samples showed that they had a sufficient amount of DNA from the Qubit numbers, which were all above 5 ng/µL (Table 3).
 
@@ -234,6 +230,92 @@ For the Bayesian Phylogeny, *Thermus aquaticus* was used as the outgroup. I foun
 ![](output/phylogenies/sanger_sequences_mrbayes_sorted_topologies_phylogeny_image.png)
 
 **Figure 6:** Bayesian Phylogeny with Mr. Bayes using *Thermus aquaticus* as an outgroup.
+
+```{r read-in-culture-free-data}
+# read in the culture-free data from csv
+culture_free_data <- read_csv(
+  "data/raw_data/raw_culture_free_count_data/BIOL422_culture_free_data.csv")
+```
+
+## Culture Free Molecular Data
+
+### Qubit DNA extraction samples of Key "A" series (culture-free)
+
+| Sample | Qubit Number Range (ng/µL) |
+|--------|----------------------------|
+| 1A     | 5.37                       |
+| 2A     | 6.73                       |
+| 3A     | 5.95                       |
+| 4A     | 6.50                       |
+| 5A     | 5.50                       |
+| 6A     | 5.96                       |
+
+INSERT TABLE 6
+
+### Illumina Sequence Quality
+
+| Sample | Surviving % | Dropped % |
+|--------|-------------|-----------|
+| 1A     | 95.16       | 4.84      |
+| 2A     | 95.54       | 4.46      |
+| 3A     | 95.43       | 4.57      |
+| 4A     | 92.90       | 7.10      |
+| 5A     | 95.58       | 4.42      |
+| 6A     | 95.01       | 4.99      |
+
+INSERT FIGURE 7
+
+### Number of Species per Sample
+
+```{r plot-number-of-species}
+# make a boxplot of the number of species per sample
+culture_free_data %>%
+  ggplot(aes(x = sample_group, y = number_of_species)) +
+  geom_boxplot() +
+  ggtitle(
+    "Comparison of the Number of Different Species Between Sample Groups") +
+  xlab("Sample Group") +
+  ylab("Species Count")
+```
+
+### Wilcox test for the Comparison of Species
+
+```{r abundances-stats}
+# run a statistical test to compare the two groups of species numbers
+culture_free_data %>%
+  wilcox.test(data = .,
+              number_of_species ~ sample_group) %>%
+  broom::glance(x = .) %>%
+  knitr::kable()
+```
+
+### Finding BLAST species from Cultured in Culture-Free Data
+
+| Sample | Cultured BLAST             | Culture-Free BLAST |
+|--------|----------------------------|--------------------|
+| 1A     | *Staphylococcus epidermidis* | Found              |
+| 2A     | *Staphylococcus hominis*     | Not Found          |
+| 3A     | *Bacillus subtilis*          | Found              |
+| 4A     | N/A                          | N/A                |
+| 5A     | *Bacillus subtilis*          | Found              |
+| 6A     | *Staphylococcus epidermidis* | Found              |
+
+INSERT TABLE 8
+
+### BLAST Table for Control Samples
+
+| Sample Groups            | Most Abundant Species                               | Second Most Abundant Species |
+|--------------------------|-----------------------------------------------------|------------------------------|
+| Positive Control (zymo1) | *Salmonella enterica* subsp. *enterica serovar Indiana* | *Listeria monocytogenes*       |
+| Positive Control (zymo2) | *Salmonella enterica* subsp. *enterica serovar Indiana* | *Listeria monocytogenes*       |
+| Positive Control (zymo3) | *Salmonella enterica* subsp. *enterica serovar Indiana* | *Listeria monocytogenes*       |
+| Positive Control (zymo4) | *Salmonella enterica* subsp. *enterica serovar Indiana* | *Listeria monocytogenes*       |
+| Negative Control 1       | *Acinetobacter tandoii*                               | *Escherichia coli*             |
+| Negative Control 2       | *Acinetobacter tandoii*                               | *Micrococcus* sp.              |
+| Negative Control 3       | *Acinetobacter tandoii*                               | *Escherichia coli*             |
+| Negative Control 4       | *Acinetobacter tandoii*                               | *Haemophilus parainfluenzae*   |
+
+INSERT TABLE 9
 
 # Discussion
 
