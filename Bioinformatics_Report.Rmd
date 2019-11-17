@@ -367,7 +367,7 @@ The PCR strip tubes were put in the machine for 95^o^ C for 5 minutes. Then, the
 
 ## PCR for Key "A" Series
 
-The PCR for the culture-free samples was not a touchdown and was only half the time of the cultured samples. This was because there is nothing distinguishing the samples because all have the same primer; there was no need to be selective.
+The PCR for the culture-free samples was not a touchdown and was only half the time of the cultured samples. This was because there was nothing distinguishing the samples since all sequences had the same primer; there was no need to be selective.
 
 ## Gel Electrophoresis
 
