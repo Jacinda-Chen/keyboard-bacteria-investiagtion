@@ -37,7 +37,7 @@ library("phyloseq")
 # Accessed October 19, 2017
 
 # set the base path for our input data files
-path <- "/data/raw_data"
+path <- "/data/my-illumina-sequences/unzipped"
 
 # Sort ensures samples are in order
 filenames_forward_reads <- sort(list.files(path, pattern = ".fastq"))
@@ -48,15 +48,19 @@ sample_names <- sapply(strsplit(filenames_forward_reads, "\\."), `[`, 1)
 # Specify the full path to each of the filenames_forward_reads
 filenames_forward_reads <- file.path(path, filenames_forward_reads)
 
-# Plots the quality profiles of first 6 samples
-plotQualityProfile(filenames_forward_reads[1:6])
+# Plots the quality profiles of first 14 samples
+# Average quality score and position across the read. As the read quality goes lower, it drops off.
+# However the green line stays high so it's super good quality.
+plotQualityProfile(filenames_forward_reads[1:14])
+
+# BEGINNING OF TRIMMOMATIC VERSION R
 
 # Place filtered files in filtered/ subdirectory
 # note this will fail if the directory doesn't exist
-filter_path <- file.path("output", "filtered")
+filter_path <- file.path("/home","Chen_Jacinda", "filtered")
 filtered_reads_path <- file.path(filter_path,
                                  paste0(sample_names,
-                                        "_filt.fastq.gz"))
+                                        "_filt.fastq"))
 
 # See ?filterAndTrim for details on the parameters
 # See here for adjustments for 454 data:
@@ -77,59 +81,83 @@ kable(filtered_output,
       col.names = c("Reads In",
                     "Reads Out"))
 
+# get paths of all files that made it through trimming
+filtered_reads_path <- list.files(filter_path, full.names = TRUE)
+
 # this build error models from each of the samples
 errors_forward_reads <- learnErrors(filtered_reads_path,
                                     multithread = TRUE)
 
 # quick check to see if error models match data
 # (black lines match black points) and are generally decresing left to right
+# JC: there's noise in the process. Can't assume every one of your sequences are accurate
+# fitting these models "black lines" to all of the different ways in which sequences switch
+# if everything in the same for all of the sequences but one G turns into a T, then it calculates
+# the error for that switch based on the quality of the base
+# looking for the black lines, as the x goes up (higer quality), error goes down
+# looks funny because most of our sequences were so high quality, this was meant to work
+# with dirtier data
 plotErrors(errors_forward_reads,
            nominalQ = TRUE)
 
 # get rid of any duplicated sequences
+# JC: creating a unique list of sequences ("I have this thing a thousand times")
 dereplicated_forward_reads <- derepFastq(filtered_reads_path,
                                          verbose = TRUE)
+
+# get names of all files that made it through trimming
+filenames_filtered_reads <- list.files(filter_path)
+
+# Extract sample names, assuming filenames have format: SAMPLENAME.fastq
+sample_names <- sapply(strsplit(filenames_filtered_reads, "\\."), `[`,1)
 
 # Name the derep-class objects by the sample names
 names(dereplicated_forward_reads) <- sample_names
 
 # run dada2 -- more info here:
 # https://benjjneb.github.io/dada2
+# JC: taking dereplicated reads and error model and create a "true" list of sequences
 dada_forward_reads <- dada(dereplicated_forward_reads,
-                           err = errors_forward_reads)
+                           err = errors_forward_reads,
+                           multithread = TRUE)
 
 # check dada results
+# JC: I only think that there are 110 different things in 5A
+# a lot of the diversity are just artifacts. Biological truth without copies.
 dada_forward_reads
 
 # produce the 'site by species matrix'
 sequence_table <- makeSequenceTable(dada_forward_reads)
 
 # Quick check to look at distribution of trimmed and denoised sequences
+# JC: looking for is that most of the things are appropriately long at 140 and 150 from left corner
+# low bp mean that it trimmed a lot
 hist(nchar(getSequences(sequence_table)),
      main = "Histogram of final sequence variant lengths",
      xlab = "Sequence length in bp")
 
 # Check for and remove chimeras
+# JC: look for PCR chimeras. Sometimes if a PCR sequence doesn't finish all the way
+# can get hybrid PCR that contains two templates. Major error. Can have half from Bacillus
+# and half from Streptococcus
 sequence_table_nochim <- removeBimeraDenovo(sequence_table,
                                             method = "consensus",
                                             multithread = TRUE,
                                             verbose = TRUE)
 
 # What percent of our reads are non-chimeric?
+# JC: 90.36% survived; good
 non_chimeric_reads <- round(sum(sequence_table_nochim) / sum(sequence_table),
                             digits = 4) * 100
 
 # Build a table showing how many sequences remain at each step of the pipeline
 get_n <- function(x) sum(getUniques(x)) # make a quick function
-track <- cbind(filtered_output, # already has 2 columns
-               sapply(dada_forward_reads, get_n),
+track <- cbind(sapply(dada_forward_reads, get_n),
                rowSums(sequence_table),
                rowSums(sequence_table_nochim))
 
 # add nice meaningful column names
-colnames(track) <- c("Input",
-                     "Filtered",
-                     "Denoised",
+colnames(track) <- c("Denoised",
                      "Sequence Table",
                      "Non-chimeric")
 
@@ -138,6 +166,10 @@ rownames(track) <- sample_names
 
 # produce nice markdown table of progress through the pipeline
 kable(track)
+
+# Remove any sequences shorter than 50 because can't assign their taxonomy
+sequence_table_nochim <-
+  sequence_table_nochim[, nchar(colnames(sequence_table_nochim)) > 50]
 
 # assigns taxonomy to each sequence variant based on a supplied training set
 # made up of known sequences
@@ -172,3 +204,7 @@ export_taxa_table_and_seqs <- function(sequence_table_nochim,
 export_taxa_table_and_seqs(sequence_table_nochim,
                            "output/sequence_variants_table.txt",
                            "output/sequence_variants_seqs.fa")
+
+# save necessary files from dada pipeline to use with phyloseq
+save(sequence_table_nochim, file = "output/dada-results/seqtable.Rda")
+save(taxa, file = "output/dada-results/taxatable.Rda")
