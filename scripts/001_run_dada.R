@@ -49,7 +49,8 @@ sample_names <- sapply(strsplit(filenames_forward_reads, "\\."), `[`, 1)
 filenames_forward_reads <- file.path(path, filenames_forward_reads)
 
 # Plots the quality profiles of first 14 samples
-# Average quality score and position across the read. As the read quality goes lower, it drops off.
+# Average quality score and position across the read. 
+# As the read quality goes lower, it drops off.
 # However the green line stays high so it's super good quality.
 plotQualityProfile(filenames_forward_reads[1:14])
 
@@ -57,7 +58,7 @@ plotQualityProfile(filenames_forward_reads[1:14])
 
 # Place filtered files in filtered/ subdirectory
 # note this will fail if the directory doesn't exist
-filter_path <- file.path("/home","Chen_Jacinda", "filtered")
+filter_path <- file.path("/home", "Chen_Jacinda", "filtered")
 filtered_reads_path <- file.path(filter_path,
                                  paste0(sample_names,
                                         "_filt.fastq"))
@@ -90,13 +91,15 @@ errors_forward_reads <- learnErrors(filtered_reads_path,
 
 # quick check to see if error models match data
 # (black lines match black points) and are generally decresing left to right
-# JC: there's noise in the process. Can't assume every one of your sequences are accurate
-# fitting these models "black lines" to all of the different ways in which sequences switch
-# if everything in the same for all of the sequences but one G turns into a T, then it calculates
-# the error for that switch based on the quality of the base
-# looking for the black lines, as the x goes up (higer quality), error goes down
-# looks funny because most of our sequences were so high quality, this was meant to work
-# with dirtier data
+# JC: there's noise in the process. Can't assume every one of your sequences
+# are accurate. Fitting these models "black lines" to all of the different
+# ways in which sequences switch if everything in the same for all of the
+# sequences but one G turns into a T, then it calculates the error for
+# that switch based on the quality of the base
+# looking for the black lines, as the x goes up (higer quality), error goes
+# down
+# looks funny because most of our sequences were so high quality, this was
+# meant to work with dirtier data
 plotErrors(errors_forward_reads,
            nominalQ = TRUE)
 
@@ -109,14 +112,15 @@ dereplicated_forward_reads <- derepFastq(filtered_reads_path,
 filenames_filtered_reads <- list.files(filter_path)
 
 # Extract sample names, assuming filenames have format: SAMPLENAME.fastq
-sample_names <- sapply(strsplit(filenames_filtered_reads, "\\."), `[`,1)
+sample_names <- sapply(strsplit(filenames_filtered_reads, "\\."), `[`, 1)
 
 # Name the derep-class objects by the sample names
 names(dereplicated_forward_reads) <- sample_names
 
 # run dada2 -- more info here:
 # https://benjjneb.github.io/dada2
-# JC: taking dereplicated reads and error model and create a "true" list of sequences
+# JC: taking dereplicated reads and error model and create a "true" list 
+# of sequences
 dada_forward_reads <- dada(dereplicated_forward_reads,
                            err = errors_forward_reads,
                            multithread = TRUE)
@@ -130,16 +134,17 @@ dada_forward_reads
 sequence_table <- makeSequenceTable(dada_forward_reads)
 
 # Quick check to look at distribution of trimmed and denoised sequences
-# JC: looking for is that most of the things are appropriately long at 140 and 150 from left corner
+# JC: looking for is that most of the things are appropriately long at 140
+# and 150 from left corner
 # low bp mean that it trimmed a lot
 hist(nchar(getSequences(sequence_table)),
      main = "Histogram of final sequence variant lengths",
      xlab = "Sequence length in bp")
 
 # Check for and remove chimeras
-# JC: look for PCR chimeras. Sometimes if a PCR sequence doesn't finish all the way
-# can get hybrid PCR that contains two templates. Major error. Can have half from Bacillus
-# and half from Streptococcus
+# JC: look for PCR chimeras. Sometimes if a PCR sequence doesn't finish
+# all the way can get hybrid PCR that contains two templates. Major error
+# Can have half from Bacillus and half from Streptococcus
 sequence_table_nochim <- removeBimeraDenovo(sequence_table,
                                             method = "consensus",
                                             multithread = TRUE,
