@@ -49,7 +49,7 @@ sample_names <- sapply(strsplit(filenames_forward_reads, "\\."), `[`, 1)
 filenames_forward_reads <- file.path(path, filenames_forward_reads)
 
 # Plots the quality profiles of first 14 samples
-# Average quality score and position across the read. 
+# Average quality score and position across the read.
 # As the read quality goes lower, it drops off.
 # However the green line stays high so it's super good quality.
 plotQualityProfile(filenames_forward_reads[1:14])
@@ -119,7 +119,7 @@ names(dereplicated_forward_reads) <- sample_names
 
 # run dada2 -- more info here:
 # https://benjjneb.github.io/dada2
-# JC: taking dereplicated reads and error model and create a "true" list 
+# JC: taking dereplicated reads and error model and create a "true" list
 # of sequences
 dada_forward_reads <- dada(dereplicated_forward_reads,
                            err = errors_forward_reads,
