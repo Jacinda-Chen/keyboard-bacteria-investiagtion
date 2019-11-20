@@ -13,6 +13,7 @@ library("knitr")
 library("ggplot2")
 library("lubridate")
 library("forcats")
+library("vegan")
 
 # These are the primary packages well use to clean and analyze the data
 # this package needs to be installed from bioconductor -- it's not on CRAN
@@ -25,6 +26,50 @@ library("phyloseq")
 
 # load in the saved phyloseq object to work with
 load("output/phyloseq_obj.Rda")
+
+# read in the otu table
+otu_table <- read.table("output/sequence_variants_table.txt",
+                        row.names = 1,
+                        header = TRUE)
+
+# convert the data frame to a matrix so that we can transpose it
+otu_table <- as.matrix(otu_table)
+
+# transpose the table so that samples are rows
+otu_table <- t(otu_table)
+
+# trim the row names
+rownames(otu_table) <- gsub(pattern = "_.*filt",
+                                        replacement = "",
+                                        rownames(otu_table))
+
+
+
+# shannon diversity numbers for each of the samples
+shannon_div <- diversity(otu_table, index = "shannon")
+
+# vector one: filter out JC samples
+jc_shannon_div <- shannon_div[grepl(pattern = "JC", names(shannon_div))]
+
+# vector two: create JC groups
+jc_group <- c(rep("Communal", 3), rep("Individual", 3))
+
+# combine vectors
+combined_shannon <- cbind(jc_group, as.numeric(jc_shannon_div))
+
+# wilcox p = 0.7
+wilcox.test(data = combined_shannon,
+            jc_shannon_div ~ jc_group)
+
+
+
+
+
+# New plot: rarefaction curve
+# as sample size increases, do you find additional new species
+# I feel confident that I completely sampled the communities in the samples
+# and the controls because all of the curves asymtoted.
+rarecurve(otu_table)
 
 ##########################################
 # Phyloseq-native analyses
