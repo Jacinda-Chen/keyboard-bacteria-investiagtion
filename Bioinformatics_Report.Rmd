@@ -401,7 +401,7 @@ rarecurve(otu_table)
 
 ### Using Phyloseq-native Analyses
 
-As a popular means to quantify composition, Shannon's index (which highlights the richness component of diversity) and Simpson's index (emphasizing the evenness component) work together to depict the response variation to changes in richness and evenness [@nagendra2002opposite]. In both Shannon's and Simpson's diversity values, the median alpha diversity measure for the samples were greater than the medians of the controls, meaning that my samples had greater richness and evenness in comparison to the positive and negative controls (Figure 9). The mean number of the alpha diversity measures were not significantly different between sample groups for Shannon and Simpson (Table 12 Wilcox p = 0.7; Table 13 Wilcox p = 0.7).
+As a popular means to quantify composition, Shannon's index (which highlights the richness component of diversity) and Simpson's index (emphasizing the evenness component) work together to depict the response variation to changes in richness and evenness [@nagendra2002opposite]. In both Shannon's and Simpson's diversity values, the median alpha diversity measure for the samples were greater than the medians of the controls, meaning that my samples had greater richness and evenness in comparison to the positive and negative controls (Figure 9). The mean number of the alpha diversity measures were not significantly different between sample groups for Shannon and Simpson (Table 12 Wilcox p = `r wilcox_simpson$p.value`; Table 13 Wilcox p = `r wilcox_simpson$p.value`).
 
 ```{r shannon-and-simpson-diversity-figure}
 # Using phyloseq-native anlayses to do alpha diversity metrics
@@ -414,7 +414,7 @@ plot_richness(phyloseq_obj,
   ggtitle("Diversity of Samples")
 ```
 
-**Figure 9:** Boxplot of Shannon alpha diversity metrics according to sample type. The mean number of the alpha diversity measures were not significantly different between sample groups for Shannon and Simpson (Table 12 Wilcox p = 0.7; Table 13 Wilcox p = 0.7).
+**Figure 9:** Boxplot of Shannon alpha diversity metrics according to sample type. The mean number of the alpha diversity measures were not significantly different between sample groups for Shannon and Simpson (Table 12 Wilcox p = `r wilcox_simpson$p.value`; Table 13 Wilcox p = `r wilcox_simpson$p.value`).
 
 ```{r Wilcox-test-using-shannon-diversity}
 # shannon diversity numbers for each of the samples
@@ -430,13 +430,11 @@ jc_group <- c(rep("Communal", 3), rep("Individual", 3))
 combined_shannon <- cbind(jc_group, as.numeric(jc_shannon_div))
 
 # wilcox p = 0.7
-wilcox.test(data = combined_shannon,
+wilcox_shannon <- wilcox.test(data = combined_shannon,
             jc_shannon_div ~ jc_group)
 ```
 
-**Table 12:** The statistical (Wilcox) test of Shannon's diversity to compare the richness component of diversity between Communal and Individual computer keyboards, positive controls, and negative controls.
-
-```{r Wilcox-test-using-simpson-diversity}
+```{r Wilcox-test-using-simpson-diversity, results = "hide"}
 # simpson diversity numbers for each of the samples
 simpson_div <- diversity(otu_table, index = "simpson")
 
@@ -450,11 +448,9 @@ jc_group_2 <- c(rep("Communal", 3), rep("Individual", 3))
 combined_simpson <- cbind(jc_group_2, as.numeric(jc_simpson_div))
 
 # wilcox p = 0.7
-wilcox.test(data = combined_simpson,
+wilcox_simpson <- wilcox.test(data = combined_simpson,
             jc_simpson_div ~ jc_group_2)
 ```
-
-**Table 13:** The statistical (Wilcox) test of Simpson's diversity to compare the evenness component of diversity between Communal and Individual computer keyboards, positive controls, and negative controls.
 
 Many of the phylum were unknown, especially in the Communal samples (Figure 10). The majority of the phylum found in my samples were *Actinobacteria*, *Firmicutes*, and *Proteobacteria* (Figure 10). These three phyla were also found in the negative controls, which was very surprising (Figure 10). The positive controls contained no unknown phylum, which was expected (Figure 10). 
 
@@ -500,7 +496,7 @@ melted_phyloseq %>%
   geom_text(aes(label = sum_abundance), vjust = -0.3)
 ```
 
-**Figure 11:** Summary boxplot of summary abundance for each Genus.
+**Figure 11:** Summary boxplot of sum abundance summary for each Genus.
 
 Filtering out only my samples using dplyr and ggplot, the three most abundant phyla outside of the unknown were *Actinobacteria*, *Firmicutes*, and *Proteobacteria*, which agrees with Figure 10, which used phyloseq to analze the data (Figure 12). This gives me confidence that those three phyla were the most prominent in my samples.
 
@@ -508,7 +504,7 @@ Filtering out only my samples using dplyr and ggplot, the three most abundant ph
 # create a summary figure of abundance summary for each Phylum
 melted_phyloseq %>%
   filter(student_initials == "JC") %>%
-  group_by(student_initials, Phylum) %>%
+  group_by(Phylum) %>%
   summarize(sum_abundance = sum(Abundance,
                                 na.rm = TRUE)) %>%
   ggplot(aes(x = Phylum,
@@ -520,7 +516,52 @@ melted_phyloseq %>%
   geom_text(aes(label = sum_abundance), vjust = -0.3)
 ```
 
-**Figure 12:** Figure of abundance summary for each Phylum.
+**Figure 12:** Bar graph of sum abundance summary for each Phylum.
+
+Looking at the three most prominent phyla sorted by sample group: there was a greater mean abundance of *Actinobacteria* and *Proteobacteria* in the Communal samples while in the individual samples, there were more *Firmicutes* (Figure 13).
+
+```{r figure-of-mean-abundance-summary-per-Phylum-per-sample-group}
+# create a summary figure of mean abundance for each Genus per sample group
+melted_phyloseq %>%
+  filter(student_initials == "JC") %>%
+  group_by(sample_id, type, Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                na.rm = TRUE)) %>%
+  ungroup() %>%
+  group_by(type, Phylum) %>%
+  summarize(mean_abundance = mean(sum_abundance,
+                                na.rm = TRUE)) %>%
+  ggplot(aes(x = Phylum,
+             y = mean_abundance,
+             fill = type)) +
+  geom_col(position = position_dodge()) +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1,
+                                   vjust = 1))
+```
+
+**Figure 13:** Bar graph of mean abundance summary for each Phylum per sample group.
+
+Looking at the three most prominent phyla sorted by sample group: there was a greater sum abundance of *Actinobacteria* and *Proteobacteria* in the Communal samples while in the individual samples, there were more *Firmicutes* (Figure 14). Since the distribution of the sum abundances and the mean abundances were similar, it proves that there were only small differences between sample sequences.
+That also means that my data does not include any extreme outliers, which is favorable.
+
+```{r figure-of-abundance-summary-per-Phylum-per-sample-group}
+# create a summary figure of sum abundance for each Genus per sample group
+melted_phyloseq %>%
+  filter(student_initials == "JC") %>%
+  group_by(type, Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                na.rm = TRUE)) %>%
+  ggplot(aes(x = Phylum,
+             y = sum_abundance,
+             fill = type)) +
+  geom_col(position = position_dodge()) +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1,
+                                   vjust = 1))
+```
+
+**Figure 14:** Bar graph of sum abundance summary for each Phylum per sample group.
 
 # Discussion
 
@@ -554,9 +595,9 @@ The matched BLAST sequences were matched with *Staphylococcus epidermidis*, 2F w
 
 I expected the Sanger-sequenced cultured BLAST species to be found in the Illumina-sequenced culture-free BLAST species because Illumina sequencing amplifies everything while Sanger sequencing only amplifies one cultured colony. However, that was not the case (Table 10). Some reasons as to why this happened could be because I sampled the "F" key for Sanger sequencing and the "A" key for Illumina sequencing, which are not correlated with each other besides being located on the left side of the keyboard. For future follow-up experiments, I could either sample two keys that are both vowels, all which are heavily used, or the "F" and "J" keys, which are both finger placeholders. 
 
-The top five genera that were found in my samples were NA, *Propionibacterium*, *Streptococcus*, *Staphylococcus*, and *Pseudomonas* in that order (most to least), which is similar to the genera *Staphylococcus*, *Bacillus*, and *Staphylococcus* found in the cultured BLAST data (Figure 11; Table 5). The reason why *Bacillus* was found in the cultured data but not included in the most abundant genera was because I picked random colonies to culture and BLAST (Table 5; Figure 11).
+The top five genera that were found in my samples were NA, *Propionibacterium*, *Streptococcus*, *Staphylococcus*, and *Pseudomonas* in that order (most to least), which is similar to the genera *Staphylococcus*, *Bacillus*, and *Staphylococcus* found in the cultured BLAST data (Figure 11; Table 5). The genus *Propionibacterium* is mainly associated with acne development [@bojar2004acne]. In the recent past, antibiotics against acnes caused by this genus have become less effective with the increasing amount of strains that are becoming resistant. *Propionibacterium* are also found commonly on normal human skin. For future experiments, it would be interesting to test the keyboards of different age groups to see if *Propionibacterium* would remain as the most found Genus as younger age groups have more cases of acne as a result of unhealthy food choices [@wolf2004acne]. The reason why *Bacillus* was found in the cultured data but not included in the most abundant genera was because I picked random colonies to culture and BLAST (Table 5; Figure 11).
 
-Another odd circumstance that occurred was that the negative controls contained bacteria such as *E. coli* and *Haemophilus parainfluenzae*, which are contaminants and unexpected in supposedly sterile molecular grade reagent water. Since there the negative control produced a positive result, a confounding variable was involved. However, neither *E. coli* or *Haemophilus parainfluenzae* were found in the BLAST samples of my sequences. Illumina sequencing and BLAST of the positive controls worked because the positive controls contained the expected bacteria (Table 10). In addition, the alpha diversity metrics numbers of the negative controls were supposed to be zero, however that result was not attained (Figure 9). The majority of the phyla found in my samples were *Actinobacteria*, *Firmicutes*, and *Proteobacteria* (Figure 10). These three phyla were also found in the negative controls, which was very surprising since it was supposed to be sterile molecular grade reagent water (Figure 10). A possible reason why the negative controls may have contained these contaminants was because the indexes during the last PCR may have been contaminated. For a future experiment, the exact same experiment could be repeated to ensure that was the reason why such odd results were observed in the negative controls.
+Another odd circumstance that occurred was that the negative controls contained bacteria such as *E. coli* and *Haemophilus parainfluenzae*, which are contaminants and unexpected in supposedly sterile molecular grade reagent water. Since there the negative control produced a positive result, a confounding variable was involved. However, neither *E. coli* or *Haemophilus parainfluenzae* were found in the BLAST samples of my sequences. Illumina sequencing and BLAST of the positive controls worked because the positive controls contained the expected bacteria (Table 10). In addition, the alpha diversity metrics numbers of the negative controls were supposed to be zero, however that result was not attained (Figure 9). The majority of the phyla found in my samples were *Actinobacteria*, *Firmicutes*, and *Proteobacteria* (Figure 10). On the skin, it is normal to find such a large amount *Actinobacteria*, *Firmicutes*, and *Proteobacteria* on the human body which explains why so much of it was found on keyboards (Table 12; [@fredborg2012g]). These three phyla were also found in the negative controls, which was very surprising since it was supposed to be sterile molecular grade reagent water (Figure 10). A possible reason why the negative controls may have contained these contaminants was because the indexes during the last PCR may have been contaminated. For a future experiment, the exact same experiment could be repeated to ensure that was the reason why such odd results were observed in the negative controls.
 
 I did not find support for my hypothesis. Sequences 6Fp and 2F were from the genus *Staphylococcus*, yet 6Fp was from an Individual Student's computer keyboard while 2F was from a shared computer keyboard (Table 5, Figure 5, Figure 6). Sequences 3F and 5F were from the genus *Bacillus*, yet 3F was from a shared computer keyboard while 5F was from an Individual Student's computer keyboard (Table 5, Figure 5, Figure 6). Furthermore, from the culture-free data, I found that there was no significant difference between the number of species between Communal and Individual sample groups (Table 8 Wilcox p = 0.7). The mean number of the alpha diversity measures were also not significantly different between sample groups using Shannon and Simpson (Table 12 Wilcox p = 0.7; Table 13 Wilcox p = 0.7). I did, however, find that there was a significant difference in colony abundance on communal keyboards over individual keyboards (Table 1 Wilcox p = 0.02). 
 
