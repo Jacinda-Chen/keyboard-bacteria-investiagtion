@@ -32,16 +32,20 @@ load("output/phyloseq_obj.Rda")
 
 # alpha diversity metrics -- see many more
 # examples here, under 'Tutorials': https://joey711.github.io/phyloseq
+# JC: For r checkpoint, load phyloseq_obj, which is our processed data
+# and summarizing it. Starter code in order to modify these.
+# otu_table, tax_table, sam_data included.
 plot_richness(phyloseq_obj,
-              x = "plotID",
-              measures = c("Shannon", "Simpson")) +
-  xlab("Sample origin") +
-  geom_jitter(width = 0.2) +
-  theme_bw()
+              x = "type",
+              measures = c("Shannon")) +
+  xlab("Type of sample") +
+  geom_boxplot() +
+  theme_bw() +
+  ggtitle("Diversity of Samples")
 
 # bar plot of taxa my month sampled
 plot_bar(phyloseq_obj,
-         x = "collect_month",
+         x = "type",
          fill = "Phylum")
 
 ##########################################
@@ -58,7 +62,18 @@ melted_phyloseq <- melted_phyloseq %>%
 
 # create a summary table of sequence counts for each Phylum
 melted_phyloseq %>%
-  filter(collect_month == 10) %>%
-  group_by(Phylum) %>%
+  group_by(student_initials, Phylum) %>%
   summarize(sum_abundance = sum(Abundance,
                                   na.rm = TRUE))
+
+# create a summary table of abundance summary for each Phylum
+melted_phyloseq %>%
+  group_by(student_initials, Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                na.rm = TRUE)) %>%
+  ggplot(aes(x = Phylum,
+             y = sum_abundance)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 90,
+                                   hjust = 1,
+                                   vjust = 0.5))
