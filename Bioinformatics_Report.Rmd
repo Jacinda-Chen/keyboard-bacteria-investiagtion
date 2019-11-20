@@ -68,7 +68,13 @@ I ran fastqc on the unzipped Illumina sequence files in order to check the seque
 
 ### R Studio
 
-I used the packages dplyr and ggplot in order to visualize the data with boxplots. I also tested between different sampling groups using Wilcox statistical tests in order to get the p values.
+I used the packages dplyr and ggplot in order to visualize the data with boxplots. I also tested between different sampling groups using Wilcox statistical tests in order to get the p values. Tidyr was used to create tidy data. Readr made reading csv files easier.
+
+In order to generate my R-based results, a DADA analysis pipeline was used. The packages lubridate, vegan, dada2, phyloseq, and seqinr were also used. The package dada2 was used to clean and analyze the data. Phyloseq was used to visualize the data. Lubridate made it easier to work with times and dates. Seqinr was used to export a fasta of the final denoised sequence variants. 
+
+The fastq sample names were extracted and the full path to the forward reads were specified. The quality profiles of the first 14 samples were plotted. In order to trim the sequences, a couple of steps were carried out. The command "filterAndTrim" were used to discard any sequences with N's, allow up to three expected errors, and cut off the sequences if the quality gets too low. Error models were built from each of the trimmed samples using "learnErrors", then were checked to see if they matched the data. Any duplicated sequences were disposed of with "derepFastq" and the remaining files were extracted and named. The dereplicated forward reads and error model were used to create a "true" list of sequences. The dada results were checked, then used to produce the "site by species matrix" [@callahan2016dada2]. A quick check ensued to look at the distribution of trimmed and denoised sequences to check they were appropriately long. The function "removeBimeraDenovo" checked for and removed chimeras, which were hybrid PCRs that contained two templates. The percentage of non-chimeric reads was calculated and a table was built showing how many sequences remained. Any sequences shorter than 50 bp were removed because taxonomy could not be assigned. Taxonomy was then assigned with "assignTaxonomy" to each sequence variant based on a supplied training set made up of known sequences. These results were then used with phyloseq to construct phyloseq object [@mcmurdie2013phyloseq].
+
+The otu table was read in from the saved phyloseq object so the data frame could be converted to a matrix in order to be transposed (orienting samples as rows). The package vegan was used to do a Wilcox test on Shannon alpha diversity metrics and create a rarefaction curve. Phyloseq was used to plot alpha diversity metrics and a barplot of the taxa while dplyr and ggplot melted phyloseq object into a data frame for analysis and visualization to create summary tables of the sequence counts and abundance summary for each Phylum.
 
 # Results
 
@@ -101,7 +107,7 @@ There was a higher number of colonies that was present on Communal computer keyb
 
 ### Colony Abundance 
 
-The colony abundances from the Communal computers had larger number of colonies compared to the Individual computers, which is shown by the maximum number of colonies observed in the Individual computers remaining smaller than the minimum of the colony abundances from the Communal computers (Figure 1). I also observed a bigger range of larger values for the colony abundances of Communal computers where the minimum and maximum number of colony abundances had a difference of around eight, whereas the differences between the minimum and maximum number of colony abundances for Individual computers was about one. The colony abundance for Individual computers had a singular abnormally abundant colony depicted by the outlier, just under the 2.5 number of colonies mark. A statistical (Wilcox) test was run to compare the number of colony abundances of Communal versus Individual computers at 1x dilution. The mean number of colonies between Communal and Individual computers were significantly different, with a p-value of 0.02 (Table 1; Statistical test for Colony Abundance).
+The colony abundances from the Communal computers had larger number of colonies compared to the Individual computers, which is shown by the maximum number of colonies observed in the Individual computers remaining smaller than the minimum of the colony abundances from the Communal computers (Figure 1). I also observed a bigger range of larger values for the colony abundances of Communal computers where the minimum and maximum number of colony abundances had a difference of around eight, whereas the differences between the minimum and maximum number of colony abundances for Individual computers was about one. The colony abundance for Individual computers had a singular abnormally abundant colony depicted by the outlier, just under the 2.5 number of colonies mark. A statistical (Wilcox) test was run to compare the number of colony abundances of Communal versus Individual computers at 1x dilution. The mean number of colonies between Communal and Individual computers were significantly different (Table 1 Wilcox p = 0.02).
 
 ```{r filter-and-plot-abundances}
 # filter out only my 1x dilutions and make a boxplot
@@ -365,7 +371,6 @@ It was found that the most abundant and the second most abundant species found f
 load("output/phyloseq_obj.Rda")
 ```
 
-
 ```{r read-in-otu-table}
 # read in the otu table
 otu_table <- read.table("output/sequence_variants_table.txt",
@@ -384,6 +389,7 @@ rownames(otu_table) <- gsub(pattern = "_.*filt",
                                         rownames(otu_table))
 ```
 
+A rarefaction curve is the relationship between the sample size and the discovery of new species in the sequences. I feel confident that I completely sampled the communities in the samples and the controls because all of the curves asymtoted (Figure 8). All of my samples had over 9,000 base pairs, which was well over where the curves asympototed (Figure 8).
 
 ```{r make-a-rarefaction-curve}
 # Rarefaction curve: asking as sample size increases
@@ -391,20 +397,24 @@ rownames(otu_table) <- gsub(pattern = "_.*filt",
 rarecurve(otu_table)
 ```
 
-**RAREFACTION CURVE**
+**Figure 8:** Rarefaction curve of samples (1A-6A) and controls.
 
-```{r make-a-shannon-diversity-figure}
+### Using Phyloseq-native Analyses
+
+As a popular means to quantify composition, Shannon's index (which highlights the richness component of diversity) and Simpson's index (emphasizing the evenness component) work together to depict the response variation to changes in richness and evenness [@nagendra2002opposite]. In both Shannon's and Simpson's diversity values, the median alpha diversity measure for the samples were greater than the medians of the controls, meaning that my samples had greater richness and evenness in comparison to the positive and negative controls (Figure 9). The mean number of the alpha diversity measures were not significantly different between sample groups for Shannon and Simpson (Table 12 Wilcox p = 0.7; Table 13 Wilcox p = 0.7).
+
+```{r shannon-and-simpson-diversity-figure}
 # Using phyloseq-native anlayses to do alpha diversity metrics
 plot_richness(phyloseq_obj,
               x = "type",
-              measures = c("Shannon")) +
+              measures = c("Shannon", "Simpson")) +
   xlab("Type of sample") +
   geom_boxplot() +
   theme_bw() +
   ggtitle("Diversity of Samples")
 ```
 
-**SHANNON DIVERSITY**
+**Figure 9:** Boxplot of Shannon alpha diversity metrics according to sample type. The mean number of the alpha diversity measures were not significantly different between sample groups for Shannon and Simpson (Table 12 Wilcox p = 0.7; Table 13 Wilcox p = 0.7).
 
 ```{r Wilcox-test-using-shannon-diversity}
 # shannon diversity numbers for each of the samples
@@ -424,9 +434,31 @@ wilcox.test(data = combined_shannon,
             jc_shannon_div ~ jc_group)
 ```
 
-**WILCOX TEST**
+**Table 12:** The statistical (Wilcox) test of Shannon's diversity to compare the richness component of diversity between Communal and Individual computer keyboards, positive controls, and negative controls.
 
-```{r make-a-barplot-of-taxa}
+```{r Wilcox-test-using-simpson-diversity}
+# simpson diversity numbers for each of the samples
+simpson_div <- diversity(otu_table, index = "simpson")
+
+# vector one: filter out JC samples
+jc_simpson_div <- simpson_div[grepl(pattern = "JC", names(simpson_div))]
+
+# vector two: create JC sample groups
+jc_group_2 <- c(rep("Communal", 3), rep("Individual", 3))
+
+# combine vectors
+combined_simpson <- cbind(jc_group_2, as.numeric(jc_simpson_div))
+
+# wilcox p = 0.7
+wilcox.test(data = combined_simpson,
+            jc_simpson_div ~ jc_group_2)
+```
+
+**Table 13:** The statistical (Wilcox) test of Simpson's diversity to compare the evenness component of diversity between Communal and Individual computer keyboards, positive controls, and negative controls.
+
+Many of the phylum were unknown, especially in the Communal samples (Figure 10). The majority of the phylum found in my samples were *Actinobacteria*, *Firmicutes*, and *Proteobacteria* (Figure 10). These three phyla were also found in the negative controls, which was very surprising (Figure 10). The positive controls contained no unknown phylum, which was expected (Figure 10). 
+
+```{r barplot-of-taxa}
 # Using Phyloseq-native analyses
 # Making a barplot of phylum per sample group
 plot_bar(phyloseq_obj,
@@ -434,9 +466,9 @@ plot_bar(phyloseq_obj,
          fill = "Phylum")
 ```
 
-**BARPLOT OF TAXA**
+**Figure 10:** Barplot of the variety of phylum per sample group using Phyloseq-native analyses.
 
-## Using dplyr and ggplot analyses
+### Using dplyr and ggplot analyses
 
 ```{r melt-phyloseq-obj}
 # melt phyloseq obj into a data frame for dplyr/ggplot
@@ -448,19 +480,34 @@ melted_phyloseq <- melted_phyloseq %>%
   mutate_if(is.factor, as.character)
 ```
 
-```{r make-a-summary-table-of-sequence-counts-per-Phylum}
-# create a summary table of sequence counts for each Phylum
+Only looking at the top five abundance values for my samples, it is clear that the majority of genera are unknown (Figure 11). The top five genera that were found in my samples were NA, *Propionibacterium*, *Streptococcus*, *Staphylococcus*, and *Pseudomonas* in that order (most to least), which is similar to the genera *Staphylococcus*, *Bacillus*, and *Staphylococcus* found in the cultured BLAST data (Figure 11; Table 5).
+
+```{r summary-bargraph-of-abundance-summary-for-Genus}
+# filter and create a summary bargraph of top 5 sequence counts for genera
 melted_phyloseq %>%
-  group_by(student_initials, Phylum) %>%
+  filter(student_initials == "JC") %>%
+  group_by(student_initials, Genus) %>%
   summarize(sum_abundance = sum(Abundance,
-                                  na.rm = TRUE))
+                                  na.rm = TRUE)) %>%
+  arrange(desc(sum_abundance)) %>%
+  slice(1:5) %>%
+  ggplot(aes(x = Genus,
+             y = sum_abundance)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1,
+                                   vjust = 1)) +
+  geom_text(aes(label = sum_abundance), vjust = -0.3)
 ```
 
-**TABLE OF SEQUENCE COUNTS**
+**Figure 11:** Summary boxplot of summary abundance for each Genus.
 
-```{r make-a-figure-of-abundance-summary-per-Phylum}
+Filtering out only my samples using dplyr and ggplot, the three most abundant phyla outside of the unknown were *Actinobacteria*, *Firmicutes*, and *Proteobacteria*, which agrees with Figure 10, which used phyloseq to analze the data (Figure 12). This gives me confidence that those three phyla were the most prominent in my samples.
+
+```{r figure-of-abundance-summary-per-Phylum}
 # create a summary figure of abundance summary for each Phylum
 melted_phyloseq %>%
+  filter(student_initials == "JC") %>%
   group_by(student_initials, Phylum) %>%
   summarize(sum_abundance = sum(Abundance,
                                 na.rm = TRUE)) %>%
@@ -469,10 +516,11 @@ melted_phyloseq %>%
   geom_col() +
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1,
-                                   vjust = 1))
+                                   vjust = 1)) +
+  geom_text(aes(label = sum_abundance), vjust = -0.3)
 ```
 
-**Figure of abundance summary**
+**Figure 12:** Figure of abundance summary for each Phylum.
 
 # Discussion
 
@@ -504,10 +552,12 @@ The sequence 6Fo was not usable possibly either because there the DNA was low qu
 
 The matched BLAST sequences were matched with *Staphylococcus epidermidis*, 2F was *Staphylococcus hominis*, 3F was *Bacillus subtilis*, 5F was *Bacillus subtilis*, and 6Fp was *Staphylococcus epidermidis* (Table 5). This was similar to previously identified bacteria in preceding research set up in the same university conditions [@anderson2009microbial]. The trimmed sequence of 1F was not included in the phylogenies because it was too low quality for an accurate phylogeny. The phylogenetic results using the trimmed sequences of 2F, 3F, 5F, and 6Fp matched with my BLAST results. In both phylogenies, *Thermus aquaticus* was used as the outgroup, from the domain Archaea. Since the bacteria I cultured were unknown, I needed to use the domain Archaea as the outgroup, which had the closest relation to the domain Bacteria. In the Maximum Likelihood Phylogeny, sequences 6Fp and 2F were grouped together in a monophyletic clade with a 85 bootstrap support value, while sequences 3F and 5F were grouped together in another monophyletic clade with a 100 bootstrap support value, which agreed with the separation of genera *Staphylococcus* and *Bacillus* from the BLAST table (Figure 5; Table 5). The Bayesian Phylogeny agreed with the Maximum Likelihood Phylogeny and the BLAST table, resulting with the same groupings (Figure 6). 
 
-I expected the Sanger-sequenced cultured BLAST species to be found in the Illumina-sequenced culture-free BLAST species because Illumina sequencing amplifies everything while Sanger sequencing only amplifies one cultured colony. However, that was not the case (Table 10). Some reasons as to why this happened could be because I sampled the "F" key for Sanger sequencing and the "A" key for Illumina sequencing, which are not correlated with each other besides being located on the left side of the keyboard. For future follow-up experiments, I could either sample two keys that are both vowels, all which are heavily used, or the "F" and "J" keys, which are both finger placeholders.
+I expected the Sanger-sequenced cultured BLAST species to be found in the Illumina-sequenced culture-free BLAST species because Illumina sequencing amplifies everything while Sanger sequencing only amplifies one cultured colony. However, that was not the case (Table 10). Some reasons as to why this happened could be because I sampled the "F" key for Sanger sequencing and the "A" key for Illumina sequencing, which are not correlated with each other besides being located on the left side of the keyboard. For future follow-up experiments, I could either sample two keys that are both vowels, all which are heavily used, or the "F" and "J" keys, which are both finger placeholders. 
 
-Another odd circumstance that occurred was that the negative controls contained bacteria such as *E. coli* and *Haemophilus parainfluenzae*, which are contaminants and unexpected in supposedly sterile molecular grade reagent water. Since there the negative control produced a positive result, a confounding variable was involved. However, neither *E. coli* or *Haemophilus parainfluenzae* were found in the BLAST samples of my sequences. Illumina sequencing and BLAST of the positive controls worked because the positive controls contained the expected bacteria (Table 10).
+The top five genera that were found in my samples were NA, *Propionibacterium*, *Streptococcus*, *Staphylococcus*, and *Pseudomonas* in that order (most to least), which is similar to the genera *Staphylococcus*, *Bacillus*, and *Staphylococcus* found in the cultured BLAST data (Figure 11; Table 5). The reason why *Bacillus* was found in the cultured data but not included in the most abundant genera was because I picked random colonies to culture and BLAST (Table 5; Figure 11).
 
-I did not find support for my hypothesis. Sequences 6Fp and 2F were from the genus *Staphylococcus*, yet 6Fp was from an Individual Student's computer keyboard while 2F was from a shared computer keyboard (Table 5, Figure 5, Figure 6). Sequences 3F and 5F were from the genus *Bacillus*, yet 3F was from a shared computer keyboard while 5F was from an Individual Student's computer keyboard (Table 5, Figure 5, Figure 6). Furthermore, from the culture-free data, I found that there was no significant difference between the number of species between Communal and Individual sample groups (Table 8 Wilcox p = 0.7). I did, however, find that there was a significant difference in colony abundance on communal keyboards over individual keyboards (Table 1 Wilcox p = 0.02). 
+Another odd circumstance that occurred was that the negative controls contained bacteria such as *E. coli* and *Haemophilus parainfluenzae*, which are contaminants and unexpected in supposedly sterile molecular grade reagent water. Since there the negative control produced a positive result, a confounding variable was involved. However, neither *E. coli* or *Haemophilus parainfluenzae* were found in the BLAST samples of my sequences. Illumina sequencing and BLAST of the positive controls worked because the positive controls contained the expected bacteria (Table 10). In addition, the alpha diversity metrics numbers of the negative controls were supposed to be zero, however that result was not attained (Figure 9). The majority of the phyla found in my samples were *Actinobacteria*, *Firmicutes*, and *Proteobacteria* (Figure 10). These three phyla were also found in the negative controls, which was very surprising since it was supposed to be sterile molecular grade reagent water (Figure 10). A possible reason why the negative controls may have contained these contaminants was because the indexes during the last PCR may have been contaminated. For a future experiment, the exact same experiment could be repeated to ensure that was the reason why such odd results were observed in the negative controls.
+
+I did not find support for my hypothesis. Sequences 6Fp and 2F were from the genus *Staphylococcus*, yet 6Fp was from an Individual Student's computer keyboard while 2F was from a shared computer keyboard (Table 5, Figure 5, Figure 6). Sequences 3F and 5F were from the genus *Bacillus*, yet 3F was from a shared computer keyboard while 5F was from an Individual Student's computer keyboard (Table 5, Figure 5, Figure 6). Furthermore, from the culture-free data, I found that there was no significant difference between the number of species between Communal and Individual sample groups (Table 8 Wilcox p = 0.7). The mean number of the alpha diversity measures were also not significantly different between sample groups using Shannon and Simpson (Table 12 Wilcox p = 0.7; Table 13 Wilcox p = 0.7). I did, however, find that there was a significant difference in colony abundance on communal keyboards over individual keyboards (Table 1 Wilcox p = 0.02). 
 
 # Sources Cited
