@@ -88,7 +88,7 @@ plot_richness(phyloseq_obj,
   theme_bw() +
   ggtitle("Diversity of Samples")
 
-# bar plot of taxa my month sampled
+# bar plot of taxa sampled
 plot_bar(phyloseq_obj,
          x = "type",
          fill = "Phylum")
