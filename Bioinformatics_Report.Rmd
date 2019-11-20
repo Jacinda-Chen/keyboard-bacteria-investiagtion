@@ -80,6 +80,11 @@ library("tidyr")
 library("readr")
 library("broom")
 library("knitr")
+library("lubridate")
+library("vegan")
+library("dada2")
+library("phyloseq")
+library("seqinr")
 ```
 
 ```{r read-in-culture-data}
@@ -352,6 +357,122 @@ It was found that the most abundant and the second most abundant species found f
 | Negative Control 4       | *Acinetobacter tandoii*                               | *Haemophilus parainfluenzae*   |
 
 **Table 11:** BLAST Table of the most abundant and second-most abundant species in the positive (from ZymoBIOMICS Microbial Community DNA standard) and negative controls (sterile molecular grade reagent water).
+
+## Culture-Free R program figures/tables
+
+```{r load-in-phyloseq_obj.Rda}
+# load in the phyloseq object
+load("output/phyloseq_obj.Rda")
+```
+
+
+```{r read-in-otu-table}
+# read in the otu table
+otu_table <- read.table("output/sequence_variants_table.txt",
+                        row.names = 1,
+                        header = TRUE)
+
+# convert the data frame to a matrix so that we can transpose it
+otu_table <- as.matrix(otu_table)
+
+# transpose the table so that samples are rows
+otu_table <- t(otu_table)
+
+# trim the row names
+rownames(otu_table) <- gsub(pattern = "_.*filt",
+                                        replacement = "",
+                                        rownames(otu_table))
+```
+
+
+```{r make-a-rarefaction-curve}
+# Rarefaction curve: asking as sample size increases
+# if additional new species are still found
+rarecurve(otu_table)
+```
+
+**RAREFACTION CURVE**
+
+```{r make-a-shannon-diversity-figure}
+# Using phyloseq-native anlayses to do alpha diversity metrics
+plot_richness(phyloseq_obj,
+              x = "type",
+              measures = c("Shannon")) +
+  xlab("Type of sample") +
+  geom_boxplot() +
+  theme_bw() +
+  ggtitle("Diversity of Samples")
+```
+
+**SHANNON DIVERSITY**
+
+```{r Wilcox-test-using-shannon-diversity}
+# shannon diversity numbers for each of the samples
+shannon_div <- diversity(otu_table, index = "shannon")
+
+# vector one: filter out JC samples
+jc_shannon_div <- shannon_div[grepl(pattern = "JC", names(shannon_div))]
+
+# vector two: create JC sample groups
+jc_group <- c(rep("Communal", 3), rep("Individual", 3))
+
+# combine vectors
+combined_shannon <- cbind(jc_group, as.numeric(jc_shannon_div))
+
+# wilcox p = 0.7
+wilcox.test(data = combined_shannon,
+            jc_shannon_div ~ jc_group)
+```
+
+**WILCOX TEST**
+
+```{r make-a-barplot-of-taxa}
+# Using Phyloseq-native analyses
+# Making a barplot of phylum per sample group
+plot_bar(phyloseq_obj,
+         x = "type",
+         fill = "Phylum")
+```
+
+**BARPLOT OF TAXA**
+
+## Using dplyr and ggplot analyses
+
+```{r melt-phyloseq-obj}
+# melt phyloseq obj into a data frame for dplyr/ggplot
+# analysis and visualization
+melted_phyloseq <- psmelt(phyloseq_obj)
+
+# turn all factor columns into character columns for dplyr
+melted_phyloseq <- melted_phyloseq %>%
+  mutate_if(is.factor, as.character)
+```
+
+```{r make-a-summary-table-of-sequence-counts-per-Phylum}
+# create a summary table of sequence counts for each Phylum
+melted_phyloseq %>%
+  group_by(student_initials, Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                  na.rm = TRUE))
+```
+
+**TABLE OF SEQUENCE COUNTS**
+
+```{r make-a-figure-of-abundance-summary-per-Phylum}
+# create a summary figure of abundance summary for each Phylum
+melted_phyloseq %>%
+  group_by(student_initials, Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                na.rm = TRUE)) %>%
+  ggplot(aes(x = Phylum,
+             y = sum_abundance)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1,
+                                   vjust = 1))
+```
+
+**Figure of abundance summary**
 
 # Discussion
 
