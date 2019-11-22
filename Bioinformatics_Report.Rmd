@@ -64,7 +64,7 @@ My first task was to assess whether or not the sequences were usable. I used Gen
 
 ### Bash
 
-I ran fastqc on the unzipped Illumina sequence files in order to check the sequence quality for each sample. Then, trimmomatic was run in order to trim low quality sequences or throw out bad sequences (SLIDINGWINDOW:8:25 MINLEN: 140). Bioawk was used to convert fastqc files into fasta files, the format required for BLAST. I ran BLAST against the local database to find the closest matched sequence for every sequence in my fasta files: 1A-6A. BLAST was also run against the local database for the positive and negative controls. I also discovered the number of species per sample and what those species were.
+I ran fastqc on the unzipped Illumina sequence files in order to check the sequence quality for each sample. Then, trimmomatic was run in order to trim low quality sequences or throw out bad sequences [@bolger2014trimmomatic]. The first five and the last five nucleotides were chopped off of each sequence. Then, looking at a sliding window of eight, sequences were checked if they matched the quality of 25 or better. If so, they were kept; if not, they were discarded. Also, if they did not have a minimum length of 140, they were once again discarded. Bioawk was used to convert fastqc files into fasta files, the format required for BLAST. I ran BLAST against the local database to find the closest matched sequence for every sequence in my fasta files: 1A-6A [@belshaw2004blastalign]. BLAST was also run against the local database for the positive and negative controls. I also discovered the number of species per sample and what those species were.
 
 ### R Studio
 
@@ -392,7 +392,7 @@ rownames(otu_table) <- gsub(pattern = "_.*filt",
 A rarefaction curve is the relationship between the sample size and the discovery of new species in the sequences. I feel confident that I completely sampled the communities in the samples and the controls because all of the curves asymtoted (Figure 8). All of my samples had over 9,000 base pairs, which was well over where the curves asympototed (Figure 8).
 
 ```{r make-a-rarefaction-curve}
-# Rarefaction curve: asking as sample size increases
+# Rarefaction curve between samples: asking as sample size increases
 # if additional new species are still found
 rarecurve(otu_table)
 ```
@@ -459,10 +459,11 @@ Many of the phylum were unknown, especially in the Communal samples (Figure 10).
 # Making a barplot of phylum per sample group
 plot_bar(phyloseq_obj,
          x = "type",
-         fill = "Phylum")
+         fill = "Phylum",
+         title = "Variety of Phyla per Sample Group")
 ```
 
-**Figure 10:** Barplot of the variety of phylum per sample group using Phyloseq-native analyses.
+**Figure 10:** Barplot of the variety of phyla per sample group using Phyloseq-native analyses.
 
 ### Using dplyr and ggplot analyses
 
@@ -493,7 +494,9 @@ melted_phyloseq %>%
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1,
                                    vjust = 1)) +
-  geom_text(aes(label = sum_abundance), vjust = -0.3)
+  geom_text(aes(label = sum_abundance), vjust = -0.3) +
+  ggtitle(
+    "Sum Abundance of the Top Five genera in Sample Groups")
 ```
 
 **Figure 11:** Summary boxplot of sum abundance summary for the top five genera.
@@ -513,12 +516,14 @@ melted_phyloseq %>%
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1,
                                    vjust = 1)) +
-  geom_text(aes(label = sum_abundance), vjust = -0.3)
+  geom_text(aes(label = sum_abundance), vjust = -0.3) +
+  ggtitle(
+    "Sum Abundance of phyla in Sample Groups")
 ```
 
 **Figure 12:** Bar graph of sum abundance summary for each Phylum.
 
-Looking at the three most prominent phyla sorted by sample group: there was a greater mean abundance of *Actinobacteria* and *Proteobacteria* in the Communal samples while in the individual samples, there were more *Firmicutes* (Figure 13).
+Looking at the three most prominent phyla sorted by sample group: there was a greater mean abundance of *Actinobacteria* and *Proteobacteria* in the Communal samples while in the individual samples, there were more *Firmicutes* (Figure 13). The error bars show that the samples had a lot of variance, which means that my samples had a range of results and the apparent difference between the sample groups may not be significant (Figure 13).
 
 ```{r figure-of-mean-abundance-summary-per-Phylum-per-sample-group}
 # create a summary figure of mean abundance for each Genus per sample group
@@ -530,14 +535,22 @@ melted_phyloseq %>%
   ungroup() %>%
   group_by(type, Phylum) %>%
   summarize(mean_abundance = mean(sum_abundance,
-                                na.rm = TRUE)) %>%
+                                na.rm = TRUE),
+            sd_abundance = sd(sum_abundance,
+                              na.rm = TRUE)) %>%
   ggplot(aes(x = Phylum,
              y = mean_abundance,
              fill = type)) +
+  geom_errorbar(aes(ymin = mean_abundance,
+                    ymax = mean_abundance + sd_abundance),
+                width = 0.2,
+                position = position_dodge(0.9)) +
   geom_col(position = position_dodge()) +
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1,
-                                   vjust = 1))
+                                   vjust = 1)) +
+  ggtitle(
+    "Mean Abundance of phyla in Sample Groups")
 ```
 
 **Figure 13:** Bar graph of mean abundance summary for each Phylum per sample group.
@@ -558,7 +571,9 @@ melted_phyloseq %>%
   geom_col(position = position_dodge()) +
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1,
-                                   vjust = 1))
+                                   vjust = 1)) +
+  ggtitle(
+    "Sum Abundance of phyla Between Sample Groups")
 ```
 
 **Figure 14:** Bar graph of sum abundance summary for each Phylum per sample group.
@@ -597,7 +612,7 @@ I expected the Sanger-sequenced cultured BLAST species to be found in the Illumi
 
 The top five genera that were found in my samples were NA, *Propionibacterium*, *Streptococcus*, *Staphylococcus*, and *Pseudomonas* in that order (most to least), which is similar to the genera *Staphylococcus*, *Bacillus*, and *Staphylococcus* found in the cultured BLAST data (Figure 11; Table 5). The genus *Propionibacterium* is mainly associated with acne development [@bojar2004acne]. In the recent past, antibiotics against acnes caused by this genus have become less effective with the increasing amount of strains that are becoming resistant. *Propionibacterium* are also found commonly on normal human skin. For future experiments, it would be interesting to test the keyboards of different age groups to see if *Propionibacterium* would remain as the most found Genus as younger age groups have more cases of acne as a result of unhealthy food choices [@wolf2004acne]. The reason why *Bacillus* was found in the cultured data but not included in the most abundant genera was because I picked random colonies to culture and BLAST (Table 5; Figure 11).
 
-Another odd circumstance that occurred was that the negative controls contained bacteria such as *E. coli* and *Haemophilus parainfluenzae*, which are contaminants and unexpected in supposedly sterile molecular grade reagent water. Since there the negative control produced a positive result, a confounding variable was involved. However, neither *E. coli* or *Haemophilus parainfluenzae* were found in the BLAST samples of my sequences. Illumina sequencing and BLAST of the positive controls worked because the positive controls contained the expected bacteria (Table 10). In addition, the alpha diversity metrics numbers of the negative controls were supposed to be zero, however that result was not attained (Figure 9). The majority of the phyla found in my samples were *Actinobacteria*, *Firmicutes*, and *Proteobacteria* (Figure 10). On the skin, it is normal to find such a large amount *Actinobacteria*, *Firmicutes*, and *Proteobacteria* on the human body which explains why so much of it was found on keyboards (Table 12; [@fredborg2012g]). These three phyla were also found in the negative controls, which was very surprising since it was supposed to be sterile molecular grade reagent water (Figure 10). A possible reason why the negative controls may have contained these contaminants was because the indexes during the last PCR may have been contaminated. For a future experiment, the exact same experiment could be repeated to ensure that was the reason why such odd results were observed in the negative controls.
+Another odd circumstance that occurred was that the negative controls contained bacteria such as *E. coli* and *Haemophilus parainfluenzae*, which are contaminants and unexpected in supposedly sterile molecular grade reagent water. Since there the negative control produced a positive result, a confounding variable was involved. However, neither *E. coli* or *Haemophilus parainfluenzae* were found in the BLAST samples of my sequences. Illumina sequencing and BLAST of the positive controls worked because the positive controls contained the expected bacteria (Table 10). In addition, the alpha diversity metrics numbers of the negative controls were supposed to be zero, however that result was not attained (Figure 9). The majority of the phyla found in my samples were *Actinobacteria*, *Firmicutes*, and *Proteobacteria* (Figure 10). On the skin, it is normal to find such a large amount *Actinobacteria*, *Firmicutes*, and *Proteobacteria* on the human body which explains why so much of it was found on keyboards (Table 12; [@fredborg2012g]). The samples had a lot of variance, which means that my samples had a range of results and the apparent difference between the sample groups may not be significant (Figure 13). These three phyla were also found in the negative controls, which was very surprising since it was supposed to be sterile molecular grade reagent water (Figure 10). A possible reason why the negative controls may have contained these contaminants was because the indexes during the last PCR may have been contaminated. For a future experiment, the exact same experiment could be repeated to ensure that was the reason why such odd results were observed in the negative controls.
 
 I did not find support for my hypothesis. Sequences 6Fp and 2F were from the genus *Staphylococcus*, yet 6Fp was from an Individual Student's computer keyboard while 2F was from a shared computer keyboard (Table 5, Figure 5, Figure 6). Sequences 3F and 5F were from the genus *Bacillus*, yet 3F was from a shared computer keyboard while 5F was from an Individual Student's computer keyboard (Table 5, Figure 5, Figure 6). Furthermore, from the culture-free data, I found that there was no significant difference between the number of species between Communal and Individual sample groups (Table 8 Wilcox p = 0.7). The mean number of the alpha diversity measures were also not significantly different between sample groups using Shannon and Simpson (Table 12 Wilcox p = 0.7; Table 13 Wilcox p = 0.7). I did, however, find that there was a significant difference in colony abundance on communal keyboards over individual keyboards (Table 1 Wilcox p = 0.02). 
 
