@@ -394,7 +394,8 @@ A rarefaction curve is the relationship between the sample size and the discover
 ```{r make-a-rarefaction-curve}
 # Rarefaction curve between samples: asking as sample size increases
 # if additional new species are still found
-rarecurve(otu_table)
+rarecurve(otu_table,
+          main = "Rarefaction Curve Between Samples and Controls")
 ```
 
 **Figure 8:** Rarefaction curve of samples (1A-6A) and controls.
@@ -549,8 +550,7 @@ melted_phyloseq %>%
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1,
                                    vjust = 1)) +
-  ggtitle(
-    "Mean Abundance of phyla in Sample Groups")
+  ggtitle("Mean Abundance of phyla in Sample Groups")
 ```
 
 **Figure 13:** Bar graph of mean abundance summary for each Phylum per sample group.
