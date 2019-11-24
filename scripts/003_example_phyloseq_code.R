@@ -123,6 +123,7 @@ melted_phyloseq %>%
                                    hjust = 1,
                                    vjust = 0.5))
 
+# same summary table but different angles
 melted_phyloseq %>%
   group_by(student_initials, Genus) %>%
   summarize(sum_abundance = sum(Abundance,
@@ -130,6 +131,19 @@ melted_phyloseq %>%
   ggplot(aes(x = Genus,
              y = sum_abundance)) +
   geom_col() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1,
+                                   vjust = 1))
+
+# Same graph as above but with controls
+melted_phyloseq %>%
+  group_by(type, Phylum) %>%
+  summarize(sum_abundance = sum(Abundance,
+                                na.rm = TRUE)) %>%
+  ggplot(aes(x = Phylum,
+             y = sum_abundance,
+             fill = type)) +
+  geom_col(position = position_dodge()) +
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1,
                                    vjust = 1))
