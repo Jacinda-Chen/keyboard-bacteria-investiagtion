@@ -307,7 +307,7 @@ culture_data %>%
   ggplot(aes(x = sample_group, y = number_of_colonies)) +
   geom_boxplot() +
   ggtitle(
-    "Comparison of Colony Abundances \nBetween Communal and Individual Computers"
+    "Comparison of Colony Abundances \nBetween Sample Groups"
     , "1x dilution") +
   xlab("Sample Group") +
   ylab("Number of Colonies")
