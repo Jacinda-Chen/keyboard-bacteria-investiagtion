@@ -289,13 +289,15 @@ I expected the Sanger-sequenced cultured BLAST species to be found in the Illumi
 
 The top five genera that were found in my samples from using the dada2 analysis pipeline were NA, *Propionibacterium*, *Streptococcus*, *Staphylococcus*, and *Pseudomonas* in that order (most to least), which is similar to the genera *Staphylococcus*, *Bacillus*, and *Staphylococcus* found in the cultured BLAST data (Figure 11; Table 5). The genus *Propionibacterium* is mainly associated with acne development [@bojar2004acne]. In the recent past, antibiotics against acnes caused by this genus have become less effective with the increasing amount of strains that are becoming resistant. *Propionibacterium* are also found commonly on normal human skin. For future experiments, it would be interesting to test the keyboards of different age groups to see if *Propionibacterium* would remain as the most found Genus as younger age groups have more cases of acne as a result of unhealthy food choices [@wolf2004acne]. The reason why *Bacillus* was found in the cultured data but not included in the most abundant genera was because I picked random colonies to culture and BLAST (Table 5; Figure 11).
 
+A majority of my samples had a greater number of surviving sequences after going through Trimmomatic as opposed to the dada2 analysis pipeline (Table 8; Table 12). I expected the samples in the dada2 analysis pipeline to have a smaller number of unique sequences because the samples in the dada2 analysis pipeline got rid of any duplicated sequences and chimeras. However, 1A and 4A had less unique sequences going through Trimmomatic compared to the non-chimeric unique sequences that survived (Table 8; Table 12). A reason for this could be because of the different quality cutoffs between the two approaches. 
+
 Another odd circumstance that occurred was that the negative controls contained bacteria such as *E. coli* and *Haemophilus parainfluenzae*, which are contaminants and unexpected in supposedly sterile molecular grade reagent water. Since there the negative control produced a positive result, a confounding variable was involved. However, neither *E. coli* or *Haemophilus parainfluenzae* were found in the BLAST samples of my sequences. Illumina sequencing and BLAST of the positive controls worked because the positive controls contained the expected bacteria (Table 10). In addition, the alpha diversity metrics numbers of the negative controls were supposed to be zero, however that result was not attained (Figure 9). The majority of the phyla found in my samples were *Actinobacteria*, *Firmicutes*, and *Proteobacteria* (Figure 10). On the skin, it is normal to find such a large amount *Actinobacteria*, *Firmicutes*, and *Proteobacteria* on the human body which explains why so much of it was found on keyboards ([@fredborg2012g]). The samples had a lot of variance, which means that my samples had a range of results and the apparent difference between the sample groups may not be significant (Figure 13). These three phyla were also found in the negative controls, which was very surprising since it was supposed to be sterile molecular grade reagent water (Figure 10). A possible reason why the negative controls may have contained these contaminants was because the indexes during the last PCR may have been contaminated. For a future experiment, the exact same experiment could be repeated to ensure that was the reason why such odd results were observed in the negative controls.
 
 ### Big Picture
 
 Both the cultured data and the culture-free data did not support my hypothesis. There were many bacteria found on the keyboards of both sample groups. However, among these bacteria, there was little diversity. From the cultured data, I discovered that many samples across Communal and Individual keyboards shared genera. Sequences 6Fp and 2F were from the genus *Staphylococcus*, yet 6Fp was from an Individual Student's computer keyboard while 2F was from a shared computer keyboard (Table 5, Figure 5, Figure 6). Sequences 3F and 5F were from the genus *Bacillus*, yet 3F was from a shared computer keyboard while 5F was from an Individual Student's computer keyboard (Table 5, Figure 5, Figure 6). Furthermore, from the culture-free data, I found that there was no significant difference between the number of species between Communal and Individual sample groups (Table 8 Wilcox p = 0.7). The mean numbers of the alpha diversity measures were also not significantly different between sample groups using Shannon and Simpson (Wilcox p = 0.7; Wilcox p = 0.7). I did, however, find that there was a significant difference in colony abundance on communal keyboards over individual keyboards (Table 1 Wilcox p = 0.02). This indicates that there were more living bacteria on Communal compared to Individual keyboards that were able to grow in the culturing conditions that were set in this experiment. In future experiments, it would be interesting to grow the bacteria in different conditions to see if there remains a significant difference in colony abundance between sample groups.
 
-Computers, and therefore their keyboards, continue to advance with time as our society's dependency upon the Internet increases. As of now, computers and individual laptops are very commonplace within a university setting. Food is constantly being consumed around keyboards, providing resources for the bacteria on keyboards [@malik2014study]. This may explain why I found significantly more colonies of bacteria from the Communal sample group since more people have access to shared computers. Human hands come into contact with the keyboard, which makes sense why most of the bacteria I found from the samples were normally found on skin. Although the microorganisms found on computers may not be pathogenic or malignant, mainly bacteria normally found on skin (such as bacteria that cause acne) for most people, they may harm people with compromised immune systems [@fraser2009bacterial]. As such, even though I did not find a signficiant difference between the number of species between Communal and Individual sample groups, humans still have the responsibility to uphold good hygiene and clean their keyboards on a regular basis.
+Computers, and therefore their keyboards, continue to advance with time as our society's dependency upon the Internet increases. As of now, computers and individual laptops are very commonplace within a university setting. Food is constantly being consumed around keyboards, providing resources for the bacteria on keyboards [@malik2014study]. This may explain why I found significantly more colonies of bacteria from the Communal sample group since more people have access to shared computers. Human hands come into contact with the keyboard, which makes sense why most of the bacteria I found from the samples were normally found on skin. Although the microorganisms found on computers may not be pathogenic or malignant, mainly bacteria normally found on skin (such as bacteria that cause acne) for most people, they may harm people with compromised immune systems [@fraser2009bacterial]. As such, even though I did not find a significant difference between the number of species between Communal and Individual sample groups, humans still have the responsibility to uphold good hygiene and clean their keyboards on a regular basis.
 
 # Figures and Tables
 
@@ -429,14 +431,14 @@ culture_data %>%
 
 **Table 7:** Table of Qubit samples of Key "A" series (culture-free) right before gel electrophoresis.
 
-| Sample | Surviving % | Dropped % |
-|--------|-------------|-----------|
-| 1A     | 95.16       | 4.84      |
-| 2A     | 95.54       | 4.46      |
-| 3A     | 95.43       | 4.57      |
-| 4A     | 92.90       | 7.10      |
-| 5A     | 95.58       | 4.42      |
-| 6A     | 95.01       | 4.99      |
+| Sample | Surviving % | Survived | Dropped% |
+|--------|-------------|----------|----------|
+| 1A     | 95.16%      | 13971    | 4.84%    |
+| 2A     | 95.54%      | 12796    | 4.46%    |
+| 3A     | 95.43%      | 14715    | 4.57%    |
+| 4A     | 92.90%      | 9158     | 7.10%    |
+| 5A     | 95.58%      | 13710    | 4.42%    |
+| 6A     | 95.01%      | 10769    | 4.99%    |
 
 **Table 8:** Table of the percentage of surviving and dropped sequences for all six samples after trimming.
 
@@ -639,6 +641,6 @@ melted_phyloseq %>%
 | 5A             | 14145    | 13312        |
 | 6A             | 11169    | 9822         |
 
-**Table 12:** Table of the denoised and non-chimeric base pairs from dada2 analysis pipeline.
+**Table 12:** Table of the denoised and non-chimeric unique sequences from dada2 analysis pipeline.
 
 # Sources Cited
