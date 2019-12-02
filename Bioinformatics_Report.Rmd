@@ -191,7 +191,7 @@ I made a boxplot showing the number of different species in Communal versus Indi
 
 ### Finding BLAST species from Cultured Data in Culture-Free Data
 
-I discovered that the majority of the Cultured BLAST species were found in the Culture-Free BLAST results (Table 10). *Staphylococcus hominis* was the only species that was not found in the Culture-Free BLAST results for Sample 2A (Table 10). Since no culture was grown for Sample 4A, there was nothing to compare with the Culture-Free BLAST results (Table 10).
+I discovered that the majority of the Cultured BLAST species were found in the Culture-Free BLAST results (Table 10). *Staphylococcus hominis* was the only species that was not found in the Culture-Free BLAST results for Sample 2A (Table 10). Since no culture was grown for Sample 4F, there was nothing to compare with the Culture-Free BLAST results (Table 10).
 
 ### BLAST Table for Control Samples
 
