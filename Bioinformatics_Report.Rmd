@@ -201,7 +201,7 @@ It was found that the most abundant and the second most abundant species found f
 
 In the dada2 analysis pipeline, the sample qualities were calculated, sequences were trimmed, chimeras were removed, and more. The pipeline plotted the quality profiles of the first 14 samples. The qualities of all of my samples were very high, meaning all were good quality. The highest of number of bases that were trimmed and denoised off of all of my sequences, including the controls, was 40 base pairs out of thousands of base pairs, leading to the total Amplicon Sequence Variants (Table 12). No samples were removed for low quality. This makes sense as my samples had very high quality scores. Out of 637 input sequences, 79 PCR chimeras were identified and removed. A good percentage, 90.36%, of our reads survived and were therefore non-chimeric (Table 12). 
 
-A rarefaction curve is the relationship between the sample size and the discovery of new species in the sequences. I feel confident that I completely sampled the communities in the samples and the controls because all of the curves asymtoted (Figure 8). All of my samples had over 9,000 base pairs, which was well over where the curves asympototed (Figure 8).
+A rarefaction curve is the relationship between the sample size and the discovery of new species in the sequences. I feel confident that I completely sampled the communities in the samples and the controls because all of the curves asymptoted (Figure 8). All of my samples had over 9,000 base pairs, which was well over where the curves asymptoted (Figure 8).
 
 ### Using Phyloseq-native Analyses
 
